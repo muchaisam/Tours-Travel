@@ -8,7 +8,7 @@
     </div>
 
     <div class="card-body">
-    <form action="{{route('destinations.store')}}" method="POST">
+    <form action="{{route('destinations.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="form-group">
@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-group">
-        <label for="content">content</label>
+        <label for="content">Content</label>
         <textarea name="content" class="form-control" name="content" id="content" cols="5" rows="5"></textarea>
     </div>
 

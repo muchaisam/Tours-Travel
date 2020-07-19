@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Destinations;
 use Illuminate\Http\Request;
+use App\Http\Requests\Destinations\CreateDestinationsRequest;
+Use App\Destination;
 
 class DestinationsController extends Controller
 {
@@ -32,9 +35,24 @@ class DestinationsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateDestinationsRequest $request)
     {
-        //
+        //upload image
+        $image = $request ->image->store('destinations');
+        //create post
+        Destinations::create([
+            'title' =>$request->title,
+            'description' =>$request->description,
+            'content'=>$request->content,
+            'image'=>$image
+        ]);
+        //flash message 
+        session()-> flash('success', 'Destination Created Successfully');
+
+        //redirect
+        return redirect(route('destinations.index'));
+
+
     }
 
     /**
