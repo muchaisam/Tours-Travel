@@ -16,7 +16,7 @@ class DestinationsController extends Controller
      */
     public function index()
     {
-        return view('destinations.index');
+        return view('destinations.index')->with('destinations', Destinations::all());
     }
 
     /**
