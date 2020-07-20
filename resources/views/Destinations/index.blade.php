@@ -31,7 +31,11 @@
                         <a href="" class="btn btn-info btn-sm">Edit</a>
                     </td>
                      <td>
-                        <a href="" class="btn btn-info btn-danger btn-sm">Trash</a>
+                     <form action="{{route('destinations.destroy', $destinations->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Trash</button>
+                    </form>
                     </td>
                 </tr>
                 @endforeach

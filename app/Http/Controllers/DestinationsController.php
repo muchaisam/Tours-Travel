@@ -95,8 +95,12 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Destinations $destinations)
     {
-        //
+        $destinations ->delete();
+
+        session()->flash('success', 'Destination trashed successfully');
+
+        return redirect(route('destinations.index'));
     }
 }
