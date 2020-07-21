@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('categories', "CategoriesController");
 
 Route::resource('destinations', "DestinationsController");
+
+Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');

@@ -103,4 +103,16 @@ class DestinationsController extends Controller
 
         return redirect(route('destinations.index'));
     }
+
+     /**
+     * Display a list of unavailable destinations.
+     * @return \Illuminate\Http\Response
+     */
+    public function trashed()
+    {
+        $trashed = Destinations::withTrashed()->get();
+
+        return view('destinations.index')->withDestinations($trashed);
+
+    }
 }

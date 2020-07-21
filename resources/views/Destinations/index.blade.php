@@ -27,14 +27,19 @@
                     <td>
                         {{ $destinations->title }}
                     </td>
-                    <td>
+                    @if (!$destinations->trashed())
+                     <td>
                         <a href="" class="btn btn-info btn-sm">Edit</a>
                     </td>
+                    @endif
+                   
                      <td>
                      <form action="{{route('destinations.destroy', $destinations->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Trash</button>
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            {{$destinations->trashed()? 'Delete':'Trash'}}
+                        </button>
                     </form>
                     </td>
                 </tr>
