@@ -3,7 +3,7 @@ Tours-Travel is a group project for Application Programming for the Internet uni
 //Setting up the project locally;
 1. git clone https://github.com/muchaisam/Tours-Travel
 
-//change directory to the project.
+//change directory to the project;
 2. cd Tours-Travel
 
 //Install composer dependencies
