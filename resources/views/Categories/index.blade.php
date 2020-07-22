@@ -8,40 +8,38 @@
 </div>
 <div class="card card-default">
    <div class="card-header">Categories</div>
-</div>
+   <div class="card-body">
+      @if ($categories->count()>0)
+      <table class="table">
+         <thead>
+            <th>Name</th>
+            <th>
 
-<div class="card-body">
-   <table class="table">
-      <thead>
-         <th>Name</th>
-         <th>
+            </th>
 
-         </th>
+         <tbody>
+            @foreach ($categories as $category )
+            <tr>
+               <td>
+                  {{$category->name}}
+               </td>
+               <td>
+                  <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-sm">
+                     Edit
+                  </a>
+                  <button class="btn btn-danger btn-sm" onclick="handleDelete({{$category->id}})">Delete</button>
+               </td>
+            </tr>
+            @endforeach
 
-      <tbody>
-         @foreach ($categories as $category )
-         <tr>
-            <td>
-               {{$category->name}}
-            </td>
-            <td>
-               <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info btn-sm">
-                  Edit
-               </a>
-               <button class="btn btn-danger btn-sm" onclick="handleDelete({{$category->id}})">Delete</button>
-            </td>
-         </tr>
-         @endforeach
-
-      </tbody>
-
-
-      </thead>
-   </table>
+         </tbody>
 
 
-   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
-      aria-hidden="true">
+         </thead>
+      </table>
+
+
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" 
       <div class="modal-dialog">
          <form action="" method="POST" id="deleteCategoryForm">
             @csrf
@@ -68,17 +66,22 @@
       </div>
    </div>
 
-   @endsection
+   @else
+   <h3 class="text-center">No Categories Yet</h3>
+   @endif
+</div>
+</div>
+@endsection
 
-   
-   @section('scripts')
-   <script>
-      function handleDelete(id){
+
+@section('scripts')
+<script>
+   function handleDelete(id){
       var form = document.getElementById('deleteCategoryForm')
       form.action= '/categories/' +id
       $('#deleteModal').modal('show')
    }
 
-   </script>
+</script>
 
-   @endsection
+@endsection

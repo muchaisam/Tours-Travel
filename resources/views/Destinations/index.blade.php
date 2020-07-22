@@ -11,6 +11,7 @@
     <div class="card-header">Destinations</div>
 
     <div class="card-body">
+        @if ($destinations->count()>0)
         <table class="table">
             <thead>
                 <th>Image</th>
@@ -45,7 +46,11 @@
                 </tr>
                 @endforeach
             </tbody>
-        </table>
+        </table> 
+        @else
+        <h3 class="text-center">No Destinations Yet</h3>
+        @endif
+
 
     </div>
 </div>

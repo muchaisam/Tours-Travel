@@ -95,11 +95,18 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Destinations $destinations)
+    public function destroy( $id)
     {
-        $destinations ->delete();
+        $destinations= Destinations::withTrashed()->where('id', $id)->first();
 
-        session()->flash('success', 'Destination trashed successfully');
+
+        if($destinations->trashed()){
+            $destinations->forceDelete();
+        }else{
+            $destinations->delete();
+        }
+
+        session()->flash('success', 'Destination deleted successfully');
 
         return redirect(route('destinations.index'));
     }
@@ -108,11 +115,12 @@ class DestinationsController extends Controller
      * Display a list of unavailable destinations.
      * @return \Illuminate\Http\Response
      */
+
     public function trashed()
     {
         $trashed = Destinations::withTrashed()->get();
 
-        return view('destinations.index')->withDestinations($trashed);
+        return view('destinations.index')->withdestinations($trashed);
 
     }
 }
