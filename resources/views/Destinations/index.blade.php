@@ -22,7 +22,7 @@
                 @foreach ($destinations as $destinations)
                 <tr>
                     <td>
-                        <img src="{{asset($destinations->image)}}" width="120px" height="60px" alt="">
+                        <img src="{{asset('/storage/' . $destinations->image)}}" width="120px" height="60px" class="img-thumbnail" alt="responsive image">
                     </td>
                     <td>
                         {{ $destinations->title }}
