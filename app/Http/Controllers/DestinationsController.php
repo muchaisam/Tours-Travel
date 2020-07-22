@@ -6,6 +6,7 @@ use App\Destinations;
 use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
 Use App\Destination;
+use Illuminate\Support\Facades\Storage;
 
 class DestinationsController extends Controller
 {
@@ -97,10 +98,11 @@ class DestinationsController extends Controller
      */
     public function destroy( $id)
     {
-        $destinations= Destinations::withTrashed()->where('id', $id)->first();
+        $destinations= Destinations::withTrashed()->where('id', $id)->firstOrFail();
 
 
         if($destinations->trashed()){
+            Storage::delete($destinations->image);
             $destinations->forceDelete();
         }else{
             $destinations->delete();
