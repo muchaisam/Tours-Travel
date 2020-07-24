@@ -26,3 +26,5 @@ Route::resource('categories', "CategoriesController");
 Route::resource('destinations', "DestinationsController");
 
 Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
+
+Route::put('restore-destinations/{destinations}','DestinationsController@restore')->name('restore-destinations');

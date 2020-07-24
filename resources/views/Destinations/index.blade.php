@@ -23,30 +23,40 @@
                 @foreach ($destinations as $destinations)
                 <tr>
                     <td>
-                        <img src="{{asset('/storage/' . $destinations->image)}}" width="120px" height="60px" class="img-thumbnail" alt="responsive image">
+                        <img src="{{asset('/storage/' . $destinations->image)}}" width="120px" height="60px"
+                            class="img-thumbnail" alt="responsive image">
                     </td>
                     <td>
                         {{ $destinations->title }}
                     </td>
-                    @if (!$destinations->trashed())
-                     <td>
-                        <a href="{{route('destinations.edit', $destinations->id) }}"class="btn btn-info btn-sm">Edit</a>
+                    @if ($destinations->trashed())
+                    <td>
+                        <form action="{{route('restore-destinations', $destinations->id)}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="submit" class="btn btn-info btn-sm">Restore</button>
+                        </form>
+                    </td>
+                    @else
+                    <td>
+                        <a href="{{route('destinations.edit', $destinations->id) }}"
+                            class="btn btn-info btn-sm">Edit</a>
                     </td>
                     @endif
-                   
-                     <td>
-                     <form action="{{route('destinations.destroy', $destinations->id)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">
-                            {{$destinations->trashed()? 'Delete':'Trash'}}
-                        </button>
-                    </form>
+
+                    <td>
+                        <form action="{{route('destinations.destroy', $destinations->id)}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">
+                                {{$destinations->trashed()? 'Delete':'Trash'}}
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-        </table> 
+        </table>
         @else
         <h3 class="text-center">No Destinations Yet</h3>
         @endif

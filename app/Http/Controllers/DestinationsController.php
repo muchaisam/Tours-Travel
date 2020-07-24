@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Destinations;
 use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
-Use App\Destination;
-use Illuminate\Support\Facades\Storage;
+use App\Destination;
 use App\Http\Requests\Destinations\UpdateDestinationsRequest;
+
 class DestinationsController extends Controller
 {
     /**
@@ -39,22 +39,20 @@ class DestinationsController extends Controller
     public function store(CreateDestinationsRequest $request)
     {
         //upload image
-        $image = $request ->image->store('destinations');
+        $image = $request->image->store('destinations');
         //create post
         Destinations::create([
-            'title' =>$request->title,
-            'description' =>$request->description,
-            'content'=>$request->content,
-            'image'=>$image,
-            'published_at'=>$request->published_at
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+            'image' => $image,
+            'published_at' => $request->published_at
         ]);
         //flash message 
-        session()-> flash('success', 'Destination Created Successfully');
+        session()->flash('success', 'Destination Created Successfully');
 
         //redirect
         return redirect(route('destinations.index'));
-
-
     }
 
     /**
@@ -90,15 +88,15 @@ class DestinationsController extends Controller
     {
         $data = $request->only(['title', 'description', 'published_at', 'content']);
         //check if new image
-        if ($request->hasFile('Image')){
+        if ($request->hasFile('Image')) {
 
-        //upload and delete
-        $image =$request->image->store('Destinations');
+            //upload and delete
+            $image = $request->image->store('Destinations');
 
-        Storage::delete($destinations->image);
 
-        $data['image'] =$image;
+            $destinations->deleteImage();
 
+            $data['image'] = $image;
         }
         //update attributes
         $destinations->update($data);
@@ -115,15 +113,16 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
-        $destinations= Destinations::withTrashed()->where('id', $id)->firstOrFail();
+        $destinations = Destinations::withTrashed()->where('id', $id)->firstOrFail();
 
 
-        if($destinations->trashed()){
-            Storage::delete($destinations->image);
-            $destinations->forceDelete();
-        }else{
+        if ($destinations->trashed()) {
+            $destinations->deleteImage();
+
+            $destinations->forceDelete();   
+        } else {
             $destinations->delete();
         }
 
@@ -132,16 +131,26 @@ class DestinationsController extends Controller
         return redirect(route('destinations.index'));
     }
 
-     /**
+    /**
      * Display a list of unavailable destinations.
      * @return \Illuminate\Http\Response
      */
 
     public function trashed()
     {
-        $trashed = Destinations::withTrashed()->get();
+        $trashed = Destinations::onlyTrashed()->get();
 
         return view('destinations.index')->withdestinations($trashed);
+    }
+
+    public function restore($id)
+    {
+        $destinations = Destinations::withTrashed()->where('id', $id)->firstOrFail();
+        $destinations->restore();
+
+        session()->flash('success', 'Destination restored successfully.');
+
+        return redirect()->back();
 
     }
 }
