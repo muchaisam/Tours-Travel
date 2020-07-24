@@ -4,34 +4,48 @@
 
 <div class="card card-default">
     <div class="card-header">
-        Create Destination
+        {{isset($destinations)? 'Edit Destination': 'Create Destination'}}
     </div>
 
     <div class="card-body">
-        <form action="{{route('destinations.store')}}" method="POST" enctype="multipart/form-data">
+        <form
+            action="{{isset($destination) ? route('destinations.update', $destinations->id): route('destinations.store')}}"
+            method="POST" enctype="multipart/form-data">
             @csrf
+
+            @if (isset($destination))
+            @method('PUT')
+
+            @endif
 
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" id="title">
+                <input type="text" class="form-control" name="title" id="title" value="{{isset($destinations) ? $destinations->title: ''}}">
             </div>
 
             <div class="form-group">
                 <label for="Description">Description</label>
                 <textarea name="description" class="form-control" name="description" id="description" cols="5"
-                    rows="5"></textarea>
+                    rows="5">{{ isset($destination) ? $destination->description : ''}}</textarea>
             </div>
 
             <div class="form-group">
                 <label for="content">Content</label>
-                <input id="content" type="hidden" name="content">
+                <input id="content" type="hidden" name="content"
+                    value="{{isset($destination) ?$destination->content: ''}}">
                 <trix-editor input="content"></trix-editor>
             </div>
 
             <div class="form-group">
                 <label for="published_at">Published At</label>
-                <input type="text" class="form-control" name="published_at" id="published_at">
+                <input type="text" class="form-control" name="published_at" id="published_at"
+                    value="{{isset($destination) ?$destination->published_at: ''}}"">
             </div>
+            @if (isset($destination))
+            <div class=" form-group">
+                <img src="{{asset($destination->image)}}" alt="" style="width: 100%">
+            </div>
+            @endif
 
             <div class="form-group">
                 <label for="image">Image</label>
@@ -40,7 +54,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success">
-                    Create Destination
+                    {{isset($destination) ? 'Update Destination':'Create Destination'}}
                 </button>
             </div>
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
 Use App\Destination;
 use Illuminate\Support\Facades\Storage;
-
+use App\Http\Requests\Destinations\UpdateDestinationsRequest;
 class DestinationsController extends Controller
 {
     /**
@@ -74,9 +74,9 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Destinations $destinations)
     {
-        //
+        return view('destinations.create')->with('destinations', $destinations);
     }
 
     /**
@@ -86,9 +86,27 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateDestinationsRequest $request, Destinations $destinations)
     {
-        //
+        $data = $request->only(['title', 'description', 'published_at', 'content']);
+        //check if new image
+        if ($request->hasFile('Image')){
+
+        //upload and delete
+        $image =$request->image->store('Destinations');
+
+        Storage::delete($destinations->image);
+
+        $data['image'] =$image;
+
+        }
+        //update attributes
+        $destinations->update($data);
+
+        //redirect user
+        session()->flash('success', 'Destination updated successfully');
+
+        return redirect(route('destinations.index'));
     }
 
     /**
