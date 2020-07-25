@@ -28,4 +28,9 @@ class Destinations extends Model
     {
         Storage::delete($this->image);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

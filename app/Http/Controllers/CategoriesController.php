@@ -66,9 +66,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $Category)
+    public function edit(Category $category)
     {
-        return view('categories.create')->with('category', $Category);
+        return view('categories.create')->with('category', $category);
     }
 
     /**
@@ -95,7 +95,7 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(category $category)
     {
         $category->delete();
 
