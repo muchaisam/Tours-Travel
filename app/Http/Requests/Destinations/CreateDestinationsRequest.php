@@ -27,7 +27,8 @@ class CreateDestinationsRequest extends FormRequest
             'title' =>'required|unique:Destinations',
             'description' =>'required',
             'image' => 'required|Image',
-            'content' =>'required'
+            'content' =>'required',
+            'category'=>'required'
         ];
     }
 }

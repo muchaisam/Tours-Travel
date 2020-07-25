@@ -20,7 +20,8 @@
 
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" class="form-control" name="title" id="title" value="{{isset($destinations) ? $destinations->title: ''}}">
+                <input type="text" class="form-control" name="title" id="title"
+                    value="{{isset($destinations) ? $destinations->title: ''}}">
             </div>
 
             <div class="form-group">
@@ -50,6 +51,23 @@
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="file" class="form-control" name="image" id="image">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select name="category" id="category" class="form-control">
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}"
+                     @if (isset($destinations))
+                      @if ($category->id===$category->category_id)
+                        selected
+                      @endif
+                     @endif
+                        >
+                        {{$category->name}}
+                    </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="form-group">

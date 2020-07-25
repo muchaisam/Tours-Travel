@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Destinations;
 use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
 use App\Destination;
 use App\Http\Requests\Destinations\UpdateDestinationsRequest;
+use PhpParser\Node\Stmt\Catch_;
 
 class DestinationsController extends Controller
 {
@@ -27,7 +29,7 @@ class DestinationsController extends Controller
      */
     public function create()
     {
-        return view('destinations.create');
+        return view('destinations.create')->with('categories', Category::all());
     }
 
     /**
@@ -46,7 +48,8 @@ class DestinationsController extends Controller
             'description' => $request->description,
             'content' => $request->content,
             'image' => $image,
-            'published_at' => $request->published_at
+            'published_at' => $request->published_at,
+            'category_id'=>$request->category
         ]);
         //flash message 
         session()->flash('success', 'Destination Created Successfully');
@@ -74,7 +77,7 @@ class DestinationsController extends Controller
      */
     public function edit(Destinations $destinations)
     {
-        return view('destinations.create')->with('destinations', $destinations);
+        return view('destinations.create')->with('destinations', $destinations)->with('categories', Category::all());
     }
 
     /**
