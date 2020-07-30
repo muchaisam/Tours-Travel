@@ -8,6 +8,7 @@
     </div>
 
     <div class="card-body">
+        @include('partials.errors')
         <form
             action="{{isset($destination) ? route('destinations.update', $destinations->id): route('destinations.store')}}"
             method="POST" enctype="multipart/form-data">

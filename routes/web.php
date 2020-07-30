@@ -28,6 +28,8 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('categories', "CategoriesController");
     
     Route::resource('destinations', "DestinationsController");
+
+    Route::resource('tags', "TagsController");
     
     Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
     
