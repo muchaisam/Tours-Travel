@@ -19,12 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('categories', "CategoriesController");
 
-Route::resource('destinations', "DestinationsController");
+Route::middleware(['auth'])->group(function(){
 
-Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
+    Route::get('/home', 'HomeController@index')->name('home');
+    
+    Route::resource('categories', "CategoriesController");
+    
+    Route::resource('destinations', "DestinationsController");
+    
+    Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
+    
+    Route::put('restore-destinations/{destinations}','DestinationsController@restore')->name('restore-destinations');
 
-Route::put('restore-destinations/{destinations}','DestinationsController@restore')->name('restore-destinations');
+});

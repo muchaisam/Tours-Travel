@@ -12,6 +12,11 @@ use PhpParser\Node\Stmt\Catch_;
 
 class DestinationsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
+    }
     /**
      * Display a listing of the resource.
      *
