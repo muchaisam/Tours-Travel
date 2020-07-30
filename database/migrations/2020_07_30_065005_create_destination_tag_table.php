@@ -15,6 +15,8 @@ class CreateDestinationTagTable extends Migration
     {
         Schema::create('destination_tag', function (Blueprint $table) {
             $table->id();
+            $table->integer('destination_id');
+            $table->integer('tag_id');
             $table->timestamps();
         });
     }

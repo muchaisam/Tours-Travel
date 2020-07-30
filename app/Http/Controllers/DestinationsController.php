@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Tag;
 use App\Destinations;
 use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
-use App\Destination;
 use App\Http\Requests\Destinations\UpdateDestinationsRequest;
 use PhpParser\Node\Stmt\Catch_;
 
@@ -34,7 +34,7 @@ class DestinationsController extends Controller
      */
     public function create()
     {
-        return view('destinations.create')->with('categories', Category::all());
+        return view('destinations.create')->with('categories', Category::all())->with('tags', Tag::all());
     }
 
     /**
@@ -48,7 +48,7 @@ class DestinationsController extends Controller
         //upload image
         $image = $request->image->store('destinations');
         //create post
-        Destinations::create([
+        $destination = Destinations::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
@@ -56,6 +56,14 @@ class DestinationsController extends Controller
             'published_at' => $request->published_at,
             'category_id'=>$request->category
         ]);
+
+        if($request->tags){
+            $destination->tags()->attach($request->tags);
+        }
+
+
+
+
         //flash message 
         session()->flash('success', 'Destination Created Successfully');
 
@@ -82,7 +90,7 @@ class DestinationsController extends Controller
      */
     public function edit(Destinations $destinations)
     {
-        return view('destinations.create')->with('destinations', $destinations)->with('categories', Category::all());
+        return view('destinations.create')->with('destinations', $destinations)->with('categories', Category::all())->with('tags', Tag::all());
     }
 
     /**
@@ -106,6 +114,11 @@ class DestinationsController extends Controller
 
             $data['image'] = $image;
         }
+        if ($request->tags){
+            $destinations->tags()->sync($request->tags);
+        }
+
+
         //update attributes
         $destinations->update($data);
 

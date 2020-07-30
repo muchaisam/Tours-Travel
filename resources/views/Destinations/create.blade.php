@@ -58,18 +58,40 @@
                 <label for="category">Category</label>
                 <select name="category" id="category" class="form-control">
                     @foreach ($categories as $category)
-                    <option value="{{$category->id}}"
-                     @if (isset($destinations))
-                      @if ($category->id===$category->category_id)
+                    <option value="{{$category->id}}" @if (isset($destinations)) @if ($category->
+                        id===$category->category_id)
                         selected
-                      @endif
-                     @endif
+                        @endif
+                        @endif
                         >
                         {{$category->name}}
                     </option>
                     @endforeach
                 </select>
             </div>
+
+            @if ($tags->count()>0)
+            <div class="form-group">
+                <label for="tags">Tags</label>
+
+                <select name="tags" id="tags" class="form-control" multiple>
+                    @foreach ($tags as $tag )
+                    <option value="{{$tag->id}}" 
+                    @if(isset($destination)) 
+                        @if ($destination->hasTag($tag->id))
+                        selected
+                        @endif
+                    @endif
+                    >
+
+                        {{$tag->name}}
+                    </option>
+
+                    @endforeach
+
+                </select>
+            </div>
+            @endif
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success">
