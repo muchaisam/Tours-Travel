@@ -97,6 +97,11 @@ class TagsController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        if($tag->destinations->count()>0){
+            session()->flash('error', 'Tag cannot be deleted as it is associated with a destination');
+
+            return redirect()->back();
+        }
         $tag->delete();
 
         session()->flash('success', 'Tag Deleted Successfully.');

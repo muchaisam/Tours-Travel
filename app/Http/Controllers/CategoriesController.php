@@ -97,6 +97,13 @@ class CategoriesController extends Controller
      */
     public function destroy(category $category)
     {
+        if($category->destinations->count()>0){
+            session()->flash('error', 'Category cannot be deleted as it is linked to a destination');
+
+            return redirect()->back();
+
+
+        }
         $category->delete();
 
         session()->flash('success', 'Category Deleted Successfully.');
