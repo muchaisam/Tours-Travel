@@ -36,3 +36,7 @@ Route::middleware(['auth'])->group(function(){
     Route::put('restore-destinations/{destinations}','DestinationsController@restore')->name('restore-destinations');
 
 });
+
+Route::middleware(['auth','admin'])->group(function (){
+    Route::get('users', 'UsersController@index')->name('users.index');
+});
