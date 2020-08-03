@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Safari') }}</title>
 
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,10 +20,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <style>
-        .btn-info{
+        .btn-info {
             color: #ffffff;
         }
-        </style>
+    </style>
 
     @yield('css')
 </head>
@@ -101,6 +101,15 @@
                 <div class="row">
                     <div class="col-md-4">
                         <ul class="list-group">
+
+                            @if (auth()->user()->isAdmin())
+                            <li class="list-group-item">
+                                <a href="{{route('users.index')}}">
+                                    Users
+                                </a>
+                            </li>
+                            @endif
+
                             <li class="list-group-item">
                                 <a href="{{route('destinations.index')}}">Destinations</a>
                             </li>
@@ -130,7 +139,7 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     @yield('scripts')
 </body>
 
