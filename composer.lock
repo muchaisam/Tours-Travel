@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60f4b42cc3f884d127d4bc0d9f5f680f",
+    "content-hash": "cc84a8a810956b4692178894cfca6a69",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -961,16 +961,16 @@
         },
         {
             "name": "laravel/tinker",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/tinker.git",
-                "reference": "3c9ef136ca59366bc1b50b7f2500a946d5149c62"
+                "reference": "58424c24e8aec31c3a3ac54eb3adb15e8a0a067b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/tinker/zipball/3c9ef136ca59366bc1b50b7f2500a946d5149c62",
-                "reference": "3c9ef136ca59366bc1b50b7f2500a946d5149c62",
+                "url": "https://api.github.com/repos/laravel/tinker/zipball/58424c24e8aec31c3a3ac54eb3adb15e8a0a067b",
+                "reference": "58424c24e8aec31c3a3ac54eb3adb15e8a0a067b",
                 "shasum": ""
             },
             "require": {
@@ -1021,7 +1021,7 @@
                 "laravel",
                 "psysh"
             ],
-            "time": "2020-07-07T15:10:00+00:00"
+            "time": "2020-08-11T19:28:08+00:00"
         },
         {
             "name": "laravel/ui",
@@ -1175,16 +1175,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "481c0174b9c99b189959e2bb9d6f52188ed1f692"
+                "reference": "6e96f54d82e71f71c4108da33ee96a7f57083710"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/481c0174b9c99b189959e2bb9d6f52188ed1f692",
-                "reference": "481c0174b9c99b189959e2bb9d6f52188ed1f692",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/6e96f54d82e71f71c4108da33ee96a7f57083710",
+                "reference": "6e96f54d82e71f71c4108da33ee96a7f57083710",
                 "shasum": ""
             },
             "require": {
@@ -1262,7 +1262,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2020-08-09T15:57:10+00:00"
+            "time": "2020-08-12T14:23:41+00:00"
         },
         {
             "name": "league/mime-type-detection",
@@ -4428,6 +4428,126 @@
             "time": "2020-06-24T13:36:18+00:00"
         },
         {
+            "name": "thomaswelton/gravatarlib",
+            "version": "0.1.0",
+            "target-dir": "thomaswelton/GravatarLib",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomaswelton/gravatarlib.git",
+                "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thomaswelton/gravatarlib/zipball/8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
+                "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "suggest": {
+                "twig/twig": ">=1.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "thomaswelton\\GravatarLib\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Thompson",
+                    "email": "sam@emberlabs.org"
+                },
+                {
+                    "name": "Damian Bushong",
+                    "email": "damian@emberlabs.org"
+                },
+                {
+                    "name": "Thomas Welton",
+                    "email": "thomaswelton@me.com",
+                    "homepage": "https://github.com/thomaswelton",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight PHP 5.3 OOP library providing easy gravatar integration.",
+            "keywords": [
+                "gravatar",
+                "templating",
+                "twig"
+            ],
+            "time": "2014-03-02T18:29:18+00:00"
+        },
+        {
+            "name": "thomaswelton/laravel-gravatar",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thomaswelton/laravel-gravatar.git",
+                "reference": "4f6f54735a0f18469b6cb5dbacf8a05d878ac28d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/4f6f54735a0f18469b6cb5dbacf8a05d878ac28d",
+                "reference": "4f6f54735a0f18469b6cb5dbacf8a05d878ac28d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|^6.0|^7.0",
+                "php": ">=5.4.0",
+                "thomaswelton/gravatarlib": "0.1.x"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Thomaswelton\\LaravelGravatar\\LaravelGravatarServiceProvider"
+                    ],
+                    "aliases": {
+                        "Gravatar": "Thomaswelton\\LaravelGravatar\\Facades\\Gravatar"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Thomaswelton\\LaravelGravatar\\": "src/",
+                    "Thomaswelton\\Tests\\LaravelGravatar\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ThomasWelton",
+                    "email": "thomaswelton@me.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Antoine Augusti",
+                    "email": "antoine.augusti@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 Gravatar helper",
+            "homepage": "https://github.com/thomaswelton/laravel-gravatar",
+            "keywords": [
+                "gravatar",
+                "laravel",
+                "laravel5"
+            ],
+            "time": "2019-10-10T08:32:51+00:00"
+        },
+        {
             "name": "tijsverkoyen/css-to-inline-styles",
             "version": "2.2.3",
             "source": {
@@ -5035,16 +5155,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.4.1",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "1404386ca3410b04fe58b9517e85d702ab33b2c6"
+                "reference": "20cab678faed06fac225193be281ea0fddb43b93"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/1404386ca3410b04fe58b9517e85d702ab33b2c6",
-                "reference": "1404386ca3410b04fe58b9517e85d702ab33b2c6",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/20cab678faed06fac225193be281ea0fddb43b93",
+                "reference": "20cab678faed06fac225193be281ea0fddb43b93",
                 "shasum": ""
             },
             "require": {
@@ -5056,7 +5176,7 @@
                 "phpunit/phpunit": "<8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.5 || ^9.0"
+                "phpunit/phpunit": "^8.5 || ^9.3"
             },
             "type": "library",
             "extra": {
@@ -5099,7 +5219,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2020-07-09T08:31:54+00:00"
+            "time": "2020-08-11T18:10:13+00:00"
         },
         {
             "name": "myclabs/deep-copy",
