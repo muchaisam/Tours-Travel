@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function(){
     
     Route::put('restore-destinations/{destinations}','DestinationsController@restore')->name('restore-destinations');
 
+    Route::post('users|{user}|make-admin', 'UsersController@makeAdmin')->name('users.make-admin');
+
 });
 
 Route::middleware(['auth','admin'])->group(function (){
