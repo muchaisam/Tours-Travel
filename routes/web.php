@@ -40,3 +40,8 @@ Route::middleware(['auth'])->group(function(){
 Route::middleware(['auth','admin'])->group(function (){
     Route::get('users', 'UsersController@index')->name('users.index');
 });
+
+Route::group(['middleware' => ['isVerified']], function () {
+    Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
+    Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
+});
