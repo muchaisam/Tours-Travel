@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [
+    'uses' => 'FrontEndController@welcome',
+    'as' => 'welcome'
+]);
+    
+
 
 Auth::routes();
 
@@ -52,3 +56,23 @@ Route::group(['middleware' => ['isVerified']], function () {
     Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
     Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
 });
+
+Route::get('/about', [
+    'uses' => 'FrontEndController@about',
+    'as' => 'about'
+]);
+
+Route::get('/offers',[
+    'uses' => 'FrontEndController@offers',
+    'as' => 'offers'
+]);
+
+Route::get('/news',[
+    'uses' => 'FrontEndController@news',
+    'as' => 'news'
+]);
+
+Route::get('/contact',[
+    'uses' => 'FrontEndController@contact',
+    'as' => 'contact'
+]);
