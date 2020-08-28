@@ -39,8 +39,8 @@
 	          <li class="nav-item"><a href="{{route('welcome')}}" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="{{route('packages')}}" class="nav-link">Destination</a></li>
-	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
-	          <li class="nav-item active"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+	          <li class="nav-item active"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
 	          <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
 	        </ul>
@@ -54,82 +54,145 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-3 bread">Contact Us</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('welcome')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">Travel Tips &amp; Blog</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('welcome')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pb contact-section">
+    <section class="ftco-section">
       <div class="container">
-        <div class="row d-flex contact-info">
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-2">Address</h3>
-	            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-	          </div>
+        <div class="row d-flex">
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-4 topp">
+              		<div class="one">
+              			<span class="day">21</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">August</span>
+              		</div>
+              	</div>
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
           </div>
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-2">Contact Number</h3>
-	            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-	          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-4 topp">
+              		<div class="one">
+              			<span class="day">21</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">August</span>
+              		</div>
+              	</div>
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
           </div>
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-2">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-2">Website</h3>
-	            <p><a href="#">yoursite.com</a></p>
-	          </div>
-          </div>
-        </div>
-      </div>
-    </section>
-			
-		<section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-4 topp">
+              		<div class="one">
+              			<span class="day">21</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">August</span>
+              		</div>
+              	</div>
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
+            </div>
           </div>
 
-          <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-4 topp">
+              		<div class="one">
+              			<span class="day">21</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">August</span>
+              		</div>
+              	</div>
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry justify-content-end">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-4 topp">
+              		<div class="one">
+              			<span class="day">21</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">August</span>
+              		</div>
+              	</div>
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 d-flex ftco-animate">
+          	<div class="blog-entry">
+              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
+              </a>
+              <div class="text mt-3 float-right d-block">
+              	<div class="d-flex align-items-center mb-4 topp">
+              		<div class="one">
+              			<span class="day">21</span>
+              		</div>
+              		<div class="two">
+              			<span class="yr">2019</span>
+              			<span class="mos">August</span>
+              		</div>
+              	</div>
+                <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col text-center">
+            <div class="block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

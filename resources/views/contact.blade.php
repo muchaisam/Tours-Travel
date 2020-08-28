@@ -1,359 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<title>Contact</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Destino project">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="styles/contact_styles.css">
-<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
-</head>
-<body>
+  <head>
+    <title>Vacation - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-<div class="super_container">
-	
-	<!-- Header -->
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
 
-	<header class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="header_container d-flex flex-row align-items-center justify-content-start">
+    <link rel="stylesheet" href="css/aos.css">
 
-						<!-- Logo -->
-						<div class="logo_container">
-							<div class="logo">
-								<div>destino</div>
-								<div>travel agency</div>
-								<div class="logo_image"><img src="images/logo.png" alt=""></div>
-							</div>
-						</div>
+    <link rel="stylesheet" href="css/ionicons.min.css">
 
-						<!-- Main Navigation -->
-						<nav class="main_nav ml-auto">
-							<ul class="main_nav_list">
-								<li class="main_nav_item"><a href="{{route('welcome')}}">Home</a></li>
-								<li class="main_nav_item"><a href="{{route('about')}}">About us</a></li>
-								<li class="main_nav_item"><a href="{{route('offers')}}">Offers</a></li>
-								<li class="main_nav_item"><a href="{{route('news')}}">News</a></li>
-								<li class="main_nav_item active"><a href="#">Contact</a></li>
-							</ul>
-						</nav>
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
 
-						<!-- Search -->
-						<div class="search">
-							<form action="#" class="search_form">
-								<input type="search" name="search_input" class="search_input ctrl_class" required="required" placeholder="Keyword">
-								<button type="submit" class="search_button ml-auto ctrl_class"><img src="images/search.png" alt=""></button>
-							</form>
-						</div>
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="{{route('welcome')}}">Vacation<span>Travel Agency</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
 
-						<!-- Hamburger -->
-						<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item"><a href="{{route('welcome')}}" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="{{route('packages')}}" class="nav-link">Destination</a></li>
+	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
+	          <li class="nav-item active"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+	          <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+    
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate pb-5 text-center">
+            <h1 class="mb-3 bread">Contact Us</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('welcome')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact us <i class="ion-ios-arrow-forward"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	<!-- Menu -->
+    <section class="ftco-section ftco-no-pb contact-section">
+      <div class="container">
+        <div class="row d-flex contact-info">
+          <div class="col-md-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-map-signs"></span>
+          		</div>
+          		<h3 class="mb-2">Address</h3>
+	            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-phone2"></span>
+          		</div>
+          		<h3 class="mb-2">Contact Number</h3>
+	            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-paper-plane"></span>
+          		</div>
+          		<h3 class="mb-2">Email Address</h3>
+	            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+	          </div>
+          </div>
+          <div class="col-md-3 d-flex">
+          	<div class="align-self-stretch box p-4 text-center">
+          		<div class="icon d-flex align-items-center justify-content-center">
+          			<span class="icon-globe"></span>
+          		</div>
+          		<h3 class="mb-2">Website</h3>
+	            <p><a href="#">yoursite.com</a></p>
+	          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+			
+		<section class="ftco-section contact-section">
+      <div class="container">
+        <div class="row block-9">
+          <div class="col-md-6 order-md-last d-flex">
+            <form action="#" class="bg-light p-5 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Name">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Your Email">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+          
+          </div>
 
-	<div class="menu_container menu_mm">
+          <div class="col-md-6 d-flex">
+          	<div id="map" class="bg-white"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		<!-- Menu Close Button -->
-		<div class="menu_close_container">
-			<div class="menu_close"></div>
-		</div>
+    <footer class="ftco-footer bg-bottom" style="background-image: url(images/footer-bg.jpg);">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Vacation</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Infromation</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
+                <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
+                <li><a href="#" class="py-2 d-block">Call Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Experience</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
+                <li><a href="#" class="py-2 d-block">Beach</a></li>
+                <li><a href="#" class="py-2 d-block">Nature</a></li>
+                <li><a href="#" class="py-2 d-block">Camping</a></li>
+                <li><a href="#" class="py-2 d-block">Party</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
 
-		<!-- Menu Items -->
-		<div class="menu_inner menu_mm">
-			<div class="menu menu_mm">
-				<div class="menu_search_form_container">
-					<form action="#" id="menu_search_form">
-						<input type="search" class="menu_search_input menu_mm">
-						<button id="menu_search_submit" class="menu_search_submit" type="submit"><img src="images/search_2.png" alt=""></button>
-					</form>
-				</div>
-				<ul class="menu_list menu_mm">
-					<li class="menu_item menu_mm"><a href="{{route('welcome')}}">Home</a></li>
-					<li class="menu_item menu_mm"><a href="{{route('about')}}">About us</a></li>
-					<li class="menu_item menu_mm"><a href="{{route('offers')}}">Offers</a></li>
-					<li class="menu_item menu_mm"><a href="{{route('news')}}">News</a></li>
-					<li class="menu_item menu_mm"><a href="#">Contact</a></li>
-				</ul>
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
 
-				<!-- Menu Social -->
-				
-				<div class="menu_social_container menu_mm">
-					<ul class="menu_social menu_mm">
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-						<li class="menu_social_item menu_mm"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-					</ul>
-				</div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-				<div class="menu_copyright menu_mm">Colorlib All rights reserved</div>
-			</div>
 
-		</div>
-
-	</div>
-	
-	<!-- Home -->
-
-	<div class="home">
-		<!-- Image by https://unsplash.com/@peecho -->
-		<div class="home_background parallax-window" data-parallax="scroll" data-image-src="images/news.jpg" data-speed="0.8"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="home_content">
-						<div class="home_content_inner">
-							<div class="home_title">Contact</div>
-							<div class="home_breadcrumbs">
-								<ul class="home_breadcrumbs_list">
-									<li class="home_breadcrumb"><a href="{{route('welcome')}}">Home</a></li>
-									<li class="home_breadcrumb">Contact</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>		
-	</div>
-
-	<!-- Find Form -->
-
-	<div class="find">
-		<!-- Image by https://unsplash.com/@garciasaldana_ -->
-		<div class="find_background_container prlx_parent">
-			<div class="find_background prlx" style="background-image:url(images/find.jpg)"></div>
-		</div>
-		<!-- <div class="find_background parallax-window" data-parallax="scroll" data-image-src="images/find.jpg" data-speed="0.8"></div> -->
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="find_title text-center">Find the Adventure of a lifetime</div>
-				</div>
-				<div class="col-12">
-					<div class="find_form_container">
-						<form action="#" id="find_form" class="find_form d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-between justify-content-start flex-wrap">
-							<div class="find_item">
-								<div>Destination:</div>
-								<input type="text" class="destination find_input" required="required" placeholder="Keyword here">
-							</div>
-							<div class="find_item">
-								<div>Adventure type:</div>
-								<select name="adventure" id="adventure" class="dropdown_item_select find_input">
-									<option>Categories</option>
-									<option>Categories</option>
-									<option>Categories</option>
-								</select>
-							</div>
-							<div class="find_item">
-								<div>Min price</div>
-								<select name="min_price" id="min_price" class="dropdown_item_select find_input">
-									<option>&nbsp;</option>
-									<option>Price</option>
-									<option>Price</option>
-								</select>
-							</div>
-							<div class="find_item">
-								<div>Max price</div>
-								<select name="max_price" id="max_price" class="dropdown_item_select find_input">
-									<option>&nbsp;</option>
-									<option>Price</option>
-									<option>Price</option>
-								</select>
-							</div>
-							<button class="button find_button">Find</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Contact -->
-
-	<div class="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="contact_title">Get in touch</div>
-					<div class="contact_subtitle">say hello</div>
-				</div>
-			</div>
-			<div class="row contact_content">
-				<div class="col-lg-5">
-					<div class="contact_text">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh. Aenean suscipit consequat lacus, sit amet mollis nulla. Morbi sagittis orci id lacus convallis tempus eget sit amet metus.</p>
-					</div>
-					<div class="contact_info">
-						<div class="contact_info_box">i</div>
-						<div class="contact_info_container">
-							<div class="contact_info_content">
-								<ul>
-									<li>Address: 10200, Madaraka Nairobi</li>
-									<li>Phone: +254712345678</li>
-									<li>Email: destinoteam@gmail.com</li>
-								</ul>
-							</div>
-							<div class="contact_info_social">
-								<ul>
-									<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-7">
-					<div class="contact_form_container">
-						<form action="#" id="contact_form" class="clearfix">
-							<input id="contact_input_name" class="contact_input contact_input_name" type="text" placeholder="Name" required="required" data-error="Name is required.">
-							<input id="contact_input_email" class="contact_input contact_input_email" type="text" placeholder="E-mail" required="required" data-error="E-mail is required.">
-							<input id="contact_input_subject" class="contact_input contact_input_subject" type="text" placeholder="Subject">
-							<textarea id="contact_input_message" class="contact_message_input contact_input_message" name="message" placeholder="Message" required="required" data-error="Please, write us a message."></textarea>
-							<button id="contact_send_btn" type="submit" class="contact_send_btn trans_200" value="Submit">Send</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="row contact_map">
-				<!-- Google Map -->
-
-				<div class="col">
-					<div id="google_map">
-						<div class="map_container">
-							<div id="map"></div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<!-- Newsletter -->
-
-	<div class="newsletter">
-		<!-- Image by https://unsplash.com/@garciasaldana_ -->
-		<div class="newsletter_background" style="background-image:url(images/newsletter.jpg)"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<div class="newsletter_content">
-						<div class="newsletter_title text-center">Subscribe to our Newsletter</div>
-						<div class="newsletter_form_container">
-							<form action="#" id="newsletter_form" class="newsletter_form">
-								<div class="d-flex flex-md-row flex-column align-content-center justify-content-between">
-									<input type="email" id="newsletter_input" class="newsletter_input" placeholder="Your E-mail Address">
-									<button type="submit" id="newsletter_button" class="newsletter_button">Subscribe</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Footer -->
-
-	<footer class="footer">
-		<div class="container">
-			<div class="row">
-
-				<!-- Footer Column -->
-				<div class="col-lg-4 footer_col">
-					<div class="footer_about">
-						<!-- Logo -->
-						<div class="logo_container">
-							<div class="logo">
-								<div>destino</div>
-								<div>travel agency</div>
-								<div class="logo_image"><img src="images/logo.png" alt=""></div>
-							</div>
-						</div>
-						<div class="footer_about_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pulvinar sed mauris eget tincidunt. Sed lectus nulla, tempor vel eleifend quis, tempus rut rum metus. Pellentesque ultricies enim eu quam fermentum hendrerit.</div>
-						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-4 footer_col">
-					<div class="footer_latest">
-						<div class="footer_title">Latest News</div>
-						<div class="footer_latest_content">
-
-							<!-- Footer Latest Post -->
-							<div class="footer_latest_item">
-								<div class="footer_latest_image"><img src="images/latest_1.jpg" alt="https://unsplash.com/@peecho"></div>
-								<div class="footer_latest_item_content">
-									<div class="footer_latest_item_title"><a href="{{route('news')}}">Brazil Summer</a></div>
-									<div class="footer_latest_item_date">Jan 09, 2018</div>
-								</div>
-							</div>
-
-							<!-- Footer Latest Post -->
-							<div class="footer_latest_item">
-								<div class="footer_latest_image"><img src="images/latest_2.jpg" alt="https://unsplash.com/@sanfrancisco"></div>
-								<div class="footer_latest_item_content">
-									<div class="footer_latest_item_title"><a href="{{route('news')}}">A perfect vacation</a></div>
-									<div class="footer_latest_item_date">Jan 09, 2018</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-
-				<!-- Footer Column -->
-				<div class="col-lg-4 footer_col">
-					<div class="tags footer_tags">
-						<div class="footer_title">Tags</div>
-						<ul class="tags_content d-flex flex-row flex-wrap align-items-start justify-content-start">
-							<li class="tag"><a href="#">travel</a></li>
-							<li class="tag"><a href="#">summer</a></li>
-							<li class="tag"><a href="#">cruise</a></li>
-							<li class="tag"><a href="#">beach</a></li>
-							<li class="tag"><a href="#">offer</a></li>
-							<li class="tag"><a href="#">vacation</a></li>
-							<li class="tag"><a href="#">trip</a></li>
-							<li class="tag"><a href="#">city break</a></li>
-							<li class="tag"><a href="#">adventure</a></li>
-						</ul>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</footer>
-</div>
-
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="styles/bootstrap4/popper.js"></script>
-<script src="styles/bootstrap4/bootstrap.min.js"></script>
-<script src="plugins/greensock/TweenMax.min.js"></script>
-<script src="plugins/greensock/TimelineMax.min.js"></script>
-<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-<script src="plugins/greensock/animation.gsap.min.js"></script>
-<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-<script src="plugins/easing/easing.js"></script>
-<script src="plugins/parallax-js-master/parallax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
-<script src="js/contact_custom.js"></script>
-</body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
 </html>
