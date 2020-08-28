@@ -62,14 +62,14 @@ Route::get('/about', [
     'as' => 'about'
 ]);
 
-Route::get('/offers',[
-    'uses' => 'FrontEndController@offers',
-    'as' => 'offers'
+Route::get('/packages',[
+    'uses' => 'FrontEndController@packages',
+    'as' => 'packages'
 ]);
 
 Route::get('/news',[
-    'uses' => 'FrontEndController@news',
-    'as' => 'news'
+    'uses' => 'FrontEndController@blog',
+    'as' => 'blog'
 ]);
 
 Route::get('/contact',[

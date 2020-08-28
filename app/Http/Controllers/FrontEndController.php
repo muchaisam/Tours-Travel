@@ -17,13 +17,13 @@ class FrontEndController extends Controller
         return view('about');
     }
 
-    public function offers()
+    public function packages()
     {
-        return view('offers');
+        return view('packages');
     }
-    public function news()
+    public function blog()
     {
-        return view('news');
+        return view('blog');
     }
     public function contact()
     {
