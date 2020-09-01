@@ -37,7 +37,7 @@ class DestinationsTableSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'content' => ' Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh',
             'category_id' => $category1->id,
-            'image' => '/destination/1.jpg'
+            'image' => 'destinations/1.jpeg'
         ]);
 
 
@@ -47,7 +47,7 @@ class DestinationsTableSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'content' => ' Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh',
             'category_id' => $category3->id,
-            'image' => '{{asset($destination->2.jpg)}}'
+            'image' => 'destinations/2.jpeg'
         ]);
 
         $destination3 = Destinations::create([
@@ -56,7 +56,7 @@ class DestinationsTableSeeder extends Seeder
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             'content' => ' Fusce fringilla lectus nec diam auctor, ut fringilla diam sagittis. Quisque vel est id justo faucibus dapibus id a nibh',
             'category_id' => $category4->id,
-            'image' => '/destination/6.jpg'
+            'image' => 'destinations/3.jpeg'
         ]);
 
         $tag1 = Tag::create([
