@@ -24,7 +24,7 @@
                   {{$tag->name}}
                </td>
                <td>
-                  0
+                  {{$tag->Destinations()->count() }}
                <td>
                   <a href="{{ route('tags.edit', $tag->id) }}" class="btn btn-info btn-sm">
                      Edit

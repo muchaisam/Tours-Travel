@@ -10,6 +10,6 @@ class Tag extends Model
 
      public function destinations()
      {
-          return $this->belongsToMany(Destination::class);
+          return $this->belongsToMany(Destinations::class);
      }
 }
