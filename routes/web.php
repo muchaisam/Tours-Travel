@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Packages\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,37 +15,33 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', [
-    'uses' => 'FrontEndController@welcome',
-    'as' => 'welcome'
-]);
-    
+Route::get('/', 'WelcomeController@index');
+Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('package.show');
+
 
 
 Auth::routes();
 
 
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', 'HomeController@index')->name('home');
-    
+
     Route::resource('categories', "CategoriesController");
-    
+
     Route::resource('destinations', "DestinationsController");
 
     Route::resource('tags', "TagsController");
-    
+
     Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
-    
-    Route::put('restore-destinations/{destinations}','DestinationsController@restore')->name('restore-destinations');
 
-
+    Route::put('restore-destinations/{destinations}', 'DestinationsController@restore')->name('restore-destinations');
 });
 
-Route::middleware(['auth','admin'])->group(function (){
+Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
-    
+
     Route::put('users/profile', 'UsersController@update')->name('users.update-profile');
 
     Route::get('users', 'UsersController@index')->name('users.index');
@@ -58,21 +55,31 @@ Route::group(['middleware' => ['isVerified']], function () {
 });
 
 Route::get('/about', [
-    'uses' => 'FrontEndController@about',
+    'uses' => 'WelcomeController@about',
     'as' => 'about'
 ]);
 
-Route::get('/packages',[
-    'uses' => 'FrontEndController@packages',
+Route::get('/packages', [
+    'uses' => 'WelcomeController@packages',
     'as' => 'packages'
 ]);
 
-Route::get('/news',[
-    'uses' => 'FrontEndController@blog',
+Route::get('/news', [
+    'uses' => 'WelcomeController@blog',
     'as' => 'blog'
 ]);
 
-Route::get('/contact',[
-    'uses' => 'FrontEndController@contact',
+Route::get('/contact', [
+    'uses' => 'WelcomeController@contact',
     'as' => 'contact'
 ]);
+
+Route::get('/Bali', [
+    'uses' => 'WelcomeController@Bali',
+    'as' => 'Bali'
+]);
+
+
+Route::get('destinations.edit/{destinations}', 'DestinationsController@edit')->name('destinations.edit');
+
+
