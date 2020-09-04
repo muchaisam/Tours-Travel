@@ -16,11 +16,11 @@ use App\Http\Controllers\Packages\PostController;
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('package.show');
+Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('blog.show');
 
 
 
-Auth::routes();
+Auth::routes(['verify'=>true]);
 
 
 
