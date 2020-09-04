@@ -76,13 +76,11 @@
 
                 <select name="tags" id="tags" class="form-control tags-selector" multiple>
                     @foreach ($tags as $tag )
-                    <option value="{{$tag->id}}" 
-                    @if(isset($destination)) 
-                        @if ($destination->hasTag($tag->id))
+                    <option value="{{$tag->id}}" @if(isset($destination)) @if ($destination->hasTag($tag->id))
                         selected
                         @endif
-                    @endif
-                    >
+                        @endif
+                        >
 
                         {{$tag->name}}
                     </option>
