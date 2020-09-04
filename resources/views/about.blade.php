@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Vacation - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Safari</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -29,19 +29,19 @@
   <body>
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="{{route('welcome')}}">Vacation<span>Travel Agency</span></a>
+	      <a class="navbar-brand" href="index.html">Safari<span>Travel Agency</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item"><a href="{{route('welcome')}}" class="nav-link">Home</a></li>
-	          <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="{{route('packages')}}" class="nav-link">Destination</a></li>
 	          <li class="nav-item"><a href="{{route('blog')}}" class="nav-link">Blog</a></li>
-	          <li class="nav-item active"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
+            <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
+            <li class="nav-item active"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item cta"><a href="{{route('login')}}" class="nav-link">Login</a></li>
 
 	        </ul>
 	      </div>
@@ -54,93 +54,204 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-3 bread">Contact Us</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('welcome')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact us <i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">About Us</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section ftco-no-pb contact-section">
+    <section class="ftco-section services-section bg-light">
       <div class="container">
-        <div class="row d-flex contact-info">
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-map-signs"></span>
-          		</div>
-          		<h3 class="mb-2">Address</h3>
-	            <p>198 West 21th Street, Suite 721 New York NY 10016</p>
-	          </div>
+        <div class="row d-flex">
+          <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate">
+          	<h2 class="mb-4">It's time to start your adventure</h2>
+            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+            A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
           </div>
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-phone2"></span>
-          		</div>
-          		<h3 class="mb-2">Contact Number</h3>
-	            <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-paper-plane"></span>
-          		</div>
-          		<h3 class="mb-2">Email Address</h3>
-	            <p><a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
-	          </div>
-          </div>
-          <div class="col-md-3 d-flex">
-          	<div class="align-self-stretch box p-4 text-center">
-          		<div class="icon d-flex align-items-center justify-content-center">
-          			<span class="icon-globe"></span>
-          		</div>
-          		<h3 class="mb-2">Website</h3>
-	            <p><a href="#">yoursite.com</a></p>
-	          </div>
+          <div class="col-md-6">
+          	<div class="row">
+          		<div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-paragliding"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Activities</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-route"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Travel Arrangements</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>    
+		          </div>
+		          <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-tour-guide"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Private Guide</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-map"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Location Manager</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>      
+		          </div>
+          	</div>
           </div>
         </div>
       </div>
     </section>
-			
-		<section class="ftco-section contact-section">
-      <div class="container">
-        <div class="row block-9">
-          <div class="col-md-6 order-md-last d-flex">
-            <form action="#" class="bg-light p-5 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Your Email">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Subject">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          
-          </div>
 
-          <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div>
+    <section class="ftco-counter img" id="section-counter">
+    	<div class="container">
+    		<div class="row d-flex">
+    			<div class="col-md-6 d-flex">
+    				<div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
+    			</div>
+    			<div class="col-md-6 pl-md-5 py-5">
+    				<div class="row justify-content-start pb-3">
+		          <div class="col-md-12 heading-section ftco-animate">
+		            <h2 class="mb-4">Make Your Tour Memorable and Safe With Us</h2>
+		            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+		          </div>
+		        </div>
+		    		<div class="row">
+		          <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center mb-4">
+		              <div class="text">
+		                <strong class="number" data-number="300">0</strong>
+		                <span>Successful Tours</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center mb-4">
+		              <div class="text">
+		                <strong class="number" data-number="24000">0</strong>
+		                <span>Happy Tourist</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center mb-4">
+		              <div class="text">
+		                <strong class="number" data-number="200">0</strong>
+		                <span>Place Explored</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_3.jpg);">
+      <div class="container">
+        <div class="row justify-content-center pb-4">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-4">Tourist Feedback</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <footer class="ftco-footer bg-bottom" style="background-image: url(images/footer-bg.jpg);">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Vacation</h2>
+              <h2 class="ftco-heading-2">Safari</h2>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
                 <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -177,11 +288,12 @@
           </div>
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<h2 class="ftco-heading-2">Have any Questions?</h2>
             	<div class="block-23 mb-3">
 	              <ul>
-	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><span class="icon icon-map-marker"></span><span class="text">Ole Sangale Road, off
+									Langata Road, in Madaraka Estate, Nairobi, Kenya.</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+254712345678</span></a></li>
 	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
 	              </ul>
 	            </div>
