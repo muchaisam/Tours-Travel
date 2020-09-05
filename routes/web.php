@@ -79,6 +79,16 @@ Route::get('/Bali', [
     'as' => 'Bali'
 ]);
 
+Route::get('/cart', [
+    'uses' => 'WelcomeController@cart',
+    'as' => 'cart'
+]);
+
+Route::get('/checkout', [
+    'uses' => 'WelcomeController@checkout',
+    'as' => 'checkout'
+]);
+
 
 Route::get('destinations.edit/{destinations}', 'DestinationsController@edit')->name('destinations.edit');
 
