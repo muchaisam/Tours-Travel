@@ -12,5 +12,6 @@
     <a class="btn btn-white" href="{{ $paginator->nextPageUrl() }}">Next<i class="ti-arrow-right fs-9 ml-4"></i></a>
     @else
     <a class="btn btn-white disabled">Next<i class="ti-arrow-right fs-9 ml-4"></i></a>
+    @endif
 </nav>
 @endif
