@@ -50,7 +50,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="search-wrap-1 ftco-animate p-4">
-					<form action="#" class="search-property-1">
+				<form action="#" class="input-group" method="GET">
 						<div class="row">
 							<div class="col-lg align-items-end">
 								<div class="form-group">
@@ -61,7 +61,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-lg align-items-end">
+							{{-- <div class="col-lg align-items-end">
 								<div class="form-group">
 									<label for="#">Check-in date</label>
 									<div class="form-field">
@@ -106,7 +106,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<div class="col-lg align-self-end">
 								<div class="form-group">
 									<div class="form-field">
@@ -230,7 +230,7 @@
 	<div class="container">
 		<div class="row justify-content-center pb-4">
 			<div class="col-md-12 heading-section text-center ftco-animate">
-				<h2 class="mb-4">Best Place Destination</h2>
+				<h2 class="mb-4">Popular Destinations</h2>
 			</div>
 		</div>
 		<div class="row">
@@ -268,7 +268,7 @@
 				<div class="project-destination">
 					<a href="#" class="img" style="background-image: url(images/place-4.jpg);">
 						<div class="text">
-							<h3>Autralia</h3>
+							<h3>Australia</h3>
 							<span>5 Tours</span>
 						</div>
 					</a>
@@ -313,7 +313,7 @@
 
 			
 		</div>
-		{{ $destinations->links() }}
+		{{ $destinations->appends(['search' => request()->query('search')])->links() }}
 	</div>
 	
 </section>

@@ -11,8 +11,16 @@ class WelcomeController extends Controller
 {
     public function index()
     {
+
+        $search = request()->query('search');
+        if (request()->query('search')) {
+            $destinations = Destinations::where('title', 'LIKE', "%{$search}%")->simplePaginate(3);
+        } else {
+            $destinations = Destinations::simplePaginate(3);
+        }
+
         return view('welcome')
-            ->with('destinations', Destinations::paginate(3))
+            ->with('destinations', $destinations)
             ->with('categories', Category::all())
             ->with('tags', Tag::all());
     }
@@ -46,5 +54,17 @@ class WelcomeController extends Controller
             ->with('destinations', Destinations::all())
             ->with('tags', Tag::all())
             ->with('categories', Category::all());
+    }
+
+    public function cart()
+    {
+        return view('cart')
+            ->with('tags', Tag::all())
+            ->with('categories', Category::all());;
+    }
+
+    public function checkout()
+    {
+        return view('checkout');
     }
 }
