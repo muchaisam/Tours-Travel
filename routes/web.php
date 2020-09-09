@@ -16,7 +16,7 @@ use App\Http\Controllers\Packages\PostController;
 */
 
 Route::get('/', 'WelcomeController@index');
-Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('blog.show');
+Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('desti.show');
 
 
 
@@ -33,6 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('destinations', "DestinationsController");
 
     Route::resource('tags', "TagsController");
+
+    Route::resource('blog', "BlogController");
 
     Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
 
