@@ -52,7 +52,7 @@
   </nav>
   <!-- END nav -->
 
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/bg_1.jpg');"
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/destination-2.jpg');"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -68,139 +68,32 @@
 
   <section class="ftco-section">
     <div class="container">
-      <div class="row d-flex">
-        <div class="col-md-4 d-flex ftco-animate">
-          <div class="blog-entry justify-content-end">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+      <div class="row justify-content-center pb-4">
+        <div class="col-md-12 heading-section text-center ftco-animate">
+          <h2 class="mb-4">Recent Blogs</h2>
+        </div>
+      </div>
+      <div class="row">
+        @foreach ($blogs as $blog)
+        <div class="col-md-4 ftco-animate">
+          <div class="project-wrap">
+            <a href="#" class="img" style="background-image: url(images/destination-2.jpg);">
+              <p>
+                {{$blog->category->name}}
+              </p>
             </a>
-            <div class="text mt-3 float-right d-block">
-              <div class="d-flex align-items-center mb-4 topp">
-                <div class="one">
-                  <span class="day">21</span>
-                </div>
-                <div class="two">
-                  <span class="yr">2019</span>
-                  <span class="mos">August</span>
-                </div>
-              </div>
-              <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <div class="text p-4">
+              <h3><a href="">
+                  {{$blog->title}}
+                </a></h3>
             </div>
           </div>
         </div>
-        <div class="col-md-4 d-flex ftco-animate">
-          <div class="blog-entry justify-content-end">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-            </a>
-            <div class="text mt-3 float-right d-block">
-              <div class="d-flex align-items-center mb-4 topp">
-                <div class="one">
-                  <span class="day">21</span>
-                </div>
-                <div class="two">
-                  <span class="yr">2019</span>
-                  <span class="mos">August</span>
-                </div>
-              </div>
-              <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex ftco-animate">
-          <div class="blog-entry">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-            </a>
-            <div class="text mt-3 float-right d-block">
-              <div class="d-flex align-items-center mb-4 topp">
-                <div class="one">
-                  <span class="day">21</span>
-                </div>
-                <div class="two">
-                  <span class="yr">2019</span>
-                  <span class="mos">August</span>
-                </div>
-              </div>
-              <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            </div>
-          </div>
-        </div>
+        @endforeach
 
-        <div class="col-md-4 d-flex ftco-animate">
-          <div class="blog-entry justify-content-end">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_4.jpg');">
-            </a>
-            <div class="text mt-3 float-right d-block">
-              <div class="d-flex align-items-center mb-4 topp">
-                <div class="one">
-                  <span class="day">21</span>
-                </div>
-                <div class="two">
-                  <span class="yr">2019</span>
-                  <span class="mos">August</span>
-                </div>
-              </div>
-              <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex ftco-animate">
-          <div class="blog-entry justify-content-end">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_5.jpg');">
-            </a>
-            <div class="text mt-3 float-right d-block">
-              <div class="d-flex align-items-center mb-4 topp">
-                <div class="one">
-                  <span class="day">21</span>
-                </div>
-                <div class="two">
-                  <span class="yr">2019</span>
-                  <span class="mos">August</span>
-                </div>
-              </div>
-              <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-flex ftco-animate">
-          <div class="blog-entry">
-            <a href="blog-single.html" class="block-20" style="background-image: url('images/image_6.jpg');">
-            </a>
-            <div class="text mt-3 float-right d-block">
-              <div class="d-flex align-items-center mb-4 topp">
-                <div class="one">
-                  <span class="day">21</span>
-                </div>
-                <div class="two">
-                  <span class="yr">2019</span>
-                  <span class="mos">August</span>
-                </div>
-              </div>
-              <h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            </div>
-          </div>
-        </div>
+
       </div>
-      <div class="row mt-5">
-        <div class="col text-center">
-          <div class="block-27">
-            <ul>
-              <li><a href="#">&lt;</a></li>
-              <li class="active"><span>1</span></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&gt;</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+      {{ $blogs->links() }}
   </section>
 
   <footer class="ftco-footer bg-bottom" style="background-image: url(images/footer-bg.jpg);">
@@ -220,58 +113,57 @@
         </div>
         <div class="col-md">
           <div class="ftco-footer-widget mb-4 ml-md-5">
-            <h2 class="ftco-heading-2">Infromation</h2>
-            <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-              <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-              <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-              <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-              <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-              <li><a href="#" class="py-2 d-block">Call Us</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Experience</h2>
-            <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">Adventure</a></li>
-              <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
-              <li><a href="#" class="py-2 d-block">Beach</a></li>
-              <li><a href="#" class="py-2 d-block">Nature</a></li>
-              <li><a href="#" class="py-2 d-block">Camping</a></li>
-              <li><a href="#" class="py-2 d-block">Party</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Have a Questions?</h2>
-            <div class="block-23 mb-3">
-              <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">Ole Sangale Road, off
-                    Langata Road, in Madaraka Estate, Nairobi, Kenya.</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+254712345678</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span
-                      class="text">info@yourdomain.com</span></a></li>
-              </ul>
+            <h2 class="ftco-heading-2">Categories</h2>
+            @foreach ($categories as $category)
+            <div class="col-6">
+              <a href="#">
+                {{$category->name}}
+              </a>
             </div>
+            @endforeach
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 text-center">
-
-          <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>
-              document.write(new Date().getFullYear());
-            </script> All rights reserved | This template is made with <i class="icon-heart color-danger"
-              aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          </p>
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Tags</h2>
+          @foreach ($tags as $tag)
+          <div class="col-6">
+            <a href="#">
+              {{$tag->name}}
+            </a>
+          </div>
+          @endforeach
         </div>
       </div>
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Have any Questions?</h2>
+          <div class="block-23 mb-3">
+            <ul>
+              <li><span class="icon icon-map-marker"></span><span class="text">Ole Sangale Road, off
+                  Langata Road, in Madaraka Estate, Nairobi, Kenya.</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+254712345678</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+
+        <p>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>
+            document.write(new Date().getFullYear());
+          </script> All rights reserved | This template is made with <i class="icon-heart color-danger"
+            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </p>
+      </div>
+    </div>
     </div>
   </footer>
 

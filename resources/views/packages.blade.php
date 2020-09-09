@@ -208,7 +208,7 @@
 					<div class="text p-4">
 						<span class="price">$300/person</span>
 						<span class="days">10 Days Tour</span>
-						<h3><a href="{{route('blog.show', $destination->id)}}">
+						<h3><a href="{{route('desti.show', $destination->id)}}">
 								{{$destination->title}}
 							</a></h3>
 						<ul>
