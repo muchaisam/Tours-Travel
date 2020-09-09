@@ -128,6 +128,13 @@
                             </li>
                         </ul>
 
+
+                        <ul class="list-group mt-5">
+                            <li class="list-group-item">
+                                <a href="{{route('blog.index')}}">Blogs</a>
+                            </li>
+                        </ul>
+
                         <ul class="list-group mt-5">
                             <li class="list-group-item">
                                 <a href="{{route('trashed-destinations.index')}}">Unavailable Destinations</a>
