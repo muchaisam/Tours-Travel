@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Destinations;
 use App\Tag;
+use App\Blog;
 use Illuminate\Http\Request;
 
 class WelcomeController extends Controller
@@ -40,7 +41,10 @@ class WelcomeController extends Controller
     }
     public function blog()
     {
-        return view('blog');
+        return view('blog')
+            ->with('blogs', Blog::paginate(1))
+            ->with('tags', Tag::all())
+            ->with('categories', Category::all());
     }
     public function contact()
     {
