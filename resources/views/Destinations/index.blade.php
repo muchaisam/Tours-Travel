@@ -17,7 +17,7 @@
                 <th>Image</th>
                 <th>Title</th>
                 <th>Category</th>
-                <th></th>
+                <th>Pricing</th>
                 <th></th>
             </thead>
             <tbody>

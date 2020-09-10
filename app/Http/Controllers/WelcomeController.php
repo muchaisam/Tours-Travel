@@ -63,12 +63,14 @@ class WelcomeController extends Controller
     public function cart()
     {
         return view('cart')
+            ->with('destinations', Destinations::first())
             ->with('tags', Tag::all())
             ->with('categories', Category::all());;
     }
 
     public function checkout()
     {
-        return view('checkout');
+        return view('checkout')
+        ->with('destinations', Destinations::first());
     }
 }
