@@ -73,4 +73,10 @@ class WelcomeController extends Controller
         return view('checkout')
         ->with('destinations', Destinations::first());
     }
+
+     public function stripe()
+    {
+        return view('stripe')
+        ->with('destinations', Destinations::first());
+    }
 }
