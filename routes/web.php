@@ -91,6 +91,11 @@ Route::get('/checkout', [
     'as' => 'checkout'
 ]);
 
+Route::get('/stripe', [
+    'uses' => 'WelcomeController@stripe',
+    'as' => 'stripe'
+]);
+
 
 Route::get('destinations.edit/{destinations}', 'DestinationsController@edit')->name('destinations.edit');
 
