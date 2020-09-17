@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
    
 use Illuminate\Http\Request;
-use Illuminate\Session;
+use Session;
 use Stripe;
    
 class StripePaymentController extends Controller
@@ -28,7 +28,7 @@ class StripePaymentController extends Controller
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
                 "amount" => 100 * 100,
-                "currency" => "Ksh",
+                "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Muchai Sam." 
         ]);
