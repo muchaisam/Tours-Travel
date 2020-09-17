@@ -52,7 +52,7 @@
   </nav>
   <!-- END nav -->
 
-  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/destination-2.jpg');"
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/destination-5.jpg');"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -111,7 +111,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md">
+        {{-- <div class="col-md">
           <div class="ftco-footer-widget mb-4 ml-md-5">
             <h2 class="ftco-heading-2">Categories</h2>
             @foreach ($categories as $category)
@@ -122,9 +122,9 @@
             </div>
             @endforeach
           </div>
-        </div>
+        </div> --}}
       </div>
-      <div class="col-md">
+      {{-- <div class="col-md">
         <div class="ftco-footer-widget mb-4">
           <h2 class="ftco-heading-2">Tags</h2>
           @foreach ($tags as $tag)
@@ -135,7 +135,7 @@
           </div>
           @endforeach
         </div>
-      </div>
+      </div> --}}
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
           <h2 class="ftco-heading-2">Have any Questions?</h2>
