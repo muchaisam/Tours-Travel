@@ -42,7 +42,7 @@ class WelcomeController extends Controller
     public function blog()
     {
         return view('blog')
-            ->with('blogs', Blog::paginate(1))
+            ->with('blogs', Blog::paginate(2))
             ->with('tags', Tag::all())
             ->with('categories', Category::all());
     }
@@ -79,4 +79,6 @@ class WelcomeController extends Controller
         return view('stripe')
         ->with('destinations', Destinations::first());
     }
+
+
 }
