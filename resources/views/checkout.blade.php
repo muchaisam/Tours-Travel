@@ -72,57 +72,65 @@
 					<!-- Billing Info -->
 					<div class="col-lg-6">
 						<div class="billing checkout_section">
-							<div class="section_title">Billing Address</div>
-							<div class="section_subtitle">Enter your address info</div>
+							<div class="section_title">Personal Info</div>
+							<div class="section_subtitle">Fill in your information</div>
 							<div class="checkout_form_container">
-								<form action="#" id="checkout_form" class="checkout_form">
+								<form action="#" id="checkout_form" method="POST" class="checkout_form"
+									action="{{route('checkout.store')}}">
+									@csrf
 									<div class="row">
 										<div class="col-xl-6">
 											<!-- Name -->
 											<label for="checkout_name">First Name*</label>
-											<input type="text" id="checkout_name" class="checkout_input"
-												required="required">
+											<input type="text" id="checkout_name"
+												class="form-control {{ $errors->has('firstname') ? 'error' : '' }}"
+												name="firstname" id="firstname" required="required">
+											@if ($errors->has('firstname'))
+											<div class="error">
+												{{ $errors->first('firstname') }}
+											</div>
+											@endif
 										</div>
 										<div class="col-xl-6 last_name_col">
 											<!-- Last Name -->
 											<label for="checkout_last_name">Last Name*</label>
-											<input type="text" id="checkout_last_name" class="checkout_input"
-												required="required">
+											<input type="text" id="checkout_last_name"
+												class="form-control {{ $errors->has('lastname') ? 'error' : '' }}"
+												name="lastname" id="lastname" required="required">
+											@if ($errors->has('lastname'))
+											<div class="error">
+												{{ $errors->first('lastname') }}
+											</div>
+											@endif
 										</div>
 									</div>
 
 									<div>
 										<!-- Phone no -->
 										<label for="checkout_phone">Phone no*</label>
-										<input type="phone" id="checkout_phone" class="checkout_input"
-											required="required">
+										<input type="phone" id="checkout_phone"
+											class="form-control {{ $errors->has('phone') ? 'error' : '' }}" name="phone"
+											id="phone" required="required">
+										@if ($errors->has('phone'))
+										<div class="error">
+											{{ $errors->first('phone') }}
+										</div>
+										@endif
 									</div>
 									<div>
 										<!-- Email -->
 										<label for="checkout_email">Email Address*</label>
-										<input type="phone" id="checkout_email" class="checkout_input"
-											required="required">
+										<input type="phone" id="checkout_email"
+											class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email"
+											id="email" required="required">
+										@if ($errors->has('email'))
+										<div class="error">
+											{{ $errors->first('email') }}
+										</div>
+										@endif
 									</div>
-									<div class="checkout_extra">
-										<div>
-											<input type="checkbox" id="checkbox_terms" name="regular_checkbox"
-												class="regular_checkbox" checked="checked">
-											<label for="checkbox_terms"><img src="images/check.png" alt=""></label>
-											<span class="checkbox_title">Terms and conditions</span>
-										</div>
-										<div>
-											<input type="checkbox" id="checkbox_account" name="regular_checkbox"
-												class="regular_checkbox">
-											<label for="checkbox_account"><img src="images/check.png" alt=""></label>
-											<span class="checkbox_title">Create an account</span>
-										</div>
-										<div>
-											<input type="checkbox" id="checkbox_newsletter" name="regular_checkbox"
-												class="regular_checkbox">
-											<label for="checkbox_newsletter"><img src="images/check.png" alt=""></label>
-											<span class="checkbox_title">Subscribe to our newsletter</span>
-										</div>
-									</div>
+
+
 								</form>
 							</div>
 						</div>
@@ -149,10 +157,6 @@
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="order_list_title">Subtotal</div>
 										<div class="order_list_value ml-auto">{{$destinations->pricing}}</div>
-									</li>
-									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="order_list_title">Extra Charges</div>
-										<div class="order_list_value ml-auto">None</div>
 									</li>
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="order_list_title">Total</div>
@@ -185,6 +189,7 @@
 
 							<!-- Order Text -->
 							<div class="order_text">Can't wait to start your vacation?</div>
+
 							<div class="button order_button"><a href="{{route('stripe')}}">Proceed to pay</a></div>
 						</div>
 					</div>
