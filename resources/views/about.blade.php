@@ -69,7 +69,7 @@
             <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
             A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-            <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+            <p><a href="{{route('packages')}}" class="btn btn-primary py-3 px-4">Explore Destinations</a></p>
           </div>
           <div class="col-md-6">
           	<div class="row">
@@ -159,7 +159,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_3.jpg);">
+    {{-- <section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_3.jpg);">
       <div class="container">
         <div class="row justify-content-center pb-4">
           <div class="col-md-7 text-center heading-section ftco-animate">
@@ -243,7 +243,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> --}}
 
 
     <footer class="ftco-footer bg-bottom" style="background-image: url(images/footer-bg.jpg);">

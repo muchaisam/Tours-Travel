@@ -113,7 +113,7 @@
     	</div>
     </section>
 
-    <section class="ftco-section ftco-no-pb ftco-no-pt">
+    {{-- <section class="ftco-section ftco-no-pb ftco-no-pt">
     	<div class="container">
 	    	<div class="row">
 					<div class="col-md-12 mb-5">
@@ -129,24 +129,7 @@
 				              </div>
 			              </div>
 		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Check-in date</label>
-		        					<div class="form-field">
-		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
-				                <input type="text" class="form-control checkin_date" placeholder="Check In Date">
-				              </div>
-			              </div>
-		        			</div>
-		        			<div class="col-lg align-items-end">
-		        				<div class="form-group">
-		        					<label for="#">Check-out date</label>
-		        					<div class="form-field">
-		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
-				                <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
-				              </div>
-			              </div>
-		        			</div>
+		        			
 		        			<div class="col-lg align-items-end">
 		        				<div class="form-group">
 		        					<label for="#">Price Limit</label>
@@ -186,7 +169,7 @@
 					</div>
 	    	</div>
 	    </div>
-    </section>
+    </section> --}}
 
 
     <section class="ftco-section ftco-no-pt">
