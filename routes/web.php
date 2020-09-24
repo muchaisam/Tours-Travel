@@ -91,12 +91,28 @@ Route::get('/checkout', [
     'as' => 'checkout'
 ]);
 
+Route::get('/Checkout', [
+    'uses' => 'CheckoutController@checkout',
+    'as' => 'checkout.store'
+]);
+
+
+// Post form data
+Route::post('/contact', [
+    'uses' => 'ContactUsController@ContactUs',
+    'as' => 'contact.store'
+]);
+
 Route::get('/stripe', [
     'uses' => 'WelcomeController@stripe',
     'as' => 'stripe'
 ]);
 
 
+
+
 Route::get('destinations.edit/{destinations}', 'DestinationsController@edit')->name('destinations.edit');
+
+Route::get('/cart/{id}/remove', 'CartController@removeItem')->name('cart.remove');
 
 
