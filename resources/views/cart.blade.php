@@ -229,7 +229,8 @@
 							<div class="button continue_shopping_button"><a href="{{route('packages')}}">More
 									destinations</a></div>
 							<div class="cart_buttons_right ml-lg-auto">
-								<div class="button clear_cart_button"><a href="#">Clear cart</a></div>
+								<div class="button clear_cart_button"><a
+										href="{{route('cart.remove', $id ?? '')}}">Clear cart</a></div>
 								<div class="button update_cart_button"><a href="#">Update cart</a></div>
 							</div>
 						</div>
@@ -238,28 +239,6 @@
 				<div class="row row_extra">
 					<div class="col-lg-4">
 
-						<!-- Delivery -->
-						{{-- <div class="delivery">
-							<div class="section_title">Travel method</div>
-							<div class="section_subtitle">Select the one you want</div>
-							<div class="delivery_options">
-								<label class="delivery_option clearfix">Air
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
-									<span class="delivery_price">$4.99</span>
-								</label>
-								<label class="delivery_option clearfix">Tour Van
-									<input type="radio" name="radio">
-									<span class="checkmark"></span>
-									<span class="delivery_price">$1.99</span>
-								</label>
-								<label class="delivery_option clearfix">Personal car
-									<input type="radio" checked="checked" name="radio">
-									<span class="checkmark"></span>
-									<span class="delivery_price">Free</span>
-								</label>
-							</div>
-						</div> --}}
 
 						<!-- Coupon Code -->
 						<div class="coupon">
@@ -284,7 +263,7 @@
 										<div class="cart_total_title">Subtotal</div>
 										<div class="cart_total_value ml-auto">{{$destinations->pricing}}</div>
 									</li>
-									
+
 									<li class="d-flex flex-row align-items-center justify-content-start">
 										<div class="cart_total_title">Total</div>
 										<div class="cart_total_value ml-auto">{{$destinations->pricing}}</div>

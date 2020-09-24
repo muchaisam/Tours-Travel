@@ -77,7 +77,7 @@
         @foreach ($blogs as $blog)
         <div class="col-md-4 ftco-animate">
           <div class="project-wrap">
-            <a href="#" class="img" style="background-image: url(images/destination-2.jpg);">
+            <a href="#" class="img" style="background-image: url(images/bali.jpeg);">
               <p>
                 {{$blog->category->name}}
               </p>
