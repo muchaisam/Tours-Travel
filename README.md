@@ -37,7 +37,6 @@ Create an empty database for the application
 
 After this, in the .env file, add database information to allow  Laravel to connect to the database
 
-After this, in the .env file, add database information to allow  Laravel to connect to the database
 
 8. In the .env file fill in the DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORD options to match the credentials of the database you just created. 
 
@@ -49,3 +48,8 @@ Run the application
 
 10. php artisan serve
 
+
+On the payment page add this stripe api keys on the .env file
+STRIPE_KEY=pk_test_51HQpwbKZZfdlhYPvEg8AQBi5WjGCReMZFpvY0anaq5OfnxHAGuJTuUfXhxlPvCRj4T3Dqy5jnpvcKg3qZUwotCzq00EjBedeBk
+
+STRIPE_SECRET=sk_test_51HQpwbKZZfdlhYPvJnblqy8Jiv662Q1RkkfMMa26cI1x62LfgPjh6ERSeK84WZCmLWVdgFqKDOx9G5pkdP8mr2au00EJNczGGO
