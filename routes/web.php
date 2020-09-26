@@ -116,3 +116,4 @@ Route::get('destinations.edit/{destinations}', 'DestinationsController@edit')->n
 Route::get('/cart/{id}/remove', 'CartController@removeItem')->name('cart.remove');
 
 
+Route::get('/send-email', 'MailController@sendEmail');
