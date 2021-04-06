@@ -24,6 +24,6 @@
     },
     "dependencies": {
         "elliptic": "^6.5.4",
-        "stripe": "^8.138.0"
+        "stripe": "^8.142.0"
     }
 }
