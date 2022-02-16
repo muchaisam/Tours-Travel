@@ -14,16 +14,16 @@
         "bootstrap": "^4.6.1",
         "cross-env": "^7.0.3",
         "jquery": "^3.6.0",
-        "laravel-mix": "^6.0.38",
+        "laravel-mix": "^6.0.42",
         "lodash": "^4.17.21",
         "popper.js": "^1.12",
         "resolve-url-loader": "^4.0.0",
-        "sass": "^1.43.4",
+        "sass": "^1.49.7",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
         "elliptic": "^6.5.4",
-        "stripe": "^8.142.0"
+        "stripe": "^8.203.0"
     }
 }
