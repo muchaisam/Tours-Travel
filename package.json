@@ -23,7 +23,7 @@
         "vue-template-compiler": "^2.6.14"
     },
     "dependencies": {
-        "elliptic": "^6.6.0",
+        "elliptic": "^6.6.1",
         "stripe": "^8.203.0"
     }
 }
