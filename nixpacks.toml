@@ -2,7 +2,7 @@
 name = "php"
 
 [phases.setup]
-nixPkgs = ["php82", "nodejs-18_x", "npm"]
+nixPkgs = ["php84", "nodejs-18_x", "npm"]
 
 [build]
 # Install PHP dependencies
