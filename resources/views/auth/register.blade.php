@@ -1,77 +1,146 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<div class="min-vh-100 d-flex align-items-center" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <!-- Modern Register Card with Glassmorphism Effect -->
+                <div class="card border-0 shadow-lg" style="backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.95); border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <!-- Logo/Brand Section -->
+                        <div class="text-center mb-4">
+                            <div class="d-inline-flex align-items-center justify-content-center bg-gradient rounded-circle mb-3" 
+                                 style="width: 80px; height: 80px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                <i class="fas fa-user-plus text-white" style="font-size: 2rem;"></i>
+                            </div>
+                            <h2 class="fw-bold text-dark mb-2">Create Account</h2>
+                            <p class="text-muted">Join us and discover amazing destinations</p>
+                        </div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                        <form method="POST" action="{{ route('register') }}">
+                            @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
+                            <!-- Full Name Input -->
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-semibold text-dark">Full Name</label>
+                                <div class="position-relative">
+                                    <input id="name" type="text" 
+                                           class="form-control form-control-lg @error('name') is-invalid @enderror" 
+                                           name="name" 
+                                           value="{{ old('name') }}" 
+                                           required autocomplete="name" autofocus
+                                           style="border-radius: 12px; border: 2px solid #e9ecef; padding-left: 3rem;"
+                                           placeholder="Enter your full name">
+                                    <i class="fas fa-user position-absolute text-muted" style="left: 1rem; top: 50%; transform: translateY(-50%);"></i>
+                                </div>
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <div class="invalid-feedback d-block mt-2">
+                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
+                                </div>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
+                            <!-- Email Input -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-semibold text-dark">Email Address</label>
+                                <div class="position-relative">
+                                    <input id="email" type="email" 
+                                           class="form-control form-control-lg @error('email') is-invalid @enderror" 
+                                           name="email" 
+                                           value="{{ old('email') }}" 
+                                           required autocomplete="email"
+                                           style="border-radius: 12px; border: 2px solid #e9ecef; padding-left: 3rem;"
+                                           placeholder="Enter your email">
+                                    <i class="fas fa-envelope position-absolute text-muted" style="left: 1rem; top: 50%; transform: translateY(-50%);"></i>
+                                </div>
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <div class="invalid-feedback d-block mt-2">
+                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
+                                </div>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                            <!-- Password Input -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label fw-semibold text-dark">Password</label>
+                                <div class="position-relative">
+                                    <input id="password" type="password" 
+                                           class="form-control form-control-lg @error('password') is-invalid @enderror" 
+                                           name="password" 
+                                           required autocomplete="new-password"
+                                           style="border-radius: 12px; border: 2px solid #e9ecef; padding-left: 3rem;"
+                                           placeholder="Create a strong password">
+                                    <i class="fas fa-lock position-absolute text-muted" style="left: 1rem; top: 50%; transform: translateY(-50%);"></i>
+                                </div>
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <div class="invalid-feedback d-block mt-2">
+                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
+                                </div>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                            <!-- Confirm Password Input -->
+                            <div class="mb-4">
+                                <label for="password-confirm" class="form-label fw-semibold text-dark">Confirm Password</label>
+                                <div class="position-relative">
+                                    <input id="password-confirm" type="password" 
+                                           class="form-control form-control-lg" 
+                                           name="password_confirmation" 
+                                           required autocomplete="new-password"
+                                           style="border-radius: 12px; border: 2px solid #e9ecef; padding-left: 3rem;"
+                                           placeholder="Confirm your password">
+                                    <i class="fas fa-lock position-absolute text-muted" style="left: 1rem; top: 50%; transform: translateY(-50%);"></i>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
+                            <!-- Terms & Conditions -->
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" id="terms" required 
+                                       style="border-radius: 6px;">
+                                <label class="form-check-label text-muted" for="terms">
+                                    I agree to the <a href="#" class="text-decoration-none">Terms of Service</a> 
+                                    and <a href="#" class="text-decoration-none">Privacy Policy</a>
+                                </label>
                             </div>
-                        </div>
-                    </form>
+
+                            <!-- Register Button -->
+                            <button type="submit" class="btn btn-primary btn-lg w-100 mb-4" 
+                                    style="border-radius: 12px; font-weight: 600; padding: 12px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border: none;">
+                                <i class="fas fa-user-plus me-2"></i>Create Account
+                            </button>
+
+                            <!-- Divider -->
+                            <div class="position-relative text-center mb-4">
+                                <hr class="text-muted">
+                                <span class="position-absolute top-50 start-50 translate-middle bg-white px-3 text-muted" style="font-size: 0.875rem;">
+                                    Already have an account?
+                                </span>
+                            </div>
+
+                            <!-- Login Link -->
+                            <div class="text-center">
+                                <a href="{{ route('login') }}" class="btn btn-outline-primary btn-lg w-100" 
+                                   style="border-radius: 12px; font-weight: 600; padding: 12px;">
+                                    <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Bottom Text -->
+                <div class="text-center mt-4">
+                    <small class="text-white-50">
+                        © 2025 Safari Travel Agency. Your journey begins here.
+                    </small>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Add Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 @endsection
