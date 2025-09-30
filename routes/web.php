@@ -111,8 +111,6 @@ Route::get('/stripe', [
 
 
 
-Route::get('destinations.edit/{destinations}', 'DestinationsController@edit')->name('destinations.edit');
-
 Route::get('/cart/{id}/remove', 'CartController@removeItem')->name('cart.remove');
 
 

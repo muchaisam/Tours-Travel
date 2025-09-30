@@ -22,7 +22,7 @@ cmd = "npm run production"
 cmd = "php artisan config:cache"
 
 [[build.steps]]
-cmd = "php artisan route:cache"
+cmd = "php artisan route:cache --verbose"
 
 [[build.steps]]
 cmd = "php artisan view:cache"
