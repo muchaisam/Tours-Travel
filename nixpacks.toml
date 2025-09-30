@@ -1,0 +1,36 @@
+[provider]
+name = "php"
+
+[phases.setup]
+nixPkgs = ["php81", "nodejs", "npm"]
+
+[build]
+# Install PHP dependencies
+cmd = "composer install --no-dev --optimize-autoloader"
+
+[build.env]
+NODE_ENV = "production"
+
+# Build steps for Laravel application
+[[build.steps]]
+cmd = "npm ci"
+
+[[build.steps]]
+cmd = "npm run production"
+
+[[build.steps]]
+cmd = "php artisan config:cache"
+
+[[build.steps]]
+cmd = "php artisan route:cache"
+
+[[build.steps]]
+cmd = "php artisan view:cache"
+
+[start]
+cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+
+[variables]
+# Railway will provide these automatically
+PORT = { default = "8000" }
+APP_ENV = "production"
