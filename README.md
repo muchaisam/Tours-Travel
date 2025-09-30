@@ -75,7 +75,7 @@ Create your own account via the registration page, or use the admin account to c
 
 ## 🚀 Technology Stack
 
-- **Backend**: Laravel 8.x (PHP 8.0+)
+- **Backend**: Laravel 8.x (PHP 8.4+)
 - **Frontend**: Bootstrap 5.3, FontAwesome 6.4, AOS animations
 - **Database**: MySQL 
 - **Payment**: Stripe Integration
@@ -85,7 +85,7 @@ Create your own account via the registration page, or use the admin account to c
 ## ⚡ Quick Setup
 
 ### Prerequisites
-- PHP 8.0 or higher
+- PHP 8.4 or higher
 - Composer
 - Node.js & NPM
 - MySQL database
