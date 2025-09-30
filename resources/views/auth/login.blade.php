@@ -104,7 +104,7 @@
                 <!-- Bottom Text -->
                 <div class="text-center mt-4">
                     <small class="text-white-50">
-                        © 2025 Safari Travel Agency. Experience the world differently.
+                        © 2025 ToursTravel. Experience Kenya differently.
                     </small>
                 </div>
             </div>
