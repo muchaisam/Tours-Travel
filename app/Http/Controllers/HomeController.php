@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Destinations;
+use App\Category;
+use App\Tag;
+use App\Blog;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $stats = [
+            'destinations' => Destinations::count(),
+            'categories' => Category::count(),
+            'tags' => Tag::count(),
+            'blogs' => Blog::count(),
+            'users' => User::count(),
+        ];
+
+        $recentDestinations = Destinations::latest()->take(5)->get();
+        $recentBlogs = Blog::latest()->take(5)->get();
+
+        return view('home', compact('stats', 'recentDestinations', 'recentBlogs'));
     }
 }
