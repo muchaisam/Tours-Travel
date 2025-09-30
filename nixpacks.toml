@@ -2,7 +2,7 @@
 name = "php"
 
 [phases.setup]
-nixPkgs = ["php81", "nodejs", "npm"]
+nixPkgs = ["php82", "nodejs-18_x", "npm"]
 
 [build]
 # Install PHP dependencies
@@ -34,3 +34,4 @@ cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan
 # Railway will provide these automatically
 PORT = { default = "8000" }
 APP_ENV = "production"
+PHP_VERSION = "8.2"
