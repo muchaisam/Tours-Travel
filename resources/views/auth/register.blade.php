@@ -132,7 +132,7 @@
                 <!-- Bottom Text -->
                 <div class="text-center mt-4">
                     <small class="text-white-50">
-                        © 2025 Safari Travel Agency. Your journey begins here.
+                        © 2025 ToursTravel. Your journey begins here.
                     </small>
                 </div>
             </div>
