@@ -34,8 +34,19 @@ class WelcomeController extends Controller
 
     public function packages()
     {
+        // Get destinations and format pricing
+        $destinations = Destinations::paginate(3);
+        
+        // Transform pricing for each destination
+        $destinations->getCollection()->transform(function ($destination) {
+            // Extract numeric value from pricing string (e.g., "Kshs 90000" -> 90000)
+            $numericPrice = (int) preg_replace('/[^\d]/', '', $destination->pricing);
+            $destination->formatted_pricing = 'KSh ' . number_format($numericPrice);
+            return $destination;
+        });
+        
         return view('packages')
-            ->with('destinations', Destinations::paginate(3))
+            ->with('destinations', $destinations)
             ->with('categories', Category::all())
             ->with('tags', Tag::all());
     }
