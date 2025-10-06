@@ -1,37 +1,22 @@
-[provider]
-name = "php"
+# ToursTravel Kenya - Railway Nixpacks Configuration
+# Optimized for Laravel 8 with PHP 8.4
 
 [phases.setup]
-nixPkgs = ["php84", "nodejs-18_x", "npm"]
+nixPkgs = ["php84", "nodejs-18_x", "npm-9_x"]
 
-[build]
-# Install PHP dependencies
-cmd = "composer install --no-dev --optimize-autoloader"
+[phases.install]
+cmds = [
+    "composer install --no-dev --optimize-autoloader --no-interaction",
+    "npm ci --only=production"
+]
 
-[build.env]
-NODE_ENV = "production"
-
-# Build steps for Laravel application
-[[build.steps]]
-cmd = "npm ci"
-
-[[build.steps]]
-cmd = "npm run production"
-
-[[build.steps]]
-cmd = "php artisan config:cache"
-
-[[build.steps]]
-cmd = "php artisan route:cache --verbose"
-
-[[build.steps]]
-cmd = "php artisan view:cache"
+[phases.build]
+cmds = [
+    "npm run production",
+    "php artisan config:cache",
+    "php artisan route:cache",
+    "php artisan view:cache"
+]
 
 [start]
-cmd = "php artisan migrate --force && php artisan db:seed --force && php artisan serve --host=0.0.0.0 --port=$PORT"
-
-[variables]
-# Railway will provide these automatically
-PORT = { default = "8000" }
-APP_ENV = "production"
-PHP_VERSION = "8.2"
+cmd = "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
