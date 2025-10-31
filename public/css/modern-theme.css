@@ -2661,3 +2661,52 @@ color: var(--primary-color);
     color: #fc8181;
 }
 
+
+/* Register Page Specific Styles */
+.auth-background-register {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+[data-theme="dark"] .auth-background-register {
+    background: linear-gradient(135deg, #d53a9d 0%, #e04856 100%);
+}
+
+.auth-brand-icon-register {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+[data-theme="dark"] .auth-brand-icon-register {
+    background: linear-gradient(135deg, #d53a9d 0%, #e04856 100%);
+}
+
+.auth-btn-primary-register {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 12px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.auth-btn-primary-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(240, 147, 251, 0.3);
+}
+
+[data-theme="dark"] .auth-btn-primary-register {
+    background: linear-gradient(135deg, #d53a9d 0%, #e04856 100%);
+}
+
+[data-theme="dark"] .auth-btn-primary-register:hover {
+    box-shadow: 0 10px 25px rgba(213, 58, 157, 0.3);
+}
+
