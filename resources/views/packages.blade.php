@@ -4,14 +4,13 @@
 
 @section('content')
 <!-- Modern Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+<nav class="navbar-modern navbar navbar-expand-lg fixed-top">
 	<div class="container">
-		<a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-			<div class="me-2 d-flex align-items-center justify-content-center rounded-circle" 
-				 style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+		<a class="navbar-brand d-flex align-items-center brand-logo" href="{{ url('/') }}">
+			<div class="brand-icon me-2">
 				<i class="fas fa-globe-africa text-white"></i>
 			</div>
-			<span class="fw-bold fs-4">Tours<span style="color: #667eea;">Travel</span></span>
+			<span class="fw-bold fs-4">Tours<span class="brand-text-highlight">Travel</span></span>
 		</a>
 		
 		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -36,7 +35,7 @@
 					<a class="nav-link" href="{{route('contact')}}">Contact</a>
 				</li>
 				<li class="nav-item ms-2">
-					<a class="btn btn-outline-primary rounded-pill px-4" href="{{route('login')}}">Login</a>
+					<a class="btn btn-outline-gradient rounded-pill px-4" href="{{route('login')}}">Login</a>
 				</li>
 			</ul>
 		</div>
@@ -44,10 +43,8 @@
 </nav>
 
 <!-- Modern Hero Section -->
-<section class="hero-section position-relative overflow-hidden" 
-		 style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 60vh; margin-top: 76px;">
-	<div class="position-absolute w-100 h-100" 
-		 style="background: url('{{ asset('images/place-4.jpg') }}') center/cover; opacity: 0.2;"></div>
+<section class="hero-section hero-bg-overlay packages-hero">
+	<div class="hero-bg-image"></div>
 	<div class="container position-relative h-100 d-flex align-items-center">
 		<div class="row w-100">
 			<div class="col-lg-8 mx-auto text-center text-white" data-aos="fade-up">
@@ -69,7 +66,7 @@
 	</div>
 	<div class="position-absolute bottom-0 w-100">
 		<svg viewBox="0 0 1200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M1200 120L0 16.48V120H1200Z" fill="white"/>
+			<path d="M1200 120L0 16.48V120H1200Z" fill="currentColor" class="hero-wave"/>
 		</svg>
 	</div>
 </section>
@@ -79,8 +76,8 @@
 	<div class="container">
 		<div class="row justify-content-center mb-5">
 			<div class="col-lg-8 text-center" data-aos="fade-up">
-				<h2 class="fw-bold mb-4" style="color: #2d3748;">Kenya's Top Destinations</h2>
-				<p class="text-muted lead">
+				<h2 class="fw-bold mb-4 section-heading-packages">Kenya's Top Destinations</h2>
+				<p class="section-lead-packages lead">
 					Discover the most spectacular locations that make Kenya a world-class tourism destination
 				</p>
 			</div>
@@ -88,11 +85,10 @@
 		
 		<div class="row g-4">
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-				<div class="destination-card position-relative overflow-hidden rounded-4 shadow-sm h-100">
+				<div class="featured-destination-card position-relative h-100">
 					<div class="destination-image position-relative">
-						<img src="{{ asset('images/place-1.jpg') }}" alt="Maasai Mara" class="w-100" style="height: 250px; object-fit: cover;">
-						<div class="destination-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4"
-							 style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+						<img src="{{ asset('images/place-1.jpg') }}" alt="Maasai Mara" class="featured-destination-image">
+						<div class="featured-destination-overlay">
 							<div class="text-white">
 								<h5 class="fw-bold mb-1">Maasai Mara</h5>
 								<small><i class="fas fa-route me-1"></i>12 Available Tours</small>
@@ -103,11 +99,10 @@
 			</div>
 			
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-				<div class="destination-card position-relative overflow-hidden rounded-4 shadow-sm h-100">
+				<div class="featured-destination-card position-relative h-100">
 					<div class="destination-image position-relative">
-						<img src="{{ asset('images/place-2.jpg') }}" alt="Diani Beach" class="w-100" style="height: 250px; object-fit: cover;">
-						<div class="destination-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4"
-							 style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+						<img src="{{ asset('images/place-2.jpg') }}" alt="Diani Beach" class="featured-destination-image">
+						<div class="featured-destination-overlay">
 							<div class="text-white">
 								<h5 class="fw-bold mb-1">Diani Beach</h5>
 								<small><i class="fas fa-route me-1"></i>8 Available Tours</small>
@@ -118,11 +113,10 @@
 			</div>
 			
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-				<div class="destination-card position-relative overflow-hidden rounded-4 shadow-sm h-100">
+				<div class="featured-destination-card position-relative h-100">
 					<div class="destination-image position-relative">
-						<img src="{{ asset('images/place-3.jpg') }}" alt="Mount Kenya" class="w-100" style="height: 250px; object-fit: cover;">
-						<div class="destination-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4"
-							 style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+						<img src="{{ asset('images/place-3.jpg') }}" alt="Mount Kenya" class="featured-destination-image">
+						<div class="featured-destination-overlay">
 							<div class="text-white">
 								<h5 class="fw-bold mb-1">Mount Kenya</h5>
 								<small><i class="fas fa-route me-1"></i>6 Available Tours</small>
@@ -133,11 +127,10 @@
 			</div>
 			
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-				<div class="destination-card position-relative overflow-hidden rounded-4 shadow-sm h-100">
+				<div class="featured-destination-card position-relative h-100">
 					<div class="destination-image position-relative">
-						<img src="{{ asset('images/place-4.jpg') }}" alt="Lake Nakuru" class="w-100" style="height: 250px; object-fit: cover;">
-						<div class="destination-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-4"
-							 style="background: linear-gradient(transparent, rgba(0,0,0,0.7));">
+						<img src="{{ asset('images/place-4.jpg') }}" alt="Lake Nakuru" class="featured-destination-image">
+						<div class="featured-destination-overlay">
 							<div class="text-white">
 								<h5 class="fw-bold mb-1">Lake Nakuru</h5>
 								<small><i class="fas fa-route me-1"></i>5 Available Tours</small>
@@ -153,7 +146,7 @@
 <!-- Modern Search & Filter Section -->
 <section class="py-5 bg-light">
 	<div class="container">
-		<div class="card border-0 shadow-lg rounded-4">
+		<div class="card packages-search-card">
 			<div class="card-body p-4">
 				<form action="{{ route('packages') }}" method="GET" class="search-form">
 					<div class="row g-3 align-items-end">
@@ -163,7 +156,7 @@
 								<span class="input-group-text bg-white border-end-0">
 									<i class="fas fa-search text-muted"></i>
 								</span>
-								<input type="text" class="form-control border-start-0 rounded-end" 
+								<input type="text" class="form-control packages-search-input border-start-0 rounded-end" 
 									   id="search" name="search" 
 									   placeholder="Search by destination name..."
 									   value="{{ request('search') }}">
@@ -172,7 +165,7 @@
 						
 						<div class="col-lg-3">
 							<label for="category" class="form-label fw-semibold">Category</label>
-							<select class="form-select" id="category" name="category">
+							<select class="form-select packages-search-input" id="category" name="category">
 								<option value="">All Categories</option>
 								@foreach($categories as $category)
 									<option value="{{ $category->id }}" 
@@ -185,7 +178,7 @@
 						
 						<div class="col-lg-3">
 							<label for="price_range" class="form-label fw-semibold">Price Range (KSh)</label>
-							<select class="form-select" id="price_range" name="price_range">
+							<select class="form-select packages-search-input" id="price_range" name="price_range">
 								<option value="">Any Price</option>
 								<option value="0-50000" {{ request('price_range') == '0-50000' ? 'selected' : '' }}>
 									Under KSh 50,000
@@ -203,7 +196,7 @@
 						</div>
 						
 						<div class="col-lg-2">
-							<button type="submit" class="btn btn-primary w-100 rounded-pill fw-semibold">
+							<button type="submit" class="btn packages-search-btn w-100 rounded-pill">
 								<i class="fas fa-search me-2"></i>Search
 							</button>
 						</div>
@@ -220,7 +213,7 @@
 	<div class="container">
 		<div class="row justify-content-center mb-5">
 			<div class="col-lg-8 text-center" data-aos="fade-up">
-				<h2 class="fw-bold mb-4" style="color: #2d3748;">
+				<h2 class="fw-bold mb-4 section-heading-packages">
 					@if(request('search'))
 						Search Results for "{{ request('search') }}"
 					@else
@@ -241,25 +234,23 @@
 		<div class="row g-4">
 			@foreach ($destinations as $destination)
 			<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-				<div class="destination-card card border-0 shadow-lg h-100 rounded-4 overflow-hidden">
+				<div class="destination-card card shadow-lg h-100 rounded-4 overflow-hidden">
 					<!-- Destination Image -->
 					<div class="position-relative">
 						<img src="{{ asset('images/destination-2.jpg') }}" 
 							 alt="{{ $destination->title }}" 
-							 class="card-img-top" 
-							 style="height: 280px; object-fit: cover;">
+							 class="destination-image card-img-top">
 						
 						<!-- Category Badge -->
 						<div class="position-absolute top-3 start-3">
-							<span class="badge rounded-pill px-3 py-2" 
-								  style="background: rgba(102, 126, 234, 0.9); backdrop-filter: blur(10px);">
+							<span class="badge category-badge-packages rounded-pill px-3 py-2">
 								<i class="fas fa-tag me-1"></i>{{ $destination->category->name }}
 							</span>
 						</div>
 						
 						<!-- Favorite Button -->
 						<div class="position-absolute top-3 end-3">
-							<button class="btn btn-light rounded-circle p-2 shadow-sm">
+							<button class="btn destination-favorite-btn shadow-sm">
 								<i class="far fa-heart text-muted"></i>
 							</button>
 						</div>
@@ -270,22 +261,22 @@
 						<!-- Pricing & Duration -->
 						<div class="d-flex justify-content-between align-items-center mb-3">
 							<div class="price-info">
-								<h5 class="mb-0 fw-bold" style="color: #667eea;">
+								<h5 class="mb-0 fw-bold destination-price">
 									{{ $destination->formatted_pricing ?? $destination->pricing }}
 								</h5>
 								<small class="text-muted">per person</small>
 							</div>
 							<div class="duration-info text-end">
-								<div class="badge bg-light text-dark rounded-pill px-3 py-2">
+								<div class="badge destination-duration-badge">
 									<i class="fas fa-clock me-1"></i>7-10 Days
 								</div>
 							</div>
 						</div>
 						
 						<!-- Title & Description -->
-						<h5 class="card-title fw-bold mb-3" style="color: #2d3748;">
+						<h5 class="card-title fw-bold mb-3">
 							<a href="{{ route('desti.show', $destination->id) }}" 
-							   class="text-decoration-none text-dark stretched-link">
+							   class="text-decoration-none destination-title stretched-link">
 								{{ $destination->title }}
 							</a>
 						</h5>
@@ -297,7 +288,7 @@
 						<!-- Features -->
 						<div class="features-list d-flex flex-wrap gap-3">
 							<div class="feature-item d-flex align-items-center">
-								<i class="fas fa-users text-primary me-2"></i>
+								<i class="fas fa-users destination-feature-icon me-2"></i>
 								<small class="text-muted">Group Tours</small>
 							</div>
 							<div class="feature-item d-flex align-items-center">
@@ -349,13 +340,13 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 text-center" data-aos="fade-up">
 				<div class="empty-state py-5">
-					<i class="fas fa-search text-muted mb-4" style="font-size: 4rem; opacity: 0.5;"></i>
-					<h4 class="mb-3">No Destinations Found</h4>
-					<p class="text-muted mb-4">
+					<i class="fas fa-search empty-state-icon mb-4"></i>
+					<h4 class="mb-3 empty-state-heading">No Destinations Found</h4>
+					<p class="empty-state-text mb-4">
 						We couldn't find any destinations matching your search criteria. 
 						Try adjusting your filters or search terms.
 					</p>
-					<a href="{{ route('packages') }}" class="btn btn-primary rounded-pill px-4">
+					<a href="{{ route('packages') }}" class="btn btn-gradient rounded-pill px-4">
 						<i class="fas fa-refresh me-2"></i>View All Destinations
 					</a>
 				</div>
@@ -366,47 +357,46 @@
 </section>
 
 <!-- Modern Footer -->
-<footer class="modern-footer py-5" style="background: #2d3748; color: white;">
+<footer class="packages-footer">
 	<div class="container">
 		<div class="row g-4">
 			<div class="col-lg-4">
 				<div class="footer-brand mb-4">
 					<div class="d-flex align-items-center mb-3">
-						<div class="me-3 d-flex align-items-center justify-content-center rounded-circle" 
-							 style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="packages-footer-icon-wrapper me-3">
 							<i class="fas fa-globe-africa text-white"></i>
 						</div>
-						<h4 class="mb-0">Tours<span style="color: #667eea;">Travel</span></h4>
+						<h4 class="mb-0 packages-footer-heading">Tours<span class="brand-text-highlight">Travel</span></h4>
 					</div>
 					<p class="text-muted mb-4">
 						Your trusted local guide to Kenya's most incredible destinations. 
 						We create authentic experiences that connect you with our beautiful homeland.
 					</p>
 					<div class="social-links d-flex gap-3">
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-facebook-f"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-twitter"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-instagram"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-linkedin-in"></i></a>
+						<a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+						<a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-2 col-md-6">
-				<h5 class="mb-4">Quick Links</h5>
+				<h5 class="mb-4 footer-title">Quick Links</h5>
 				<ul class="list-unstyled">
-					<li class="mb-2"><a href="{{ url('/') }}" class="text-white-50 text-decoration-none hover-link">Home</a></li>
-					<li class="mb-2"><a href="{{route('packages')}}" class="text-white-50 text-decoration-none hover-link">Destinations</a></li>
-					<li class="mb-2"><a href="{{route('blog')}}" class="text-white-50 text-decoration-none hover-link">Blog</a></li>
-					<li class="mb-2"><a href="{{route('about')}}" class="text-white-50 text-decoration-none hover-link">About</a></li>
-					<li class="mb-2"><a href="{{route('contact')}}" class="text-white-50 text-decoration-none hover-link">Contact</a></li>
+					<li class="mb-2"><a href="{{ url('/') }}" class="packages-footer-link">Home</a></li>
+					<li class="mb-2"><a href="{{route('packages')}}" class="packages-footer-link">Destinations</a></li>
+					<li class="mb-2"><a href="{{route('blog')}}" class="packages-footer-link">Blog</a></li>
+					<li class="mb-2"><a href="{{route('about')}}" class="packages-footer-link">About</a></li>
+					<li class="mb-2"><a href="{{route('contact')}}" class="packages-footer-link">Contact</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Popular Categories</h5>
+				<h5 class="mb-4 footer-title">Popular Categories</h5>
 				<ul class="list-unstyled">
 					@foreach($categories->take(5) as $category)
 					<li class="mb-2">
 						<a href="{{ route('packages', ['category' => $category->id]) }}" 
-						   class="text-white-50 text-decoration-none hover-link">
+						   class="packages-footer-link">
 							{{ $category->name }}
 						</a>
 					</li>
@@ -414,34 +404,34 @@
 				</ul>
 			</div>
 			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Contact Info</h5>
+				<h5 class="mb-4 footer-title">Contact Info</h5>
 				<div class="contact-info">
 					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-map-marker-alt me-3" style="color: #667eea;"></i>
-						<span class="text-white-50">Ole Sangale Road, Madaraka Estate<br>Nairobi, Kenya</span>
+						<i class="fas fa-map-marker-alt me-3 packages-footer-icon"></i>
+						<span class="text-muted">Ole Sangale Road, Madaraka Estate<br>Nairobi, Kenya</span>
 					</div>
 					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-phone me-3" style="color: #667eea;"></i>
-						<span class="text-white-50">+254 712 345 678</span>
+						<i class="fas fa-phone me-3 packages-footer-icon"></i>
+						<span class="text-muted">+254 712 345 678</span>
 					</div>
 					<div class="d-flex align-items-center">
-						<i class="fas fa-envelope me-3" style="color: #667eea;"></i>
-						<span class="text-white-50">info@tourstravel.ke</span>
+						<i class="fas fa-envelope me-3 packages-footer-icon"></i>
+						<span class="text-muted">info@tourstravel.ke</span>
 					</div>
 				</div>
 			</div>
 		</div>
 		
 		<!-- Copyright -->
-		<hr class="my-4" style="border-color: #4a5568;">
+		<hr class="my-4 packages-footer-hr">
 		<div class="row align-items-center">
 			<div class="col-md-6">
-				<p class="mb-0 text-white-50">© 2025 ToursTravel Kenya. All rights reserved.</p>
+				<p class="mb-0 text-muted">© 2025 ToursTravel Kenya. All rights reserved.</p>
 			</div>
 			<div class="col-md-6 text-md-end">
 				<p class="mb-0">
-					<a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-					<a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
+					<a href="#" class="packages-footer-link text-decoration-none me-3">Privacy Policy</a>
+					<a href="#" class="packages-footer-link text-decoration-none">Terms of Service</a>
 				</p>
 			</div>
 		</div>

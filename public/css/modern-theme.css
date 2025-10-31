@@ -1255,4 +1255,179 @@ body {
     font-size: 0.875rem;
 }
 
+/* ============================================
+   PACKAGES PAGE STYLES
+   ============================================ */
+.packages-hero {
+    margin-top: 76px;
+    min-height: 60vh;
+}
+
+.hero-bg-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('../images/place-4.jpg') center/cover;
+    opacity: 0.2;
+}
+
+.hero-wave {
+    color: var(--bg-primary);
+}
+
+.featured-destination-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.featured-destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .featured-destination-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.featured-destination-image {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.featured-destination-overlay {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+}
+
+.section-heading-packages {
+    color: var(--text-primary);
+}
+
+.section-lead-packages {
+    color: var(--text-secondary);
+}
+
+/* Search Form Styles */
+.packages-search-card {
+    border: none;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    background: var(--bg-primary);
+}
+
+[data-theme="dark"] .packages-search-card {
+    background: var(--bg-secondary);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.packages-search-input {
+    border: 2px solid var(--border-color);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.packages-search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.packages-search-btn {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    border: none;
+    color: white;
+    font-weight: 600;
+}
+
+.packages-search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Category Badge on Card */
+.category-badge-packages {
+    background: rgba(102, 126, 234, 0.9);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+}
+
+[data-theme="dark"] .category-badge-packages {
+    background: rgba(102, 126, 234, 0.95);
+}
+
+/* Empty State */
+.empty-state-icon {
+    font-size: 4rem;
+    opacity: 0.5;
+    color: var(--text-tertiary);
+}
+
+.empty-state-heading {
+    color: var(--text-primary);
+}
+
+.empty-state-text {
+    color: var(--text-secondary);
+}
+
+/* Packages Footer */
+.packages-footer {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    padding: 3rem 0;
+}
+
+[data-theme="dark"] .packages-footer {
+    background: #1a202c;
+}
+
+.packages-footer-icon-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.packages-footer-heading {
+    color: var(--text-primary);
+}
+
+.packages-footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.packages-footer-link:hover {
+    color: var(--primary-color);
+    padding-left: 0.5rem;
+}
+
+.packages-footer-icon {
+    color: var(--primary-color);
+}
+
+.packages-footer-hr {
+    border-color: var(--border-color);
+    opacity: 0.2;
+}
+
+
 
