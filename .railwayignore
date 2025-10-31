@@ -1,0 +1,37 @@
+# Railway Ignore File
+# Exclude large files and directories from Railway uploads
+
+# Dependencies
+node_modules/
+vendor/
+
+# Development files
+.env
+.env.local
+.env.backup
+
+# Storage files
+storage/app/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Compiled assets (will be built on Railway)
+public/mix-manifest.json
+public/css/app.css
+public/js/app.js
+
+# Test files
+tests/
+phpunit.xml
