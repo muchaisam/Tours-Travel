@@ -1,6 +1,6 @@
 # 🇰🇪 ToursTravel Kenya
 
-A modern, comprehensive travel booking platform showcasing Kenya's beautiful destinations. Built with Laravel 8, featuring a sleek  design, complete admin dashboard, and integrated payment processing.
+A modern, comprehensive travel booking platform showcasing Kenya's beautiful destinations. Built with Laravel 11, featuring a sleek 2025 design, complete admin dashboard, and integrated payment processing.
 
 ## ✨ Features
 
@@ -75,7 +75,7 @@ Create your own account via the registration page, or use the admin account to c
 
 ## 🚀 Technology Stack
 
-- **Backend**: Laravel 8.x (PHP 8.4+)
+- **Backend**: Laravel 11.46+ (PHP 8.2+)
 - **Frontend**: Bootstrap 5.3, FontAwesome 6.4, AOS animations
 - **Database**: MySQL 
 - **Payment**: Stripe Integration
@@ -85,8 +85,8 @@ Create your own account via the registration page, or use the admin account to c
 ## ⚡ Quick Setup
 
 ### Prerequisites
-- PHP 8.4 or higher
-- Composer
+- PHP 8.2 or higher
+- Composer 2.x
 - Node.js & NPM
 - MySQL database
 - Git
@@ -263,13 +263,23 @@ Perfect for deployment on:
 
 ## 📝 Recent Updates (2025)
 
-- 🎨 Complete UI modernization with new design trends
+### Latest - October 2025
+- ⬆️ **Framework Upgrade**: Laravel 8 → Laravel 11.46.1
+- 🔧 **PHP Update**: Upgraded to PHP 8.2 for stability and performance
+- �️ **Architecture Modernization**: Updated to Laravel 11 structure
+  - New bootstrap/app.php configuration
+  - Streamlined middleware setup
+  - Updated service providers
+  - Removed deprecated dependencies
+
+### UI/UX Improvements
+- �🎨 Complete UI modernization with 2025 design trends
 - 🇰🇪 Kenya-focused branding and content  
 - 📱 Enhanced responsive design with Bootstrap 5.3
 - 🔐 Improved authentication with personalized user experience
 - 📊 Modern admin dashboard with statistics and analytics
 - ⚡ Performance optimizations and code cleanup
-- 💳 Maintained Stripe payment integration
+- 💳 Maintained Stripe payment integration (v13.x)
 - 🎯 SEO improvements and meta tag optimization
 
 ---
