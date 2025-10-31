@@ -3,6 +3,18 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Packages\PostController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DestinationsController;
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +27,7 @@ use App\Http\Controllers\Packages\PostController;
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', [WelcomeController::class, 'index']);
 Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('desti.show');
 
 
@@ -26,92 +38,62 @@ Auth::routes(['verify'=>true]);
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    Route::resource('categories', "CategoriesController");
+    Route::resource('categories', CategoriesController::class);
 
-    Route::resource('destinations', "DestinationsController");
+    Route::resource('destinations', DestinationsController::class);
 
-    Route::resource('tags', "TagsController");
+    Route::resource('tags', TagsController::class);
 
-    Route::resource('blog', "BlogController");
+    Route::resource('blog', BlogController::class);
 
-    Route::get('trashed-destinations', 'DestinationsController@trashed')->name('trashed-destinations.index');
+    Route::get('trashed-destinations', [DestinationsController::class, 'trashed'])->name('trashed-destinations.index');
 
-    Route::put('restore-destinations/{destinations}', 'DestinationsController@restore')->name('restore-destinations');
+    Route::put('restore-destinations/{destinations}', [DestinationsController::class, 'restore'])->name('restore-destinations');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
+    Route::get('users/profile', [UsersController::class, 'edit'])->name('users.edit-profile');
 
-    Route::put('users/profile', 'UsersController@update')->name('users.update-profile');
+    Route::put('users/profile', [UsersController::class, 'update'])->name('users.update-profile');
 
-    Route::get('users', 'UsersController@index')->name('users.index');
+    Route::get('users', [UsersController::class, 'index'])->name('users.index');
 
-    Route::post('users|{user}|make-admin', 'UsersController@makeAdmin')->name('users.make-admin');
+    Route::post('users|{user}|make-admin', [UsersController::class, 'makeAdmin'])->name('users.make-admin');
 });
 
 Route::group(['middleware' => ['isVerified']], function () {
-    Route::get('email-verification/error', 'Auth\RegisterController@getVerificationError')->name('email-verification.error');
-    Route::get('email-verification/check/{token}', 'Auth\RegisterController@getVerification')->name('email-verification.check');
+    Route::get('email-verification/error', [RegisterController::class, 'getVerificationError'])->name('email-verification.error');
+    Route::get('email-verification/check/{token}', [RegisterController::class, 'getVerification'])->name('email-verification.check');
 });
 
-Route::get('/about', [
-    'uses' => 'WelcomeController@about',
-    'as' => 'about'
-]);
+Route::get('/about', [WelcomeController::class, 'about'])->name('about');
 
-Route::get('/packages', [
-    'uses' => 'WelcomeController@packages',
-    'as' => 'packages'
-]);
+Route::get('/packages', [WelcomeController::class, 'packages'])->name('packages');
 
-Route::get('/news', [
-    'uses' => 'WelcomeController@blog',
-    'as' => 'blog'
-]);
+Route::get('/news', [WelcomeController::class, 'blog'])->name('blog');
 
-Route::get('/contact', [
-    'uses' => 'WelcomeController@contact',
-    'as' => 'contact'
-]);
+Route::get('/contact', [WelcomeController::class, 'contact'])->name('contact');
 
-Route::get('/Bali', [
-    'uses' => 'WelcomeController@Bali',
-    'as' => 'Bali'
-]);
+Route::get('/Bali', [WelcomeController::class, 'Bali'])->name('Bali');
 
-Route::get('/cart', [
-    'uses' => 'WelcomeController@cart',
-    'as' => 'cart'
-]);
+Route::get('/cart', [WelcomeController::class, 'cart'])->name('cart');
 
-Route::get('/checkout', [
-    'uses' => 'WelcomeController@checkout',
-    'as' => 'checkout'
-]);
+Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout');
 
-Route::get('/Checkout', [
-    'uses' => 'CheckoutController@checkout',
-    'as' => 'checkout.store'
-]);
+Route::get('/Checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
 
 
 // Post form data
-Route::post('/contact', [
-    'uses' => 'ContactUsController@ContactUs',
-    'as' => 'contact.store'
-]);
+Route::post('/contact', [ContactUsController::class, 'ContactUs'])->name('contact.store');
 
-Route::get('/stripe', [
-    'uses' => 'WelcomeController@stripe',
-    'as' => 'stripe'
-]);
+Route::get('/stripe', [WelcomeController::class, 'stripe'])->name('stripe');
 
 
 
 
-Route::get('/cart/{id}/remove', 'CartController@removeItem')->name('cart.remove');
+Route::get('/cart/{id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
 
 
-Route::get('/send-email', 'MailController@sendEmail');
+Route::get('/send-email', [MailController::class, 'sendEmail']);
