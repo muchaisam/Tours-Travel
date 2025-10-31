@@ -11,7 +11,7 @@
                         <!-- Logo/Brand Section -->
                         <div class="text-center mb-5">
                             <div class="auth-brand-icon mb-3">
-                                <i class="fas fa-envelope-open-text text-white" style="font-size: 2rem;"></i>
+                                <i class="fas fa-envelope-open-text text-white auth-card-icon"></i>
                             </div>
                             <h2 class="auth-title mb-2">Verify Your Email</h2>
                             <p class="auth-subtitle">We've sent a verification link to your email address</p>
@@ -19,14 +19,14 @@
 
                         <!-- Success Alert -->
                         @if (session('resent'))
-                            <div class="alert alert-success border-0 mb-4" style="background: rgba(72, 187, 120, 0.1); border-radius: 12px;">
+                            <div class="alert alert-success border-0 mb-4 auth-alert-success">
                                 <i class="fas fa-check-circle me-2"></i>
                                 A fresh verification link has been sent to your email address.
                             </div>
                         @endif
 
                         <!-- Verification Message -->
-                        <div class="alert alert-info border-0 mb-4" style="background: rgba(66, 153, 225, 0.1); border-radius: 12px;">
+                        <div class="alert alert-info border-0 mb-4 auth-alert-info">
                             <p class="mb-2">
                                 <i class="fas fa-info-circle me-2"></i>
                                 Before proceeding, please check your email for a verification link.

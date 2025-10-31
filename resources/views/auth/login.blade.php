@@ -11,7 +11,7 @@
                         <!-- Logo/Brand Section -->
                         <div class="text-center mb-5">
                             <div class="auth-brand-icon mb-3">
-                                <i class="fas fa-globe-africa text-white" style="font-size: 2rem;"></i>
+                                <i class="fas fa-globe-africa text-white auth-card-icon"></i>
                             </div>
                             <h2 class="auth-title mb-2">Welcome Back</h2>
                             <p class="auth-subtitle">Sign in to continue your journey</p>

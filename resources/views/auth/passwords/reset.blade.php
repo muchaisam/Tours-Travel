@@ -11,7 +11,7 @@
                         <!-- Logo/Brand Section -->
                         <div class="text-center mb-5">
                             <div class="auth-brand-icon mb-3">
-                                <i class="fas fa-lock-open text-white" style="font-size: 2rem;"></i>
+                                <i class="fas fa-lock-open text-white auth-card-icon"></i>
                             </div>
                             <h2 class="auth-title mb-2">Reset Password</h2>
                             <p class="auth-subtitle">Enter your new password below</p>

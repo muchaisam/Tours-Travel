@@ -11,7 +11,7 @@
                         <!-- Logo/Brand Section -->
                         <div class="text-center mb-5">
                             <div class="auth-brand-icon mb-3">
-                                <i class="fas fa-shield-alt text-white" style="font-size: 2rem;"></i>
+                                <i class="fas fa-shield-alt text-white auth-card-icon"></i>
                             </div>
                             <h2 class="auth-title mb-2">Confirm Password</h2>
                             <p class="auth-subtitle">Please confirm your password before continuing</p>

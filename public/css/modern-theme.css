@@ -3053,3 +3053,103 @@ color: var(--primary-color);
 [data-theme="dark"] .counter-about-img {
     background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/about.jpg);
 }
+
+/* Blog page hero background */
+.blog-hero-bg {
+    background: url('images/destination-5.jpg') center/cover;
+    z-index: -2;
+}
+
+[data-theme="dark"] .blog-hero-bg {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/destination-5.jpg') center/cover;
+    z-index: -2;
+}
+
+/* About page hero background */
+.about-hero-bg {
+    background: url('images/destination-1.jpg') center/cover;
+    z-index: -2;
+}
+
+[data-theme="dark"] .about-hero-bg {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/destination-1.jpg') center/cover;
+    z-index: -2;
+}
+
+/* About page testimonial user images */
+.about-testimonial-user-3 {
+    background-image: url(images/person_3.jpg);
+}
+
+.about-testimonial-user-1 {
+    background-image: url(images/person_1.jpg);
+}
+
+.about-testimonial-user-2 {
+    background-image: url(images/person_2.jpg);
+}
+
+[data-theme="dark"] .about-testimonial-user-3 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/person_3.jpg);
+}
+
+[data-theme="dark"] .about-testimonial-user-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/person_1.jpg);
+}
+
+[data-theme="dark"] .about-testimonial-user-2 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/person_2.jpg);
+}
+
+/* Contact page hero background */
+.contact-hero-bg {
+    background: url('images/destination-12.jpg') center/cover;
+}
+
+[data-theme="dark"] .contact-hero-bg {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/destination-12.jpg') center/cover;
+}
+
+/* Contact page textarea */
+.contact-textarea {
+    border-radius: 20px;
+}
+
+/* Contact page map */
+.contact-map {
+    height: 350px;
+    border-radius: 0 0 0.375rem 0.375rem;
+}
+
+.contact-map-overlay {
+    border-radius: 0 0 0.375rem 0.375rem;
+}
+
+/* Contact page map icon */
+.contact-map-icon {
+    font-size: 3rem;
+}
+
+/* Auth pages icon sizes */
+.auth-card-icon {
+    font-size: 2rem;
+}
+
+/* Auth pages alert styles */
+.auth-alert-success {
+    background: rgba(72, 187, 120, 0.1);
+    border-radius: 12px;
+}
+
+.auth-alert-info {
+    background: rgba(66, 153, 225, 0.1);
+    border-radius: 12px;
+}
+
+[data-theme="dark"] .auth-alert-success {
+    background: rgba(72, 187, 120, 0.15);
+}
+
+[data-theme="dark"] .auth-alert-info {
+    background: rgba(66, 153, 225, 0.15);
+}

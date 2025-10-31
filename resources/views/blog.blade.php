@@ -54,7 +54,7 @@
 <!-- Modern Hero Section -->
 <section class="blog-hero position-relative overflow-hidden">
 	<!-- Background Image with Overlay -->
-	<div class="hero-bg-image" style="background: url('images/destination-5.jpg') center/cover; z-index: -2;"></div>
+	<div class="hero-bg-image blog-hero-bg"></div>
 	<div class="hero-bg-overlay"></div>
 
 	<div class="container h-100 d-flex align-items-center justify-content-center text-center blog-hero-container">

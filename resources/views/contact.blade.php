@@ -44,8 +44,7 @@
 
 <!-- Modern Hero Section -->
 <section class="contact-hero position-relative overflow-hidden">
-	<div class="contact-hero-bg" 
-		 style="background: url('{{ asset('images/destination-12.jpg') }}') center/cover;"></div>
+	<div class="contact-hero-bg"></div>
 	<div class="container position-relative h-100 d-flex align-items-center">
 		<div class="row w-100">
 			<div class="col-lg-8 mx-auto text-center text-white" data-aos="fade-up">
@@ -204,11 +203,10 @@
 
 								<div class="col-12">
 									<label for="message" class="form-label fw-semibold">Message *</label>
-									<textarea class="form-control border-2 {{ $errors->has('message') ? 'is-invalid' : '' }}" 
+									<textarea class="form-control border-2 contact-textarea {{ $errors->has('message') ? 'is-invalid' : '' }}" 
 											  name="message" id="message" 
 											  rows="5" 
-											  placeholder="Tell us about your travel plans or questions..."
-											  style="border-radius: 20px;">{{ old('message') }}</textarea>
+											  placeholder="Tell us about your travel plans or questions...">{{ old('message') }}</textarea>
 									@if ($errors->has('message'))
 									<div class="invalid-feedback">
 										{{ $errors->first('message') }}
@@ -237,10 +235,10 @@
 					<div class="card-body p-0">
 						<!-- Interactive Map -->
 						<div class="map-container position-relative">
-							<div id="map" class="w-100" style="height: 350px; border-radius: 0 0 0.375rem 0.375rem;"></div>
-							<div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-primary bg-opacity-10" id="map-overlay" style="border-radius: 0 0 0.375rem 0.375rem;">
+							<div id="map" class="w-100 contact-map"></div>
+							<div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-primary bg-opacity-10 contact-map-overlay" id="map-overlay">
 								<div class="text-center">
-									<i class="fas fa-map-marked-alt text-primary mb-3" style="font-size: 3rem;"></i>
+									<i class="fas fa-map-marked-alt text-primary mb-3 contact-map-icon"></i>
 									<p class="fw-semibold text-primary">Click to view interactive map</p>
 								</div>
 							</div>

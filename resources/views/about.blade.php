@@ -54,7 +54,7 @@
 <!-- Modern Hero Section -->
 <section class="about-hero position-relative overflow-hidden">
 	<!-- Background Image with Overlay -->
-	<div class="hero-bg-image" style="background: url('images/destination-1.jpg') center/cover; z-index: -2;"></div>
+	<div class="hero-bg-image about-hero-bg"></div>
 	<div class="hero-bg-overlay"></div>
 
 	<div class="container h-100 d-flex align-items-center justify-content-center text-center blog-hero-container">
@@ -394,7 +394,7 @@
                   <div class="text">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+                    	<div class="user-img about-testimonial-user-3"></div>
                     	<div class="pl-3">
 		                    <p class="name">Roger Scott</p>
 		                    <span class="position">Marketing Manager</span>
@@ -408,7 +408,7 @@
                   <div class="text">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+                    	<div class="user-img about-testimonial-user-1"></div>
                     	<div class="pl-3">
 		                    <p class="name">Roger Scott</p>
 		                    <span class="position">Marketing Manager</span>
@@ -422,7 +422,7 @@
                   <div class="text">
                     <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                     <div class="d-flex align-items-center">
-                    	<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+                    	<div class="user-img about-testimonial-user-2"></div>
                     	<div class="pl-3">
 		                    <p class="name">Roger Scott</p>
 		                    <span class="position">Marketing Manager</span>

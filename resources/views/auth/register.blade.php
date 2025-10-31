@@ -11,7 +11,7 @@
                         <!-- Logo/Brand Section -->
                         <div class="text-center mb-4">
                             <div class="auth-brand-icon-register mb-3">
-                                <i class="fas fa-user-plus text-white" style="font-size: 2rem;"></i>
+                                <i class="fas fa-user-plus text-white auth-card-icon"></i>
                             </div>
                             <h2 class="auth-title mb-2">Create Account</h2>
                             <p class="auth-subtitle">Join us and discover amazing destinations</p>

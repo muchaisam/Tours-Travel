@@ -11,7 +11,7 @@
                         <!-- Logo/Brand Section -->
                         <div class="text-center mb-5">
                             <div class="auth-brand-icon mb-3">
-                                <i class="fas fa-key text-white" style="font-size: 2rem;"></i>
+                                <i class="fas fa-key text-white auth-card-icon"></i>
                             </div>
                             <h2 class="auth-title mb-2">Forgot Password?</h2>
                             <p class="auth-subtitle">No worries! Enter your email and we'll send you reset instructions.</p>
@@ -19,7 +19,7 @@
 
                         <!-- Success Alert -->
                         @if (session('status'))
-                            <div class="alert alert-success border-0 mb-4" style="background: rgba(72, 187, 120, 0.1); border-radius: 12px;">
+                            <div class="alert alert-success border-0 mb-4 auth-alert-success">
                                 <i class="fas fa-check-circle me-2"></i>
                                 {{ session('status') }}
                             </div>
