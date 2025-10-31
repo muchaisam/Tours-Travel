@@ -5,15 +5,14 @@
 @section('page')
 
 <!-- Modern 2025 Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.1);">
+<nav class="navbar navbar-expand-lg navbar-light navbar-modern fixed-top">
 	<div class="container">
 		<!-- Modern Logo -->
-		<a class="navbar-brand d-flex align-items-center" href="" style="font-weight: 700; color: #2d3748;">
-			<div class="me-2 d-flex align-items-center justify-content-center rounded-circle" 
-				 style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+		<a class="navbar-brand d-flex align-items-center" href="">
+			<div class="me-2 d-flex align-items-center justify-content-center brand-logo">
 				<i class="fas fa-globe-africa text-white"></i>
 			</div>
-			<span class="ms-2">Tours<span style="color: #667eea;">Travel</span></span>
+			<span class="ms-2">Tours<span class="brand-text-highlight">Travel</span></span>
 		</a>
 
 		<!-- Mobile Toggle -->
@@ -25,22 +24,22 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav mx-auto">
 				<li class="nav-item">
-					<a class="nav-link fw-semibold active" href="" style="color: #2d3748; position: relative;">
+					<a class="nav-link fw-semibold active" href="">
 						Home
-						<span class="position-absolute bottom-0 start-0 w-100 h-2 bg-primary rounded-top" style="height: 3px;"></span>
+						<span class="nav-link-indicator"></span>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('packages')}}" style="color: #4a5568;">Destinations</a>
+					<a class="nav-link fw-semibold" href="{{route('packages')}}">Destinations</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('blog')}}" style="color: #4a5568;">Blog</a>
+					<a class="nav-link fw-semibold" href="{{route('blog')}}">Blog</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('contact')}}" style="color: #4a5568;">Contact</a>
+					<a class="nav-link fw-semibold" href="{{route('contact')}}">Contact</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('about')}}" style="color: #4a5568;">About</a>
+					<a class="nav-link fw-semibold" href="{{route('about')}}">About</a>
 				</li>
 			</ul>
 			
@@ -51,14 +50,13 @@
 					<div class="dropdown">
 						<a class="nav-link dropdown-toggle d-flex align-items-center fw-semibold me-3" 
 						   href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" 
-						   aria-expanded="false" style="color: #2d3748;">
-							<div class="me-2 d-flex align-items-center justify-content-center rounded-circle" 
-								 style="width: 35px; height: 35px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						   aria-expanded="false">
+							<div class="me-2 d-flex align-items-center justify-content-center user-avatar">
 								<i class="fas fa-user text-white"></i>
 							</div>
 							<span>{{ Auth::user()->name }}</span>
 						</a>
-						<ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3" style="min-width: 200px;">
+						<ul class="dropdown-menu dropdown-menu-modern dropdown-menu-end shadow border-0 rounded-3">
 							<li>
 								<h6 class="dropdown-header d-flex align-items-center">
 									<i class="fas fa-user-circle me-2 text-primary"></i>
@@ -96,12 +94,10 @@
 					</form>
 				@else
 					<!-- User is not logged in -->
-					<a href="{{route('login')}}" class="btn btn-outline-primary rounded-pill px-3 py-2 fw-semibold me-2" 
-					   style="border-color: #667eea; color: #667eea;">
+					<a href="{{route('login')}}" class="btn btn-outline-gradient rounded-pill px-3 py-2 fw-semibold me-2 btn-modern">
 						<i class="fas fa-sign-in-alt me-1"></i>Sign In
 					</a>
-					<a href="{{route('register')}}" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold" 
-					   style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none;">
+					<a href="{{route('register')}}" class="btn btn-gradient rounded-pill px-4 py-2 fw-semibold btn-modern">
 						<i class="fas fa-user-plus me-2"></i>Get Started
 					</a>
 				@endauth
@@ -111,12 +107,10 @@
 </nav>
 
 <!-- Modern Hero Section -->
-<section class="hero-section position-relative overflow-hidden" style="min-height: 100vh; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);">
+<section class="hero-section position-relative overflow-hidden">
 	<!-- Background Image with Overlay -->
-	<div class="position-absolute top-0 start-0 w-100 h-100" 
-		 style="background: url('images/place-4.jpg') center/cover; z-index: -2;"></div>
-	<div class="position-absolute top-0 start-0 w-100 h-100" 
-		 style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%); z-index: -1;"></div>
+	<img src="images/place-4.jpg" alt="Kenya Landscape" class="hero-bg-image">
+	<div class="hero-bg-overlay"></div>
 
 	<div class="container h-100 d-flex align-items-center" style="min-height: 100vh; padding-top: 100px;">
 		<div class="row w-100 align-items-center">
@@ -124,27 +118,26 @@
 				<!-- Hero Content -->
 				<div class="hero-content text-white">
 					<div class="mb-4">
-						<span class="badge rounded-pill px-3 py-2 mb-3" 
-							  style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); font-size: 0.9rem;">
+						<span class="badge hero-badge rounded-pill px-3 py-2 mb-3" style="font-size: 0.9rem;">
 							🇰🇪 @auth Welcome back, {{ Auth::user()->name }}! @else Discover Kenya & Beyond @endauth
 						</span>
 					</div>
 					
 					@auth
-					<h1 class="display-4 fw-bold mb-4 lh-base" style="font-size: 3.5rem;">
-						Ready for Your Next <span style="color: #ffd700;">Adventure</span>, {{ Auth::user()->name }}?
+					<h1 class="hero-title mb-4">
+						Ready for Your Next <span class="hero-highlight">Adventure</span>, {{ Auth::user()->name }}?
 					</h1>
 					
-					<p class="lead mb-5" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
+					<p class="hero-subtitle mb-5">
 						Welcome back! Continue exploring Kenya's most spectacular destinations and discover new experiences waiting just for you.
 					</p>
 					@else
-					<h1 class="display-4 fw-bold mb-4 lh-base" style="font-size: 3.5rem;">
-						Create <span style="color: #ffd700;">Unforgettable</span><br>
+					<h1 class="hero-title mb-4">
+						Create <span class="hero-highlight">Unforgettable</span><br>
 						Travel Memories
 					</h1>
 					
-					<p class="lead mb-5" style="font-size: 1.25rem; color: rgba(255, 255, 255, 0.9);">
+					<p class="hero-subtitle mb-5">
 						Discover Kenya's breathtaking landscapes, experience rich Swahili culture, and create lasting memories with our expertly curated local travel experiences.
 					</p>
 					@endauth

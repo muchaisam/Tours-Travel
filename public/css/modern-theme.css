@@ -210,18 +210,52 @@ body {
 .navbar-modern {
     background: rgba(255, 255, 255, 0.95) !important;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-base);
 }
 
 [data-theme="dark"] .navbar-modern {
     background: rgba(26, 32, 44, 0.95) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--text-primary) !important;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border-radius: 50%;
+}
+
+.brand-text-highlight {
+    color: var(--primary-color);
 }
 
 .nav-link {
     position: relative;
     color: var(--text-secondary) !important;
+    font-weight: 600;
     transition: color var(--transition-fast);
+}
+
+.nav-link.active {
+    color: var(--text-primary) !important;
+}
+
+.nav-link-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border-radius: 2px 2px 0 0;
 }
 
 .nav-link::after {
@@ -245,6 +279,58 @@ body {
     color: var(--primary-color) !important;
 }
 
+.user-avatar {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border-radius: 50%;
+}
+
+.dropdown-menu-modern {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--radius-lg);
+    min-width: 200px;
+}
+
+.dropdown-header {
+    color: var(--text-primary);
+}
+
+.dropdown-item {
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.btn-gradient {
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border: none;
+    color: white;
+}
+
+.btn-outline-gradient {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    background: transparent;
+}
+
+[data-theme="dark"] .btn-outline-gradient {
+    border-color: var(--primary-gradient-start);
+    color: var(--primary-gradient-start);
+}
+
+.btn-outline-gradient:hover {
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    color: white;
+    border-color: transparent;
+}
+
 /* Image Hover Effects */
 .img-hover-zoom {
     overflow: hidden;
@@ -257,6 +343,91 @@ body {
 
 .img-hover-zoom:hover img {
     transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    background-color: var(--bg-secondary);
+    position: relative;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+    z-index: 1;
+}
+
+[data-theme="dark"] .hero-bg-overlay {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.6), rgba(118, 75, 162, 0.6));
+}
+
+.hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+.hero-highlight {
+    color: #ffd700;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.search-box-modern {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    padding: 2rem;
+}
+
+[data-theme="dark"] .search-box-modern {
+    background: rgba(45, 55, 72, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.search-box-modern .form-control {
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+}
+
+.search-box-modern .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
 /* Smooth Scroll Animations */
