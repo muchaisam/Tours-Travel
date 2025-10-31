@@ -2710,3 +2710,144 @@ color: var(--primary-color);
     box-shadow: 0 10px 25px rgba(213, 58, 157, 0.3);
 }
 
+
+/* ====================================
+   ADMIN DASHBOARD (HOME) STYLES
+   ==================================== */
+
+/* Dashboard Cards */
+.dashboard-card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: var(--card-bg);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .dashboard-card {
+    background: var(--card-bg);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .dashboard-card:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+/* Stats Cards */
+.stats-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+}
+
+.stats-icon {
+    font-size: 2rem;
+    opacity: 0.8;
+}
+
+[data-theme="dark"] .stats-card {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+/* Welcome Header */
+.welcome-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+[data-theme="dark"] .welcome-header {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+/* Recent Items */
+.recent-item {
+    border-left: 3px solid #667eea;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+[data-theme="dark"] .recent-item {
+    border-left-color: #4c51bf;
+}
+
+/* Activity Items */
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    background: var(--section-bg);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    flex-shrink: 0;
+}
+
+[data-theme="dark"] .activity-item {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .activity-icon {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+/* Dashboard Card Headers */
+.dashboard-card .card-header {
+    background: transparent;
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .dashboard-card .card-header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dashboard Buttons */
+.dashboard-card .btn-outline-primary,
+.dashboard-card .btn-outline-success,
+.dashboard-card .btn-outline-info,
+.dashboard-card .btn-outline-warning {
+    transition: all 0.3s ease;
+}
+
+.dashboard-card .btn-outline-primary:hover,
+.dashboard-card .btn-outline-success:hover,
+.dashboard-card .btn-outline-info:hover,
+.dashboard-card .btn-outline-warning:hover {
+    transform: translateX(5px);
+}
+
+/* Empty State */
+.dashboard-empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.dashboard-empty-state .display-4 {
+    opacity: 0.3;
+}
+

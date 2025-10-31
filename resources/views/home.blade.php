@@ -277,7 +277,7 @@
                             @endforeach
                         </div>
                     @else
-                        <div class="col-12 text-center py-5">
+                        <div class="col-12 dashboard-empty-state">
                             <i class="fas fa-inbox display-4 text-muted mb-3"></i>
                             <h5 class="text-muted">No recent activity</h5>
                             <p class="text-muted">Start by creating your first destination or blog post!</p>
