@@ -2085,3 +2085,327 @@ color: var(--primary-color);
 background: white;
 color: var(--primary-color);
 }
+
+/* ====================================
+   CONTACT PAGE STYLES
+   ==================================== */
+
+/* Contact Hero Section */
+.contact-hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 60vh;
+    margin-top: 76px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+
+[data-theme="dark"] .contact-hero {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+/* Contact Info Cards */
+.contact-card {
+    transition: all 0.3s ease;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="dark"] .contact-card {
+    background: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .contact-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+/* Contact Icon Wrapper */
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    transform: scale(1.1);
+}
+
+[data-theme="dark"] .contact-icon {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    background: var(--section-bg);
+    padding: 3rem 0;
+}
+
+[data-theme="dark"] .contact-form-section {
+    background: var(--section-bg);
+}
+
+/* Modern Form Styles */
+.modern-form .form-control {
+    transition: all 0.3s ease;
+    background: var(--input-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.modern-form .form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    transform: translateY(-2px);
+    background: var(--input-bg);
+}
+
+.modern-form .form-control::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.modern-form .form-label {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .modern-form .form-control {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] .modern-form .form-control:focus {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #667eea;
+}
+
+[data-theme="dark"] .modern-form .form-control::placeholder {
+    color: rgba(226, 232, 240, 0.5);
+}
+
+/* Form Card */
+.contact-form-card {
+    background: var(--card-bg);
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-card .card-header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .contact-form-card {
+    background: var(--card-bg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .contact-form-card .card-header {
+    background: var(--card-bg);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Map Section */
+.map-container {
+    position: relative;
+    overflow: hidden;
+}
+
+#map-overlay {
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.map-container:hover #map-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Map Card */
+.contact-map-card {
+    background: var(--card-bg);
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.contact-map-card .card-header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .contact-map-card {
+    background: var(--card-bg);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .contact-map-card .card-header {
+    background: var(--card-bg);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Quick Info Cards */
+.quick-info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.quick-info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .quick-info-card {
+    background: var(--card-bg);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .quick-info-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Contact Footer (reusing modern-footer) */
+.contact-footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+}
+
+.contact-footer .footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .contact-footer {
+    background: #1a202c;
+}
+
+/* Alert Styles for Contact Page */
+.alert-success {
+    background: rgba(72, 187, 120, 0.1);
+    border-color: #48bb78;
+    color: #22543d;
+}
+
+[data-theme="dark"] .alert-success {
+    background: rgba(72, 187, 120, 0.2);
+    border-color: #48bb78;
+    color: #9ae6b4;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: none;
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+[data-theme="dark"] .scroll-to-top {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+/* Modern Loader */
+.modern-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modern-loader.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+[data-theme="dark"] .modern-loader {
+    background: linear-gradient(135deg, #4c51bf 0%, #553c9a 100%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Breadcrumb Styles */
+.contact-hero .breadcrumb-item + .breadcrumb-item::before {
+    content: "";
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Link Hover Effects */
+.hover-link {
+    transition: color 0.3s ease;
+}
+
+.hover-link:hover {
+    color: #667eea !important;
+}
+
+.hover-social {
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.hover-social:hover {
+    color: #667eea !important;
+    transform: translateY(-2px);
+}
+
+/* Button Hover Effects */
+.btn {
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+

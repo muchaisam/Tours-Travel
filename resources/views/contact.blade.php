@@ -4,14 +4,13 @@
 
 @section('content')
 <!-- Modern Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+<nav class="navbar-modern">
 	<div class="container">
-		<a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-			<div class="me-2 d-flex align-items-center justify-content-center rounded-circle" 
-				 style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+		<a class="brand-logo" href="{{ url('/') }}">
+			<div class="brand-icon">
 				<i class="fas fa-globe-africa text-white"></i>
 			</div>
-			<span class="fw-bold fs-4">Tours<span style="color: #667eea;">Travel</span></span>
+			<span class="fw-bold fs-4">Tours<span class="brand-text-highlight">Travel</span></span>
 		</a>
 		
 		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -44,10 +43,9 @@
 </nav>
 
 <!-- Modern Hero Section -->
-<section class="hero-section position-relative overflow-hidden" 
-		 style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 60vh; margin-top: 76px;">
-	<div class="position-absolute w-100 h-100" 
-		 style="background: url('{{ asset('images/destination-12.jpg') }}') center/cover; opacity: 0.2;"></div>
+<section class="contact-hero position-relative overflow-hidden">
+	<div class="contact-hero-bg" 
+		 style="background: url('{{ asset('images/destination-12.jpg') }}') center/cover;"></div>
 	<div class="container position-relative h-100 d-flex align-items-center">
 		<div class="row w-100">
 			<div class="col-lg-8 mx-auto text-center text-white" data-aos="fade-up">
@@ -80,8 +78,7 @@
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
 				<div class="card h-100 border-0 shadow-sm contact-card">
 					<div class="card-body text-center p-4">
-						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
-							 style="width: 70px; height: 70px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle">
 							<i class="fas fa-map-marker-alt text-white fs-4"></i>
 						</div>
 						<h5 class="card-title fw-bold mb-3">Our Location</h5>
@@ -96,8 +93,7 @@
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
 				<div class="card h-100 border-0 shadow-sm contact-card">
 					<div class="card-body text-center p-4">
-						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
-							 style="width: 70px; height: 70px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle">
 							<i class="fas fa-phone text-white fs-4"></i>
 						</div>
 						<h5 class="card-title fw-bold mb-3">Call Us</h5>
@@ -111,8 +107,7 @@
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
 				<div class="card h-100 border-0 shadow-sm contact-card">
 					<div class="card-body text-center p-4">
-						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
-							 style="width: 70px; height: 70px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle">
 							<i class="fas fa-envelope text-white fs-4"></i>
 						</div>
 						<h5 class="card-title fw-bold mb-3">Email Us</h5>
@@ -126,8 +121,7 @@
 			<div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
 				<div class="card h-100 border-0 shadow-sm contact-card">
 					<div class="card-body text-center p-4">
-						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle"
-							 style="width: 70px; height: 70px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="contact-icon mx-auto mb-4 d-flex align-items-center justify-content-center rounded-circle">
 							<i class="fas fa-clock text-white fs-4"></i>
 						</div>
 						<h5 class="card-title fw-bold mb-3">Working Hours</h5>
@@ -146,18 +140,18 @@
 <section class="py-5 bg-light">
 	<div class="container">
 		<div class="row g-5 align-items-center">
+<!-- Contact Form & Map Section -->
+<section class="contact-form-section">
+	<div class="container">
+		<div class="row g-5 align-items-center">
 			<!-- Contact Form -->
 			<div class="col-lg-6" data-aos="fade-right">
-				<div class="card border-0 shadow-lg">
-					<div class="card-header bg-white border-0 py-4">
+				<div class="contact-form-card">
+					<div class="card-header py-4">
 						<h3 class="card-title mb-0 fw-bold">Send us a Message</h3>
 						<p class="text-muted mb-0">We'd love to hear from you. Fill out the form below and we'll get back to you soon.</p>
 					</div>
-					<div class="card-body p-4">
-						<!-- Success message -->
-						@if(Session::has('success'))
-						<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<i class="fas fa-check-circle me-2"></i>
+					<div class="card-body p-4">rcle me-2"></i>
 							{{Session::get('success')}}
 							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 						</div>
@@ -235,8 +229,8 @@
 
 			<!-- Map & Info -->
 			<div class="col-lg-6" data-aos="fade-left">
-				<div class="card border-0 shadow-lg h-100">
-					<div class="card-header bg-white border-0 py-4">
+				<div class="contact-map-card h-100">
+					<div class="card-header py-4">
 						<h3 class="card-title mb-0 fw-bold">Visit Our Office</h3>
 						<p class="text-muted mb-0">Come see us in person at our Nairobi office.</p>
 					</div>
@@ -257,13 +251,13 @@
 				<!-- Quick Contact Info -->
 				<div class="row g-3 mt-3">
 					<div class="col-6">
-						<div class="text-center p-3 bg-white rounded shadow-sm">
+						<div class="quick-info-card text-center">
 							<i class="fas fa-directions text-primary mb-2"></i>
 							<small class="d-block text-muted">15 min from CBD</small>
 						</div>
 					</div>
 					<div class="col-6">
-						<div class="text-center p-3 bg-white rounded shadow-sm">
+						<div class="quick-info-card text-center">
 							<i class="fas fa-parking text-primary mb-2"></i>
 							<small class="d-block text-muted">Free Parking</small>
 						</div>
@@ -275,17 +269,16 @@
 </section>
 
 <!-- Modern Footer -->
-<footer class="modern-footer py-5" style="background: #2d3748; color: white;">
+<footer class="blog-footer">
 	<div class="container">
 		<div class="row g-4">
 			<div class="col-lg-4">
 				<div class="footer-brand mb-4">
 					<div class="d-flex align-items-center mb-3">
-						<div class="me-3 d-flex align-items-center justify-content-center rounded-circle" 
-							 style="width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+						<div class="brand-icon me-3">
 							<i class="fas fa-globe-africa text-white"></i>
 						</div>
-						<h4 class="mb-0">Tours<span style="color: #667eea;">Travel</span></h4>
+						<h4 class="mb-0">Tours<span class="brand-text-highlight">Travel</span></h4>
 					</div>
 					<p class="text-muted mb-4">
 						Your trusted local guide to Kenya's most incredible destinations. 
@@ -313,15 +306,15 @@
 				<h5 class="mb-4">Contact Info</h5>
 				<div class="contact-info">
 					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-map-marker-alt me-3" style="color: #667eea;"></i>
+						<i class="fas fa-map-marker-alt me-3 brand-text-highlight"></i>
 						<span class="text-white-50">Ole Sangale Road, Madaraka Estate<br>Nairobi, Kenya</span>
 					</div>
 					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-phone me-3" style="color: #667eea;"></i>
+						<i class="fas fa-phone me-3 brand-text-highlight"></i>
 						<span class="text-white-50">+254 712 345 678</span>
 					</div>
 					<div class="d-flex align-items-center">
-						<i class="fas fa-envelope me-3" style="color: #667eea;"></i>
+						<i class="fas fa-envelope me-3 brand-text-highlight"></i>
 						<span class="text-white-50">info@tourstravel.ke</span>
 					</div>
 				</div>
@@ -339,7 +332,7 @@
 		</div>
 		
 		<!-- Copyright -->
-		<hr class="my-4" style="border-color: #4a5568;">
+		<hr class="blog-footer-divider">
 		<div class="row align-items-center">
 			<div class="col-md-6">
 				<p class="mb-0 text-white-50">© 2025 ToursTravel Kenya. All rights reserved.</p>
@@ -355,137 +348,6 @@
 </footer>
 
 
-
-<!-- Custom Styles for Contact Page -->
-<style>
-.contact-card {
-	transition: all 0.3s ease;
-}
-
-.contact-card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 15px 35px rgba(0,0,0,0.15) !important;
-}
-
-.contact-icon {
-	transition: all 0.3s ease;
-}
-
-.contact-card:hover .contact-icon {
-	transform: scale(1.1);
-}
-
-.modern-form .form-control:focus {
-	border-color: #667eea;
-	box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-}
-
-.hover-link:hover {
-	color: #667eea !important;
-	transition: color 0.3s ease;
-}
-
-.hover-social:hover {
-	color: #667eea !important;
-	transform: translateY(-2px);
-	transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-	color: #667eea !important;
-	transition: color 0.3s ease;
-}
-
-.nav-link.active {
-	color: #667eea !important;
-}
-
-/* Breadcrumb Styles */
-.breadcrumb-item + .breadcrumb-item::before {
-	content: "→";
-	color: rgba(255, 255, 255, 0.7);
-}
-
-/* Map overlay */
-.map-container:hover #map-overlay {
-	opacity: 0;
-	pointer-events: none;
-	transition: opacity 0.3s ease;
-}
-
-/* Form animations */
-.modern-form .form-control {
-	transition: all 0.3s ease;
-}
-
-.modern-form .form-control:focus {
-	transform: translateY(-2px);
-}
-
-/* Button hover effects */
-.btn:hover {
-	transform: translateY(-2px);
-	transition: all 0.3s ease;
-}
-
-/* Scroll to top button */
-.scroll-to-top {
-	position: fixed;
-	bottom: 30px;
-	right: 30px;
-	width: 50px;
-	height: 50px;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	color: white;
-	border: none;
-	border-radius: 50%;
-	font-size: 1.2rem;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	z-index: 1000;
-}
-
-.scroll-to-top:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-}
-
-/* Modern loader */
-.modern-loader {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 9999;
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.3s ease;
-}
-
-.modern-loader.show {
-	opacity: 1;
-	visibility: visible;
-}
-
-.spinner {
-	width: 60px;
-	height: 60px;
-	border: 4px solid rgba(255, 255, 255, 0.3);
-	border-top: 4px solid white;
-	border-radius: 50%;
-	animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-}
-</style>
 
 <!-- Modern Loader -->
 <div class="modern-loader" id="modernLoader">
