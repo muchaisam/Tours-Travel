@@ -112,13 +112,13 @@
 	<img src="images/place-4.jpg" alt="Kenya Landscape" class="hero-bg-image">
 	<div class="hero-bg-overlay"></div>
 
-	<div class="container h-100 d-flex align-items-center" style="min-height: 100vh; padding-top: 100px;">
+	<div class="container h-100 d-flex align-items-center hero-container-padding">
 		<div class="row w-100 align-items-center">
 			<div class="col-lg-6">
 				<!-- Hero Content -->
 				<div class="hero-content text-white">
 					<div class="mb-4">
-						<span class="badge hero-badge rounded-pill px-3 py-2 mb-3" style="font-size: 0.9rem;">
+						<span class="badge hero-badge rounded-pill px-3 py-2 mb-3 hero-badge-text">
 							🇰🇪 @auth Welcome back, {{ Auth::user()->name }}! @else Discover Kenya & Beyond @endauth
 						</span>
 					</div>
@@ -192,16 +192,16 @@
 					<div class="card floating-card floating-card-1 border-0 position-absolute">
 						<div class="card-body p-4">
 							<div class="d-flex align-items-center mb-3">
-								<img src="images/place-1.jpg" alt="Destination" class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+								<img src="images/place-1.jpg" alt="Destination" class="rounded-circle me-3 floating-card-image">
 								<div>
-									<h6 class="mb-1 fw-semibold" style="color: var(--text-primary);">Bali, Indonesia</h6>
+									<h6 class="mb-1 fw-semibold floating-card-text">Bali, Indonesia</h6>
 									<small class="text-muted">Starting from $299</small>
 								</div>
 							</div>
 							<div class="d-flex justify-content-between align-items-center">
 								<div class="d-flex align-items-center">
 									<i class="fas fa-star text-warning me-1"></i>
-									<small class="fw-semibold" style="color: var(--text-primary);">4.8 (2.1k)</small>
+									<small class="fw-semibold floating-card-text">4.8 (2.1k)</small>
 								</div>
 								<small class="text-primary fw-semibold">7 Days Tour</small>
 							</div>
@@ -212,9 +212,9 @@
 						<div class="card-body p-4">
 							<div class="text-center">
 								<div class="mb-3">
-									<i class="fas fa-plane text-primary" style="font-size: 2rem;"></i>
+									<i class="fas fa-plane text-primary floating-card-icon"></i>
 								</div>
-								<h6 class="fw-semibold mb-2" style="color: var(--text-primary);">Ready for Adventure?</h6>
+								<h6 class="fw-semibold mb-2 floating-card-text">Ready for Adventure?</h6>
 								<small class="text-muted">Book your dream destination today</small>
 							</div>
 						</div>
@@ -260,14 +260,14 @@
 							<div class="row g-3 align-items-end">
 								<!-- Destination Search -->
 								<div class="col-lg-4">
-									<label class="form-label fw-semibold mb-2">
-										<i class="fas fa-map-marker-alt me-2 text-primary"></i>Destination
-									</label>
-									<div class="position-relative">
-										<input type="text" class="form-control form-control-lg search-input" 
-											   placeholder="Where do you want to go?">
-										<i class="fas fa-search position-absolute text-muted" style="left: 1rem; top: 50%; transform: translateY(-50%);"></i>
-									</div>
+								<label class="form-label fw-semibold mb-2">
+									<i class="fas fa-map-marker-alt me-2 text-primary"></i>Destination
+								</label>
+								<div class="position-relative">
+									<input type="text" class="form-control form-control-lg search-input" 
+										   placeholder="Where do you want to go?">
+									<i class="fas fa-search search-input-icon"></i>
+								</div>
 								</div>
 								
 								<!-- Check-in Date -->
@@ -348,7 +348,7 @@
 							<div class="card-body p-4 text-center">
 								<div class="service-icon mb-3">
 									<div class="service-icon-wrapper service-icon-1">
-										<i class="fas fa-hiking text-white" style="font-size: 1.5rem;"></i>
+										<i class="fas fa-hiking text-white service-icon-size"></i>
 									</div>
 								</div>
 								<h5 class="service-card-title">Adventure Activities</h5>
@@ -363,7 +363,7 @@
 							<div class="card-body p-4 text-center">
 								<div class="service-icon mb-3">
 									<div class="service-icon-wrapper service-icon-2">
-										<i class="fas fa-route text-white" style="font-size: 1.5rem;"></i>
+										<i class="fas fa-route text-white service-icon-size"></i>
 									</div>
 								</div>
 								<h5 class="service-card-title">Custom Itineraries</h5>
@@ -378,7 +378,7 @@
 							<div class="card-body p-4 text-center">
 								<div class="service-icon mb-3">
 									<div class="service-icon-wrapper service-icon-3">
-										<i class="fas fa-user-tie text-white" style="font-size: 1.5rem;"></i>
+										<i class="fas fa-user-tie text-white service-icon-size"></i>
 									</div>
 								</div>
 								<h5 class="service-card-title">Expert Guides</h5>
@@ -393,7 +393,7 @@
 							<div class="card-body p-4 text-center">
 								<div class="service-icon mb-3">
 									<div class="service-icon-wrapper service-icon-4">
-										<i class="fas fa-map-marked-alt text-white" style="font-size: 1.5rem;"></i>
+										<i class="fas fa-map-marked-alt text-white service-icon-size"></i>
 									</div>
 								</div>
 								<h5 class="service-card-title">24/7 Support</h5>
@@ -407,19 +407,11 @@
 	</div>
 </section>
 
-<!-- Add Hover Effects -->
-<style>
-.hover-lift:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
-}
-</style>
-
-<section class="ftco-counter img" id="section-counter">
+<section class="ftco-counter img counter-section-bg" id="section-counter">
 	<div class="container">
 		<div class="row d-flex">
 			<div class="col-md-6 d-flex">
-				<div class="img d-flex align-self-stretch" style="background-image:url(images/about.jpg);"></div>
+				<div class="img d-flex align-self-stretch counter-about-img"></div>
 			</div>
 			<div class="col-md-6 pl-md-5 py-5">
 				<div class="row justify-content-start pb-3">
@@ -472,7 +464,7 @@
 		<div class="row">
 			<div class="col-md-3 ftco-animate">
 				<div class="project-destination">
-					<a href="#" class="img" style="background-image: url(images/place-1.jpg);">
+					<a href="#" class="img destination-img-1">
 						<div class="text">
 							<h3>Singapore</h3>
 							<span>8 Tours</span>
@@ -482,7 +474,7 @@
 			</div>
 			<div class="col-md-3 ftco-animate">
 				<div class="project-destination">
-					<a href="#" class="img" style="background-image: url(images/place-2.jpg);">
+					<a href="#" class="img destination-img-2">
 						<div class="text">
 							<h3>Canada</h3>
 							<span>2 Tours</span>
@@ -492,7 +484,7 @@
 			</div>
 			<div class="col-md-3 ftco-animate">
 				<div class="project-destination">
-					<a href="#" class="img" style="background-image: url(images/place-3.jpg);">
+					<a href="#" class="img destination-img-3">
 						<div class="text">
 							<h3>Thailand</h3>
 							<span>5 Tours</span>
@@ -502,7 +494,7 @@
 			</div>
 			<div class="col-md-3 ftco-animate">
 				<div class="project-destination">
-					<a href="#" class="img" style="background-image: url(images/place-4.jpg);">
+					<a href="#" class="img destination-img-4">
 						<div class="text">
 							<h3>Australia</h3>
 							<span>5 Tours</span>
@@ -682,7 +674,7 @@
 								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
 									and Consonantia, there live the blind texts.</p>
 								<div class="d-flex align-items-center">
-									<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+									<div class="user-img user-img-1"></div>
 									<div class="pl-3">
 										<p class="name">Roger Scott</p>
 										<span class="position">Marketing Manager</span>
@@ -697,7 +689,7 @@
 								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
 									and Consonantia, there live the blind texts.</p>
 								<div class="d-flex align-items-center">
-									<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+									<div class="user-img user-img-2"></div>
 									<div class="pl-3">
 										<p class="name">Roger Scott</p>
 										<span class="position">Marketing Manager</span>
@@ -712,7 +704,7 @@
 								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
 									and Consonantia, there live the blind texts.</p>
 								<div class="d-flex align-items-center">
-									<div class="user-img" style="background-image: url(images/person_3.jpg)"></div>
+									<div class="user-img user-img-3"></div>
 									<div class="pl-3">
 										<p class="name">Roger Scott</p>
 										<span class="position">Marketing Manager</span>
@@ -727,7 +719,7 @@
 								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
 									and Consonantia, there live the blind texts.</p>
 								<div class="d-flex align-items-center">
-									<div class="user-img" style="background-image: url(images/person_1.jpg)"></div>
+									<div class="user-img testimonial-user-1"></div>
 									<div class="pl-3">
 										<p class="name">Roger Scott</p>
 										<span class="position">Marketing Manager</span>
@@ -742,7 +734,7 @@
 								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
 									and Consonantia, there live the blind texts.</p>
 								<div class="d-flex align-items-center">
-									<div class="user-img" style="background-image: url(images/person_2.jpg)"></div>
+									<div class="user-img testimonial-user-2"></div>
 									<div class="pl-3">
 										<p class="name">Roger Scott</p>
 										<span class="position">Marketing Manager</span>
@@ -768,7 +760,7 @@
 		<div class="row d-flex">
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
-					<a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+					<a href="blog-single.html" class="block-20 blog-image-1">
 					</a>
 					<div class="text mt-3 float-right d-block">
 						<div class="d-flex align-items-center mb-4 topp">
@@ -788,7 +780,7 @@
 			</div>
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry justify-content-end">
-					<a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+					<a href="blog-single.html" class="block-20 blog-image-2">
 					</a>
 					<div class="text mt-3 float-right d-block">
 						<div class="d-flex align-items-center mb-4 topp">
@@ -808,7 +800,7 @@
 			</div>
 			<div class="col-md-4 d-flex ftco-animate">
 				<div class="blog-entry">
-					<a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+					<a href="blog-single.html" class="block-20 blog-image-3">
 					</a>
 					<div class="text mt-3 float-right d-block">
 						<div class="d-flex align-items-center mb-4 topp">
@@ -830,7 +822,7 @@
 	</div>
 </section>--}}
 
-<footer class="ftco-footer bg-bottom" style="background-image: url(images/footer-bg.jpg);">
+<footer class="ftco-footer bg-bottom footer-bg">
 	<div class="container">
 		<div class="row mb-5">
 			<div class="col-md">

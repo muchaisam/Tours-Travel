@@ -2851,3 +2851,205 @@ color: var(--primary-color);
     opacity: 0.3;
 }
 
+
+/* ====================================
+   WELCOME PAGE - ADDITIONAL SECTIONS
+   ==================================== */
+
+/* Hero Section - Floating Cards */
+.floating-card {
+    background: var(--card-bg);
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-card-image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.floating-card-text {
+    color: var(--text-primary);
+}
+
+.floating-card-icon {
+    font-size: 2rem;
+}
+
+[data-theme="dark"] .floating-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero Badge  */
+.hero-badge-text {
+    font-size: 0.9rem;
+}
+
+/* Hero Container */
+.hero-container-padding {
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+/* Search Input Icon */
+.search-input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .search-input-icon {
+    color: rgba(226, 232, 240, 0.5);
+}
+
+/* Service Icon Sizes */
+.service-icon-size {
+    font-size: 1.5rem;
+}
+
+/* Counter/Stats Section Background */
+.counter-section-bg {
+    background-image: url(../images/about.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Destination Image Backgrounds */
+.destination-img-1 {
+    background-image: url(../images/place-1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.destination-img-2 {
+    background-image: url(../images/place-2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.destination-img-3 {
+    background-image: url(../images/place-3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.destination-img-4 {
+    background-image: url(../images/place-4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* Testimonial User Images */
+.user-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+.user-img-1 {
+    background-image: url(../images/person_1.jpg);
+}
+
+.user-img-2 {
+    background-image: url(../images/person_2.jpg);
+}
+
+.user-img-3 {
+    background-image: url(../images/person_3.jpg);
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .hover-lift:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Testimonial Background */
+.testimony-section-bg {
+    background-image: url(../images/bg_3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+[data-theme="dark"] .testimony-section-bg {
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* Blog post image backgrounds */
+.blog-image-1 {
+    background-image: url('images/image_1.jpg');
+}
+
+.blog-image-2 {
+    background-image: url('images/image_2.jpg');
+}
+
+.blog-image-3 {
+    background-image: url('images/image_3.jpg');
+}
+
+[data-theme="dark"] .blog-image-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/image_1.jpg');
+}
+
+[data-theme="dark"] .blog-image-2 {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/image_2.jpg');
+}
+
+[data-theme="dark"] .blog-image-3 {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/image_3.jpg');
+}
+
+/* Testimonial user images for second section */
+.testimonial-user-1 {
+    background-image: url(images/person_1.jpg);
+}
+
+.testimonial-user-2 {
+    background-image: url(images/person_2.jpg);
+}
+
+[data-theme="dark"] .testimonial-user-1 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/person_1.jpg);
+}
+
+[data-theme="dark"] .testimonial-user-2 {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(images/person_2.jpg);
+}
+
+/* Footer background */
+.footer-bg {
+    background-image: url(images/footer-bg.jpg);
+}
+
+[data-theme="dark"] .footer-bg {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(images/footer-bg.jpg);
+}
+
+/* About section image in counter */
+.counter-about-img {
+    background-image: url(images/about.jpg);
+}
+
+[data-theme="dark"] .counter-about-img {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(images/about.jpg);
+}
