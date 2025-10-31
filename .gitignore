@@ -13,3 +13,7 @@ yarn-error.log
 /theme
 composer.lock
 instructions.md
+RAILWAY_TROUBLESHOOTING.md
+RAILWAY_MYSQL_FIX.md
+RAILWAY_DEPLOY.md
+PULL_REQUEST_TEMPLATE.md
