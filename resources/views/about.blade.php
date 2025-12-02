@@ -1,55 +1,10 @@
 @extends('layouts.front')
 
+@section('title', 'About Us - ToursTravel Kenya')
+
 @section('page')
-
-<!-- Modern About Navigation -->
-<nav class="navbar-modern">
-	<div class="container">
-		<!-- Modern Logo -->
-		<a class="brand-logo" href="{{ url('/') }}">
-			<div class="brand-icon">
-				<i class="fas fa-globe-africa text-white"></i>
-			</div>
-			<span class="ms-2"><span class="brand-text">Tours</span><span class="brand-text-highlight">Travel</span></span>
-		</a>
-
-		<!-- Mobile Toggle -->
-		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<!-- Navigation Menu -->
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav mx-auto">
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{ url('/') }}">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('packages')}}">Destinations</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('blog')}}">Blog</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold active" href="{{route('about')}}">
-						About
-						<span class="nav-active-indicator"></span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('contact')}}">Contact</a>
-				</li>
-			</ul>
-			
-			<!-- CTA Button -->
-			<div class="d-flex align-items-center">
-				<a href="{{route('login')}}" class="btn btn-gradient rounded-pill px-4 py-2 fw-semibold">
-					<i class="fas fa-sign-in-alt me-2"></i>Sign In
-				</a>
-			</div>
-		</div>
-	</div>
-</nav>
+<!-- Include Modern Navigation -->
+@include('partials.navbar')
 
 <!-- Modern Hero Section -->
 <section class="about-hero position-relative overflow-hidden">
@@ -151,7 +106,7 @@
 </section>
 
 <!-- Services Section -->
-<section class="services-section py-5">
+<section class="services-section py-5 bg-light">
 	<div class="container">
 		<!-- Section Header -->
 		<div class="row justify-content-center mb-5">
@@ -173,7 +128,7 @@
 					<div class="card-body p-4">
 						<div class="service-icon mb-3">
 							<div class="service-icon-wrapper">
-								<i class="fas fa-hiking service-icon"></i>
+								<i class="fas fa-hiking"></i>
 							</div>
 						</div>
 						<h5 class="fw-bold mb-3 service-title">Authentic Adventures</h5>
@@ -188,7 +143,7 @@
 					<div class="card-body p-4">
 						<div class="service-icon mb-3">
 							<div class="service-icon-wrapper">
-								<i class="fas fa-route service-icon"></i>
+								<i class="fas fa-route"></i>
 							</div>
 						</div>
 						<h5 class="fw-bold mb-3 service-title">Local Expertise</h5>
@@ -203,7 +158,7 @@
 					<div class="card-body p-4">
 						<div class="service-icon mb-3">
 							<div class="service-icon-wrapper">
-								<i class="fas fa-user-tie service-icon"></i>
+								<i class="fas fa-user-tie"></i>
 							</div>
 						</div>
 						<h5 class="fw-bold mb-3 service-title">Expert Guides</h5>
@@ -218,7 +173,7 @@
 					<div class="card-body p-4">
 						<div class="service-icon mb-3">
 							<div class="service-icon-wrapper">
-								<i class="fas fa-heart service-icon"></i>
+								<i class="fas fa-heart"></i>
 							</div>
 						</div>
 						<h5 class="fw-bold mb-3 service-title">Community Impact</h5>
@@ -258,7 +213,7 @@
 			</div>
 			
 			<div class="col-lg-6" data-aos="fade-left">
-				<div class="stats-content text-white">
+				<div class="stats-content">
 					<div class="mb-4">
 						<h2 class="display-5 fw-bold mb-4">
 							Make Your Kenya Tour <span class="blog-title-highlight">Memorable & Safe</span>
@@ -302,7 +257,7 @@
 </section>
 
 <!-- Values Section -->
-<section class="values-section py-5">
+<section class="values-section py-5 bg-light">
 	<div class="container">
 		<!-- Section Header -->
 		<div class="row justify-content-center mb-5">
@@ -387,260 +342,14 @@
 		</div>
 	</div>
 </section>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img about-testimonial-user-3"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img about-testimonial-user-1"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap py-4">
-                  <div class="text">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <div class="d-flex align-items-center">
-                    	<div class="user-img about-testimonial-user-2"></div>
-                    	<div class="pl-3">
-		                    <p class="name">Roger Scott</p>
-		                    <span class="position">Marketing Manager</span>
-		                  </div>
-	                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> --}}
 
-
-<!-- Modern Footer -->
-<footer class="blog-footer py-5">
-	<div class="container">
-		<div class="row g-4">
-			<div class="col-lg-4">
-				<div class="footer-brand mb-4">
-					<div class="d-flex align-items-center mb-3">
-						<div class="detail-footer-icon-wrapper me-3">
-							<i class="fas fa-globe-africa text-white"></i>
-						</div>
-						<h4 class="mb-0">
-							<span class="brand-text">Tours</span><span class="brand-text-highlight">Travel</span>
-						</h4>
-					</div>
-					<p class="text-muted mb-4">
-						Your trusted local guide to Kenya's most incredible destinations. 
-						We create authentic experiences that connect you with our beautiful homeland.
-					</p>
-					<div class="social-links d-flex gap-3">
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-facebook-f"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-twitter"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-instagram"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-2 col-md-6">
-				<h5 class="mb-4">Quick Links</h5>
-				<ul class="list-unstyled">
-					<li class="mb-2"><a href="{{ url('/') }}" class="text-white-50 text-decoration-none hover-link">Home</a></li>
-					<li class="mb-2"><a href="{{route('packages')}}" class="text-white-50 text-decoration-none hover-link">Destinations</a></li>
-					<li class="mb-2"><a href="{{route('blog')}}" class="text-white-50 text-decoration-none hover-link">Blog</a></li>
-					<li class="mb-2"><a href="{{route('about')}}" class="text-white-50 text-decoration-none hover-link">About</a></li>
-					<li class="mb-2"><a href="{{route('contact')}}" class="text-white-50 text-decoration-none hover-link">Contact</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Contact Info</h5>
-				<div class="contact-info">
-					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-map-marker-alt me-3 blog-meta-icon"></i>
-						<span class="text-white-50">Ole Sangale Road, Madaraka Estate<br>Nairobi, Kenya</span>
-					</div>
-					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-phone me-3 blog-meta-icon"></i>
-						<span class="text-white-50">+254 712 345 678</span>
-					</div>
-					<div class="d-flex align-items-center">
-						<i class="fas fa-envelope me-3 blog-meta-icon"></i>
-						<span class="text-white-50">info@tourstravel.ke</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Popular Experiences</h5>
-				<ul class="list-unstyled">
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Maasai Mara Safari</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Diani Beach Getaway</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Mount Kenya Climbing</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Cultural Tours</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Lake Nakuru</a></li>
-				</ul>
-			</div>
-		</div>
-		
-		<!-- Copyright -->
-		<hr class="my-4 blog-footer-divider">
-		<div class="row align-items-center">
-			<div class="col-md-6">
-				<p class="mb-0 text-white-50">© 2025 ToursTravel Kenya. All rights reserved.</p>
-			</div>
-			<div class="col-md-6 text-md-end">
-				<p class="mb-0">
-					<a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-					<a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
-    
-  
-
-<!-- Custom Styles for About Page -->
-<style>
-.stats-item {
-	transition: all 0.3s ease;
-}
-
-.stats-item:hover {
-	transform: translateY(-5px);
-}
-
-.hover-link:hover {
-	color: #667eea !important;
-	transition: color 0.3s ease;
-}
-
-.hover-social:hover {
-	color: #667eea !important;
-	transform: translateY(-2px);
-	transition: all 0.3s ease;
-}
-
-.nav-link:hover {
-	color: #667eea !important;
-	transition: color 0.3s ease;
-}
-
-.card:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
-	transition: all 0.3s ease;
-}
-
-/* Breadcrumb Styles */
-.breadcrumb-item + .breadcrumb-item::before {
-	content: "→";
-	color: rgba(255, 255, 255, 0.7);
-}
-
-/* Animation for stats numbers */
-@keyframes countUp {
-	from { opacity: 0; transform: translateY(20px); }
-	to { opacity: 1; transform: translateY(0); }
-}
-
-.stats-item h3 {
-	animation: countUp 0.8s ease-out;
-}
-
-/* Scroll to top button */
-.scroll-to-top {
-	position: fixed;
-	bottom: 30px;
-	right: 30px;
-	width: 50px;
-	height: 50px;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	color: white;
-	border: none;
-	border-radius: 50%;
-	font-size: 1.2rem;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	z-index: 1000;
-}
-
-.scroll-to-top:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-}
-
-/* Modern loader */
-.modern-loader {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 9999;
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.3s ease;
-}
-
-.modern-loader.show {
-	opacity: 1;
-	visibility: visible;
-}
-
-.spinner {
-	width: 60px;
-	height: 60px;
-	border: 4px solid rgba(255, 255, 255, 0.3);
-	border-top: 4px solid white;
-	border-radius: 50%;
-	animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-}
-</style>
-
-<!-- Modern Loader -->
-<div class="modern-loader" id="modernLoader">
-	<div class="spinner"></div>
-</div>
+<!-- Include Modern Footer -->
+@include('partials.footer')
 
 <!-- Scroll to Top Button -->
 <button class="scroll-to-top d-none" onclick="scrollToTop()">
 	<i class="fas fa-chevron-up"></i>
 </button>
-
-<!-- Modern Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
 // Initialize AOS
@@ -648,16 +357,6 @@ AOS.init({
 	duration: 800,
 	easing: 'ease-in-out',
 	once: true
-});
-
-// Hide loader when page loads
-window.addEventListener('load', function() {
-	const loader = document.getElementById('modernLoader');
-	if (loader) {
-		setTimeout(() => {
-			loader.classList.remove('show');
-		}, 500);
-	}
 });
 
 // Show/hide scroll to top button
@@ -679,57 +378,6 @@ function scrollToTop() {
 		behavior: 'smooth'
 	});
 }
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-	anchor.addEventListener('click', function (e) {
-		e.preventDefault();
-		const target = document.querySelector(this.getAttribute('href'));
-		if (target) {
-			target.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}
-	});
-});
-
-// Animate statistics numbers
-function animateValue(obj, start, end, duration) {
-	let startTimestamp = null;
-	const step = (timestamp) => {
-		if (!startTimestamp) startTimestamp = timestamp;
-		const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-		obj.innerHTML = Math.floor(progress * (end - start) + start);
-		if (progress < 1) {
-			window.requestAnimationFrame(step);
-		}
-	};
-	window.requestAnimationFrame(step);
-}
-
-// Trigger statistics animation when in view
-const observer = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			const statsNumbers = entry.target.querySelectorAll('.stats-number');
-			statsNumbers.forEach(stat => {
-				const value = parseInt(stat.getAttribute('data-value'));
-				animateValue(stat, 0, value, 2000);
-			});
-			observer.unobserve(entry.target);
-		}
-	});
-}, { threshold: 0.5 });
-
-// Observe stats section
-document.addEventListener('DOMContentLoaded', function() {
-	const statsSection = document.querySelector('.statistics-section');
-	if (statsSection) {
-		observer.observe(statsSection);
-	}
-});
 </script>
-    
-  </body>
-</html>
+
+@endsection
