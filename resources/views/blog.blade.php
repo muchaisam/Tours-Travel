@@ -1,108 +1,10 @@
 @extends('layouts.front')
 
+@section('title', 'Blog - ToursTravel Kenya')
+
 @section('page')
-
-<!-- Modern 2025 Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light navbar-modern fixed-top">
-	<div class="container">
-		<!-- Modern Logo -->
-		<a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-			<div class="me-2 d-flex align-items-center justify-content-center brand-logo">
-				<i class="fas fa-globe-africa text-white"></i>
-			</div>
-			<span class="ms-2">Tours<span class="brand-text-highlight">Travel</span></span>
-		</a>
-
-		<!-- Mobile Toggle -->
-		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<!-- Navigation Menu -->
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav mx-auto">
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{ url('/') }}">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('packages')}}">Destinations</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold active" href="{{route('blog')}}">
-						Blog
-						<span class="nav-link-indicator"></span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('contact')}}">Contact</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('about')}}">About</a>
-				</li>
-			</ul>
-			
-			<!-- Auth Section -->
-			<div class="d-flex align-items-center">
-				@auth
-					<!-- User is logged in -->
-					<div class="dropdown">
-						<a class="nav-link dropdown-toggle d-flex align-items-center fw-semibold me-3" 
-						   href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" 
-						   aria-expanded="false">
-							<div class="me-2 d-flex align-items-center justify-content-center user-avatar">
-								<i class="fas fa-user text-white"></i>
-							</div>
-							<span>{{ Auth::user()->name }}</span>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-modern dropdown-menu-end shadow border-0 rounded-3">
-							<li>
-								<h6 class="dropdown-header d-flex align-items-center">
-									<i class="fas fa-user-circle me-2 text-primary"></i>
-									Welcome back!
-								</h6>
-							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li>
-								<a class="dropdown-item d-flex align-items-center py-2" href="{{ route('home') }}">
-									<i class="fas fa-tachometer-alt me-2 text-primary"></i>
-									Dashboard
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-item d-flex align-items-center py-2" href="{{ route('users.edit-profile') }}">
-									<i class="fas fa-user-edit me-2 text-info"></i>
-									Edit Profile
-								</a>
-							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li>
-								<a class="dropdown-item d-flex align-items-center py-2 text-danger" 
-								   href="{{ route('logout') }}"
-								   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-									<i class="fas fa-sign-out-alt me-2"></i>
-									Logout
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<!-- Logout Form -->
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-						@csrf
-					</form>
-				@else
-					<!-- User is not logged in -->
-					<a href="{{route('login')}}" class="btn btn-outline-gradient rounded-pill px-3 py-2 fw-semibold me-2 btn-modern">
-						<i class="fas fa-sign-in-alt me-1"></i>Sign In
-					</a>
-					<a href="{{route('register')}}" class="btn btn-gradient rounded-pill px-4 py-2 fw-semibold btn-modern">
-						<i class="fas fa-user-plus me-2"></i>Get Started
-					</a>
-				@endauth
-			</div>
-		</div>
-	</div>
-</nav>
+<!-- Include Modern Navigation -->
+@include('partials.navbar')
 
 <!-- Modern Hero Section -->
 <section class="blog-hero position-relative overflow-hidden">
@@ -233,11 +135,13 @@
 			@endforeach
 		</div>
 
-		<!-- Pagination -->
-		<div class="row justify-content-center mt-5">
-			<div class="col-auto">
+		<!-- Modern Pagination -->
+		<div class="row mt-5">
+			<div class="col-12">
 				<div class="d-flex justify-content-center">
-					{{ $blogs->links() }}
+					<div class="pagination-wrapper">
+						{{ $blogs->links('pagination::bootstrap-4') }}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -266,86 +170,8 @@
 	</div>
 </section>
 
-<!-- Modern Footer -->
-<footer class="blog-footer py-5">
-	<div class="container">
-		<div class="row g-4">
-			<div class="col-lg-4">
-				<div class="footer-brand mb-4">
-					<div class="d-flex align-items-center mb-3">
-						<div class="detail-footer-icon-wrapper me-3">
-							<i class="fas fa-globe-africa text-white"></i>
-						</div>
-						<h4 class="mb-0">
-							<span class="brand-text">Tours</span><span class="brand-text-highlight">Travel</span>
-						</h4>
-					</div>
-					<p class="text-muted mb-4">
-						Discover the beauty of Kenya with our expertly curated travel experiences. 
-						From safari adventures to cultural immersion, we make every journey unforgettable.
-					</p>
-					<div class="social-links d-flex gap-3">
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-facebook-f"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-twitter"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-instagram"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-2 col-md-6">
-				<h5 class="mb-4">Quick Links</h5>
-				<ul class="list-unstyled">
-					<li class="mb-2"><a href="{{ url('/') }}" class="text-white-50 text-decoration-none hover-link">Home</a></li>
-					<li class="mb-2"><a href="{{route('packages')}}" class="text-white-50 text-decoration-none hover-link">Destinations</a></li>
-					<li class="mb-2"><a href="{{route('blog')}}" class="text-white-50 text-decoration-none hover-link">Blog</a></li>
-					<li class="mb-2"><a href="{{route('about')}}" class="text-white-50 text-decoration-none hover-link">About</a></li>
-					<li class="mb-2"><a href="{{route('contact')}}" class="text-white-50 text-decoration-none hover-link">Contact</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Contact Info</h5>
-				<div class="contact-info">
-					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-map-marker-alt me-3 blog-meta-icon"></i>
-						<span class="text-white-50">Nairobi, Kenya</span>
-					</div>
-					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-phone me-3 blog-meta-icon"></i>
-						<span class="text-white-50">+254 700 000 000</span>
-					</div>
-					<div class="d-flex align-items-center">
-						<i class="fas fa-envelope me-3 blog-meta-icon"></i>
-						<span class="text-white-50">info@tourstravel.ke</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Popular Destinations</h5>
-				<ul class="list-unstyled">
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Maasai Mara</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Diani Beach</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Mount Kenya</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Amboseli</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Lake Nakuru</a></li>
-				</ul>
-			</div>
-		</div>
-		
-		<!-- Copyright -->
-		<hr class="my-4 blog-footer-divider">
-		<div class="row align-items-center">
-			<div class="col-md-6">
-				<p class="mb-0 text-white-50">© 2025 ToursTravel. All rights reserved.</p>
-			</div>
-			<div class="col-md-6 text-md-end">
-				<p class="mb-0">
-					<a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-					<a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
+<!-- Include Modern Footer -->
+@include('partials.footer')
 
 <!-- Custom Styles for Blog Page -->
 <style>
