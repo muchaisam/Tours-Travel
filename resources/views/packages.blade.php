@@ -2,7 +2,7 @@
 
 @section('title', 'Tour Destinations - ToursTravel Kenya')
 
-@section('content')
+@section('page')
 <!-- Modern Navigation -->
 <nav class="navbar-modern navbar navbar-expand-lg fixed-top">
 	<div class="container">

@@ -2,15 +2,15 @@
 
 @section('page')
 
-<!-- Modern Blog Navigation -->
-<nav class="navbar-modern">
+<!-- Modern 2025 Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light navbar-modern fixed-top">
 	<div class="container">
 		<!-- Modern Logo -->
-		<a class="brand-logo" href="{{ url('/') }}">
-			<div class="brand-icon">
+		<a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+			<div class="me-2 d-flex align-items-center justify-content-center brand-logo">
 				<i class="fas fa-globe-africa text-white"></i>
 			</div>
-			<span class="ms-2"><span class="brand-text">Tours</span><span class="brand-text-highlight">Travel</span></span>
+			<span class="ms-2">Tours<span class="brand-text-highlight">Travel</span></span>
 		</a>
 
 		<!-- Mobile Toggle -->
@@ -30,7 +30,7 @@
 				<li class="nav-item">
 					<a class="nav-link fw-semibold active" href="{{route('blog')}}">
 						Blog
-						<span class="nav-active-indicator"></span>
+						<span class="nav-link-indicator"></span>
 					</a>
 				</li>
 				<li class="nav-item">
@@ -41,11 +41,64 @@
 				</li>
 			</ul>
 			
-			<!-- CTA Button -->
+			<!-- Auth Section -->
 			<div class="d-flex align-items-center">
-				<a href="{{route('login')}}" class="btn btn-gradient rounded-pill px-4 py-2 fw-semibold">
-					<i class="fas fa-sign-in-alt me-2"></i>Sign In
-				</a>
+				@auth
+					<!-- User is logged in -->
+					<div class="dropdown">
+						<a class="nav-link dropdown-toggle d-flex align-items-center fw-semibold me-3" 
+						   href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" 
+						   aria-expanded="false">
+							<div class="me-2 d-flex align-items-center justify-content-center user-avatar">
+								<i class="fas fa-user text-white"></i>
+							</div>
+							<span>{{ Auth::user()->name }}</span>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-modern dropdown-menu-end shadow border-0 rounded-3">
+							<li>
+								<h6 class="dropdown-header d-flex align-items-center">
+									<i class="fas fa-user-circle me-2 text-primary"></i>
+									Welcome back!
+								</h6>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item d-flex align-items-center py-2" href="{{ route('home') }}">
+									<i class="fas fa-tachometer-alt me-2 text-primary"></i>
+									Dashboard
+								</a>
+							</li>
+							<li>
+								<a class="dropdown-item d-flex align-items-center py-2" href="{{ route('users.edit-profile') }}">
+									<i class="fas fa-user-edit me-2 text-info"></i>
+									Edit Profile
+								</a>
+							</li>
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a class="dropdown-item d-flex align-items-center py-2 text-danger" 
+								   href="{{ route('logout') }}"
+								   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+									<i class="fas fa-sign-out-alt me-2"></i>
+									Logout
+								</a>
+							</li>
+						</ul>
+					</div>
+					
+					<!-- Logout Form -->
+					<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+						@csrf
+					</form>
+				@else
+					<!-- User is not logged in -->
+					<a href="{{route('login')}}" class="btn btn-outline-gradient rounded-pill px-3 py-2 fw-semibold me-2 btn-modern">
+						<i class="fas fa-sign-in-alt me-1"></i>Sign In
+					</a>
+					<a href="{{route('register')}}" class="btn btn-gradient rounded-pill px-4 py-2 fw-semibold btn-modern">
+						<i class="fas fa-user-plus me-2"></i>Get Started
+					</a>
+				@endauth
 			</div>
 		</div>
 	</div>
@@ -394,89 +447,3 @@ function scrollToTop() {
 </script>
 
 @endsection
-      <div class="row mb-5">
-        <div class="col-md">
-          <div class="ftco-footer-widget mb-4">
-            <h2 class="ftco-heading-2">Safari</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-              blind texts.</p>
-            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
-              <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-              <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-            </ul>
-          </div>
-        </div>
-        {{-- <div class="col-md">
-          <div class="ftco-footer-widget mb-4 ml-md-5">
-            <h2 class="ftco-heading-2">Categories</h2>
-            @foreach ($categories as $category)
-            <div class="col-6">
-              <a href="#">
-                {{$category->name}}
-              </a>
-            </div>
-            @endforeach
-          </div>
-        </div> --}}
-      </div>
-      {{-- <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Tags</h2>
-          @foreach ($tags as $tag)
-          <div class="col-6">
-            <a href="#">
-              {{$tag->name}}
-            </a>
-          </div>
-          @endforeach
-        </div>
-      </div> --}}
-    
-    </div>
-    <div class="row">
-      <div class="col-md-12 text-center">
-
-        <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Copyright &copy;<script>
-            document.write(new Date().getFullYear());
-          </script> All rights reserved | This template is made with <i class="icon-heart color-danger"
-            aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </div>
-    </div>
-    </div>
-  </footer>
-
-
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-        stroke="#F96D00" /></svg></div>
-
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false">
-  </script>
-  <script src="js/google-map.js"></script>
-  <script src="js/main.js"></script>
-
-</body>
-
-</html>
