@@ -1284,6 +1284,7 @@ body {
     color: var(--primary-color);
     font-weight: 600;
     background-color: var(--bg-primary);
+    padding: 0.5rem 0.75rem;
 }
 
 .pagination .page-item.active .page-link {
@@ -1296,6 +1297,58 @@ body {
     border-color: var(--primary-color);
     color: var(--primary-color);
     background-color: var(--bg-secondary);
+}
+
+/* Fix for large SVG arrows in pagination */
+.pagination .page-link svg {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+/* Modern Pagination Wrapper */
+.pagination-wrapper .pagination {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pagination-wrapper .page-item .page-link {
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    background: var(--bg-primary);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-base);
+    padding: 0;
+}
+
+.pagination-wrapper .page-item.active .page-link {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    transform: scale(1.1);
+}
+
+.pagination-wrapper .page-item .page-link:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination-wrapper .page-item.disabled .page-link {
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* Ensure SVGs in pagination wrapper are properly sized */
+.pagination-wrapper .page-link svg {
+    width: 14px !important;
+    height: 14px !important;
 }
 
 .rating .fas {
