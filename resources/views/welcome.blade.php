@@ -247,7 +247,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</div>
 
 <!-- Modern Search Section -->
 <section class="search-section">

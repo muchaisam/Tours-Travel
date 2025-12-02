@@ -3,7 +3,7 @@
  * Dark Mode Toggle & UI Enhancements
  */
 
-(function() {
+(function () {
     'use strict';
 
     // Dark Mode Management
@@ -23,11 +23,11 @@
         toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
+
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
             this.updateToggleIcon(newTheme);
-            
+
             // Dispatch custom event for theme change
             window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
         },
@@ -82,7 +82,7 @@
             const documentHeight = document.documentElement.scrollHeight - windowHeight;
             const scrolled = window.scrollY;
             const progress = (scrolled / documentHeight) * 100;
-            
+
             bar.style.transform = `scaleX(${progress / 100})`;
         }
     };
@@ -272,7 +272,7 @@
         SmoothScroll.init();
         LazyLoad.init();
         FormValidation.init();
-        
+
         // Initialize stat counters if present
         if (document.querySelector('[data-count]')) {
             StatCounters.init();
