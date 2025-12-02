@@ -1,287 +1,164 @@
-# 🇰🇪 ToursTravel Kenya
+# ToursTravel Kenya
 
-A modern, comprehensive travel booking platform showcasing Kenya's beautiful destinations. Built with Laravel 11, featuring a sleek 2025 design, complete admin dashboard, and integrated payment processing.
+A travel booking platform for Kenya destinations built with Laravel.
 
-## ✨ Features
+## Screenshots
 
-### 🎨 **Modern  Design**
-- **Gradient-based UI** with glassmorphism effects
-- **Responsive Bootstrap 5.3** layout
-- **Kenya-focused branding** and content
-- **Dynamic authentication states**
-- **AOS animations** and smooth transitions
+<p float="left">
+  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/6.png" width="45%" />
+  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/7.png" width="45%" /> 
+</p>
 
-### 🏝️ **Core Functionality**
-- **Destination browsing** with advanced filtering
-- **User authentication** with personalized experience  
-- **Shopping cart** and booking system
-- **Stripe payment integration**
-- **Blog system** with rich content
-- **Admin dashboard** with comprehensive management
-- **Contact forms** and inquiry system
+<p float="left">
+  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/1.png" width="45%" />
+  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/8.png" width="45%" /> 
+</p>
 
-### 🛠️ **Admin Features**
-- **Modern dashboard** with statistics overview
-- **Destination management** (CRUD operations)
-- **Category & Tag management**
-- **Blog post management**
-- **User management** (Admin only)
-- **Trashed content recovery**
+## Architecture
 
-## 🔐 Login Credentials
-
-### Admin Access
 ```
-Email: samadmin@gmail.com
-Password: password
-Role: Administrator
+┌─────────────────────────────────────────────────────────────────┐
+│                         Frontend (Blade)                         │
+│  welcome.blade.php │ packages.blade.php │ blog.blade.php │ etc  │
+└─────────────────────────────────┬───────────────────────────────┘
+                                  │
+┌─────────────────────────────────▼───────────────────────────────┐
+│                           Controllers                            │
+│  HomeController │ PostController │ BlogController │ CartController│
+└─────────────────────────────────┬───────────────────────────────┘
+                                  │
+┌─────────────────────────────────▼───────────────────────────────┐
+│                         Eloquent Models                          │
+│   User │ Destinations │ Category │ Blog │ Cart │ Checkout │ Tag │
+└─────────────────────────────────┬───────────────────────────────┘
+                                  │
+┌─────────────────────────────────▼───────────────────────────────┐
+│                            MySQL Database                        │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-**Admin Capabilities:**
-- Full destination management
-- User management and permissions
-- Blog content management
-- System statistics and analytics
-- Category and tag administration
+## Tech Stack
 
-### Regular User
-Create your own account via the registration page, or use the admin account to create additional users through the admin panel.
+| Layer | Technology |
+|-------|------------|
+| Backend | Laravel 11, PHP 8.2+ |
+| Frontend | Blade, Bootstrap 5, JavaScript |
+| Database | MySQL |
+| Payments | Stripe |
+| Auth | Laravel UI |
 
-## 📱 Screenshots
+## Project Structure
 
-### Modern Homepage
-<p float="left">
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/6.png" width="auto" />
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/7.png" width="auto" /> 
-</p>
+```
+app/
+├── Http/Controllers/
+│   ├── HomeController.php        # Dashboard
+│   ├── Packages/PostController.php  # Destinations CRUD
+│   ├── BlogController.php        # Blog management
+│   ├── CartController.php        # Shopping cart
+│   └── CheckoutController.php    # Payment processing
+├── Models/
+│   ├── User.php
+│   ├── Destinations.php
+│   ├── Category.php
+│   ├── Blog.php
+│   ├── Cart.php
+│   └── Tag.php
+resources/views/
+├── welcome.blade.php             # Homepage
+├── packages.blade.php            # Destinations listing
+├── blog.blade.php                # Blog listing
+├── about.blade.php
+├── contact.blade.php
+├── partials/
+│   ├── navbar.blade.php          # Shared navigation
+│   └── footer.blade.php          # Shared footer
+└── layouts/
+    ├── front.blade.php           # Public layout
+    └── app.blade.php             # Admin layout
+```
 
-### Destination & Cart
-<p float="left">
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/1.png" width="auto" />
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/2.png" width="auto" /> 
-</p>
-
-### Booking & Payment
-<p float="left">
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/master/screenshots/3.png" width="auto" />
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/4.png" width="auto" />
-</p>
-
-### Blog & Admin
-<p float="left">
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/8.png" width="auto" />
-  <img src="https://github.com/muchaisam/Tours-Travel/blob/main/screenshots/b.png" width="auto" />
-</p>
-
-## 🚀 Technology Stack
-
-- **Backend**: Laravel 11.46+ (PHP 8.2+)
-- **Frontend**: Bootstrap 5.3, FontAwesome 6.4, AOS animations
-- **Database**: MySQL 
-- **Payment**: Stripe Integration
-- **Authentication**: Laravel Breeze/UI
-- **Styling**: Modern CSS Grid, Glassmorphism, Gradients 
-
-## ⚡ Quick Setup
+## Getting Started
 
 ### Prerequisites
-- PHP 8.2 or higher
-- Composer 2.x
+- PHP 8.2+
+- Composer
 - Node.js & NPM
-- MySQL database
-- Git
+- MySQL
 
-### 1. Clone Repository
+### Installation
+
 ```bash
+# Clone
 git clone https://github.com/muchaisam/Tours-Travel.git
 cd Tours-Travel
-```
 
-### 2. Install Dependencies
-```bash
-# Install PHP dependencies
+# Install dependencies
 composer install
-
-# Install Node.js dependencies  
 npm install
 
-# Build frontend assets
+# Environment
+cp .env.example .env
+php artisan key:generate
+
+# Configure .env with your database credentials
+# DB_DATABASE=tours_travel
+# DB_USERNAME=root
+# DB_PASSWORD=
+
+# Database
+php artisan migrate --seed
+
+# Run
+php artisan serve
 npm run dev
 ```
 
-### 3. Environment Setup
-```bash
-# Create environment file
-cp .env.example .env
-
-# Generate application key
-php artisan key:generate
+### Default Admin Login
+```
+Email: samadmin@gmail.com
+Password: password
 ```
 
-### 4. Database Configuration
-Create a MySQL database and update your `.env` file:
+## Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage |
+| `/packages` | Browse destinations |
+| `/packages/destinations/{id}` | Destination details |
+| `/blog` | Blog posts |
+| `/contact` | Contact form |
+| `/about` | About page |
+| `/home` | Admin dashboard |
+| `/admin/destinations` | Manage destinations |
+| `/admin/blogs` | Manage blog posts |
+| `/admin/categories` | Manage categories |
+
+## Environment Variables
 
 ```env
-# Database Configuration
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=tours_travel
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-
-# App Configuration  
 APP_NAME="ToursTravel Kenya"
-APP_ENV=local
-APP_DEBUG=true
 APP_URL=http://localhost:8000
 
-# Mail Configuration (Optional)
-MAIL_MAILER=smtp
-MAIL_HOST=your_smtp_host
-MAIL_PORT=587
-MAIL_USERNAME=your_email
-MAIL_PASSWORD=your_password
+DB_CONNECTION=mysql
+DB_DATABASE=tours_travel
+DB_USERNAME=root
+DB_PASSWORD=
+
+STRIPE_KEY=pk_test_xxx
+STRIPE_SECRET=sk_test_xxx
 ```
 
-### 5. Database Setup
-```bash
-# Run migrations and seed data
-php artisan migrate --seed
-```
-This creates:
-- All necessary database tables
-- Admin user (samadmin@gmail.com)
-- Sample destinations and blog posts
-- Categories and tags
-
-### 6. Payment Configuration (Optional)
-For Stripe payment functionality, add to `.env`:
-```env
-STRIPE_KEY=pk_test_your_stripe_public_key
-STRIPE_SECRET=sk_test_your_stripe_secret_key
-```
-
-### 7. Launch Application
-```bash
-# Start the development server
-php artisan serve
-```
-
-Visit `http://localhost:8000` and login with:
-- **Email**: samadmin@gmail.com  
-- **Password**: password
-
-## 🏗️ Project Structure
-
-```
-Tours-Travel/
-├── app/
-│   ├── Http/Controllers/
-│   │   ├── HomeController.php          # Admin dashboard
-│   │   ├── Packages/PostController.php # Destinations
-│   │   └── ...
-│   ├── Models/
-│   │   ├── Destinations.php
-│   │   ├── Blog.php
-│   │   └── User.php
-├── resources/
-│   ├── views/
-│   │   ├── welcome.blade.php           # Homepage ( design)
-│   │   ├── home.blade.php             # Admin dashboard
-│   │   ├── packages.blade.php         # Destinations listing
-│   │   ├── desti/show.blade.php       # Individual destination
-│   │   ├── blog.blade.php             # Blog listing
-│   │   ├── about.blade.php            # About page
-│   │   ├── contact.blade.php          # Contact page
-│   │   └── layouts/
-│   │       ├── front.blade.php        # Frontend layout
-│   │       └── app.blade.php          # Admin layout
-├── database/
-│   ├── migrations/                    # Database schema
-│   └── seeders/                       # Sample data
-└── public/
-    ├── images/                        # Project images
-    └── css/                           # Compiled styles
-```
-
-## 🎯 Key Routes
-
-### Frontend Routes
-- `/` - Homepage with modern design
-- `/packages` - Browse destinations
-- `/packages/destinations/{destination}` - Individual destination
-- `/blog` - Blog listing
-- `/about` - About ToursTravel Kenya  
-- `/contact` - Contact form
-
-### Admin Routes (Authentication required)
-- `/home` - Admin dashboard
-- `/admin/destinations` - Manage destinations
-- `/admin/categories` - Manage categories
-- `/admin/tags` - Manage tags
-- `/admin/blogs` - Manage blog posts
-- `/admin/users` - User management (Admin only)
-
-## 🔧 Development Commands
+## Commands
 
 ```bash
-# Watch frontend changes
-npm run watch
-
-# Build for production
-npm run production
-
-# Clear application cache
-php artisan cache:clear
-php artisan config:clear
-php artisan view:clear
-
-# Database operations
-php artisan migrate:fresh --seed    # Reset database
-php artisan db:seed                 # Seed data only
-
-# Generate new controller/model
-php artisan make:controller ExampleController
-php artisan make:model Example -m   # With migration
+php artisan serve              # Start server
+npm run dev                    # Build assets
+php artisan migrate:fresh --seed  # Reset database
+php artisan cache:clear        # Clear cache
 ```
 
-## 🚀 Deployment Ready
+## License
 
-This application includes:
-- ✅ Procfile for Heroku deployment
-- ✅ Production-ready configurations  
-- ✅ Optimized asset compilation
-- ✅ Environment variable management
-- ✅ Database migrations and seeders
-
-Perfect for deployment on:
-- **Railway** (Recommended)
-- **DigitalOcean App Platform**  
-- **Heroku**
-- **Traditional hosting**
-
-## 📝 Recent Updates (2025)
-
-### Latest - October 2025
-- ⬆️ **Framework Upgrade**: Laravel 8 → Laravel 11.46.1
-- 🔧 **PHP Update**: Upgraded to PHP 8.2 for stability and performance
-- �️ **Architecture Modernization**: Updated to Laravel 11 structure
-  - New bootstrap/app.php configuration
-  - Streamlined middleware setup
-  - Updated service providers
-  - Removed deprecated dependencies
-
-### UI/UX Improvements
-- �🎨 Complete UI modernization with 2025 design trends
-- 🇰🇪 Kenya-focused branding and content  
-- 📱 Enhanced responsive design with Bootstrap 5.3
-- 🔐 Improved authentication with personalized user experience
-- 📊 Modern admin dashboard with statistics and analytics
-- ⚡ Performance optimizations and code cleanup
-- 💳 Maintained Stripe payment integration (v13.x)
-- 🎯 SEO improvements and meta tag optimization
-
----
-
-**Built with ❤️ for Kenya's Tourism Industry**
+MIT
