@@ -2,45 +2,9 @@
 
 @section('title', 'Contact Us - ToursTravel Kenya')
 
-@section('content')
-<!-- Modern Navigation -->
-<nav class="navbar-modern">
-	<div class="container">
-		<a class="brand-logo" href="{{ url('/') }}">
-			<div class="brand-icon">
-				<i class="fas fa-globe-africa text-white"></i>
-			</div>
-			<span class="fw-bold fs-4">Tours<span class="brand-text-highlight">Travel</span></span>
-		</a>
-		
-		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ms-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="{{ url('/') }}">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{route('packages')}}">Destinations</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{route('blog')}}">Blog</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{route('about')}}">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link active fw-semibold" href="{{route('contact')}}">Contact</a>
-				</li>
-				<li class="nav-item ms-2">
-					<a class="btn btn-outline-primary rounded-pill px-4" href="{{route('login')}}">Login</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</nav>
+@section('page')
+<!-- Include Modern Navigation -->
+@include('partials.navbar')
 
 <!-- Modern Hero Section -->
 <section class="contact-hero position-relative overflow-hidden">
@@ -65,7 +29,7 @@
 	</div>
 	<div class="position-absolute bottom-0 w-100">
 		<svg viewBox="0 0 1200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M1200 120L0 16.48V120H1200Z" fill="white"/>
+			<path d="M1200 120L0 16.48V120H1200Z" fill="var(--hero-wave-fill, white)"/>
 		</svg>
 	</div>
 </section>
@@ -136,27 +100,26 @@
 </section>
 
 <!-- Contact Form & Map Section -->
-<section class="py-5 bg-light">
+<section class="contact-form-section py-5 bg-light">
 	<div class="container">
-		<div class="row g-5 align-items-center">
-<!-- Contact Form & Map Section -->
-<section class="contact-form-section">
-	<div class="container">
-		<div class="row g-5 align-items-center">
+		<div class="row g-5 align-items-stretch">
 			<!-- Contact Form -->
 			<div class="col-lg-6" data-aos="fade-right">
-				<div class="contact-form-card">
+				<div class="contact-form-card h-100">
 					<div class="card-header py-4">
 						<h3 class="card-title mb-0 fw-bold">Send us a Message</h3>
 						<p class="text-muted mb-0">We'd love to hear from you. Fill out the form below and we'll get back to you soon.</p>
 					</div>
-					<div class="card-body p-4">rcle me-2"></i>
-							{{Session::get('success')}}
+					<div class="card-body p-4">
+						@if(Session::has('success'))
+						<div class="alert alert-success alert-dismissible fade show" role="alert">
+							<i class="fas fa-check-circle me-2"></i>
+							{{ Session::get('success') }}
 							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 						</div>
 						@endif
 						
-						<form method="POST" action="{{route('contact.store')}}" class="modern-form">
+						<form method="POST" action="{{ route('contact.store') }}" class="modern-form">
 							@csrf
 							<div class="row g-3">
 								<div class="col-12">
@@ -266,91 +229,8 @@
 	</div>
 </section>
 
-<!-- Modern Footer -->
-<footer class="blog-footer">
-	<div class="container">
-		<div class="row g-4">
-			<div class="col-lg-4">
-				<div class="footer-brand mb-4">
-					<div class="d-flex align-items-center mb-3">
-						<div class="brand-icon me-3">
-							<i class="fas fa-globe-africa text-white"></i>
-						</div>
-						<h4 class="mb-0">Tours<span class="brand-text-highlight">Travel</span></h4>
-					</div>
-					<p class="text-muted mb-4">
-						Your trusted local guide to Kenya's most incredible destinations. 
-						We create authentic experiences that connect you with our beautiful homeland.
-					</p>
-					<div class="social-links d-flex gap-3">
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-facebook-f"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-twitter"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-instagram"></i></a>
-						<a href="#" class="text-white-50 hover-social"><i class="fab fa-linkedin-in"></i></a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-2 col-md-6">
-				<h5 class="mb-4">Quick Links</h5>
-				<ul class="list-unstyled">
-					<li class="mb-2"><a href="{{ url('/') }}" class="text-white-50 text-decoration-none hover-link">Home</a></li>
-					<li class="mb-2"><a href="{{route('packages')}}" class="text-white-50 text-decoration-none hover-link">Destinations</a></li>
-					<li class="mb-2"><a href="{{route('blog')}}" class="text-white-50 text-decoration-none hover-link">Blog</a></li>
-					<li class="mb-2"><a href="{{route('about')}}" class="text-white-50 text-decoration-none hover-link">About</a></li>
-					<li class="mb-2"><a href="{{route('contact')}}" class="text-white-50 text-decoration-none hover-link">Contact</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Contact Info</h5>
-				<div class="contact-info">
-					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-map-marker-alt me-3 brand-text-highlight"></i>
-						<span class="text-white-50">Ole Sangale Road, Madaraka Estate<br>Nairobi, Kenya</span>
-					</div>
-					<div class="d-flex align-items-center mb-3">
-						<i class="fas fa-phone me-3 brand-text-highlight"></i>
-						<span class="text-white-50">+254 712 345 678</span>
-					</div>
-					<div class="d-flex align-items-center">
-						<i class="fas fa-envelope me-3 brand-text-highlight"></i>
-						<span class="text-white-50">info@tourstravel.ke</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<h5 class="mb-4">Popular Experiences</h5>
-				<ul class="list-unstyled">
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Maasai Mara Safari</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Diani Beach Getaway</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Mount Kenya Climbing</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Cultural Tours</a></li>
-					<li class="mb-2"><a href="#" class="text-white-50 text-decoration-none hover-link">Lake Nakuru</a></li>
-				</ul>
-			</div>
-		</div>
-		
-		<!-- Copyright -->
-		<hr class="blog-footer-divider">
-		<div class="row align-items-center">
-			<div class="col-md-6">
-				<p class="mb-0 text-white-50">© 2025 ToursTravel Kenya. All rights reserved.</p>
-			</div>
-			<div class="col-md-6 text-md-end">
-				<p class="mb-0">
-					<a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-					<a href="#" class="text-white-50 text-decoration-none">Terms of Service</a>
-				</p>
-			</div>
-		</div>
-	</div>
-</footer>
-
-
-
-<!-- Modern Loader -->
-<div class="modern-loader" id="modernLoader">
-	<div class="spinner"></div>
-</div>
+<!-- Include Modern Footer -->
+@include('partials.footer')
 
 <!-- Scroll to Top Button -->
 <button class="scroll-to-top d-none" onclick="scrollToTop()">
@@ -366,16 +246,6 @@ AOS.init({
 	duration: 800,
 	easing: 'ease-in-out',
 	once: true
-});
-
-// Hide loader when page loads
-window.addEventListener('load', function() {
-	const loader = document.getElementById('modernLoader');
-	if (loader) {
-		setTimeout(() => {
-			loader.classList.remove('show');
-		}, 500);
-	}
 });
 
 // Show/hide scroll to top button
@@ -400,8 +270,7 @@ function scrollToTop() {
 
 // Initialize Google Map
 function initMap() {
-	// Office location coordinates
-	const officeLocation = { lat: -1.3067, lng: 36.8156 }; // Nairobi coordinates
+	const officeLocation = { lat: -1.3067, lng: 36.8156 };
 	
 	const map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 15,
@@ -425,7 +294,6 @@ function initMap() {
 		]
 	});
 	
-	// Add marker
 	const marker = new google.maps.Marker({
 		position: officeLocation,
 		map: map,
@@ -433,7 +301,6 @@ function initMap() {
 		animation: google.maps.Animation.DROP
 	});
 	
-	// Info window
 	const infoWindow = new google.maps.InfoWindow({
 		content: `
 			<div class="p-3">
@@ -449,7 +316,6 @@ function initMap() {
 		infoWindow.open(map, marker);
 	});
 	
-	// Remove overlay on map interaction
 	const mapOverlay = document.getElementById('map-overlay');
 	if (mapOverlay) {
 		map.addListener('click', function() {
@@ -460,7 +326,6 @@ function initMap() {
 
 // Form enhancements
 document.addEventListener('DOMContentLoaded', function() {
-	// Form validation feedback
 	const forms = document.querySelectorAll('.modern-form');
 	forms.forEach(form => {
 		form.addEventListener('submit', function(e) {
@@ -482,7 +347,6 @@ document.addEventListener('DOMContentLoaded', function() {
 		});
 	});
 	
-	// Real-time validation
 	const inputs = document.querySelectorAll('.modern-form input, .modern-form textarea');
 	inputs.forEach(input => {
 		input.addEventListener('blur', function() {
@@ -498,20 +362,6 @@ document.addEventListener('DOMContentLoaded', function() {
 				this.classList.remove('is-invalid');
 			}
 		});
-	});
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-	anchor.addEventListener('click', function (e) {
-		e.preventDefault();
-		const target = document.querySelector(this.getAttribute('href'));
-		if (target) {
-			target.scrollIntoView({
-				behavior: 'smooth',
-				block: 'start'
-			});
-		}
 	});
 });
 </script>
