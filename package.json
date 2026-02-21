@@ -2,11 +2,11 @@
     "private": true,
     "scripts": {
         "dev": "npm run development",
-        "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
+        "development": "mix",
+        "watch": "mix watch",
         "build": "npm run production",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "mix --production"
     },
     "devDependencies": {
         "axios": "^1.8.2",
