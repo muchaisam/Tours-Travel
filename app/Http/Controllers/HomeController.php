@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Destinations;
-use App\Category;
-use App\Tag;
 use App\Blog;
+use App\Category;
+use App\Destinations;
+use App\Tag;
 use App\User;
 
 class HomeController extends Controller
