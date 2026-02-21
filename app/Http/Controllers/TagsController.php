@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Tag;
-use Illuminate\Http\Request;
 use App\Http\Requests\Tags\CreateTagRequest;
 use App\Http\Requests\Tags\UpdateTagsRequest;
-
+use App\Tag;
 
 class TagsController extends Controller
 {
@@ -38,11 +36,10 @@ class TagsController extends Controller
      */
     public function store(CreateTagRequest $request)
     {
-      
-        tag::create([
-            'name' =>$request ->name
-        ]);
 
+        tag::create([
+            'name' => $request->name,
+        ]);
 
         session()->flash('success', 'Tag created successfully.');
 
@@ -81,7 +78,7 @@ class TagsController extends Controller
     public function update(UpdateTagsRequest $request, tag $tag)
     {
         $tag->update([
-        'name'=>$request->name
+            'name' => $request->name,
         ]);
 
         session()->flash('success', 'Tag updated successfully.');
@@ -97,7 +94,7 @@ class TagsController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        if($tag->destinations->count()>0){
+        if ($tag->destinations->count() > 0) {
             session()->flash('error', 'Tag cannot be deleted as it is associated with a destination');
 
             return redirect()->back();
