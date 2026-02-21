@@ -1,23 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Packages\PostController;
-use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\DestinationsController;
-use App\Http\Controllers\TagsController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\MailController;
-use App\Http\Controllers\ReviewController;
-use App\Http\Controllers\WishlistController;
-use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\DestinationsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Packages\PostController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\WishlistController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,11 +33,7 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('desti.show');
 
-
-
-Auth::routes(['verify'=>true]);
-
-
+Auth::routes(['verify' => true]);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -97,17 +93,12 @@ Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout'
 
 Route::get('/Checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
 
-
 // Post form data
 Route::post('/contact', [ContactUsController::class, 'ContactUs'])->name('contact.store');
 
 Route::get('/stripe', [WelcomeController::class, 'stripe'])->name('stripe');
 
-
-
-
 Route::delete('/cart/{id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
-
 
 Route::get('/send-email', [MailController::class, 'sendEmail']);
 
