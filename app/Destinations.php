@@ -17,10 +17,9 @@ class Destinations extends Model
         return DestinationsFactory::new();
     }
 
-
-    protected $fillable =[
+    protected $fillable = [
         'title', 'description', 'content', 'image', 'published_at', 'category_id', 'pricing',
-        'duration', 'group_size', 'tour_type'
+        'duration', 'group_size', 'tour_type',
     ];
 
     /**
@@ -36,7 +35,7 @@ class Destinations extends Model
      */
     public function getImageUrlAttribute(): string
     {
-        if (!$this->image) {
+        if (! $this->image) {
             return asset('images/destination-2.jpg');
         }
 
@@ -46,7 +45,7 @@ class Destinations extends Model
         }
 
         // Otherwise it's in storage
-        return asset('storage/' . $this->image);
+        return asset('storage/'.$this->image);
     }
 
     protected $casts = [
@@ -57,13 +56,9 @@ class Destinations extends Model
 
     /**
      * delete image from storage
-     * @return void 
+     *
+     * @return void
      */
-
-
-
-
-
     public function deleteImage()
     {
         Storage::delete($this->image);
@@ -79,12 +74,9 @@ class Destinations extends Model
         return $this->belongsToMany(Tag::class);
     }
 
-
     /**
-     *
      * check if post has a tag
      */
-
     public function hasTag($tagId)
     {
         return in_array($tagId, $this->tags->pluck('id')->toArray());
@@ -141,6 +133,7 @@ class Destinations extends Model
             if ($this->relationLoaded('reviews')) {
                 return $this->reviews->avg('rating');
             }
+
             return $this->reviews()->avg('rating');
         } catch (\Exception $e) {
             return null;
@@ -153,6 +146,7 @@ class Destinations extends Model
             if ($this->relationLoaded('reviews')) {
                 return $this->reviews->count();
             }
+
             return $this->reviews()->count();
         } catch (\Exception $e) {
             return 0;
