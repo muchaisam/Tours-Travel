@@ -17,11 +17,11 @@ class DestinationsFactory extends Factory
         $groupSizes = ['4-8 People', '6-10 People', '8-12 People', '10-15 People', '12-20 People'];
 
         return [
-            'title' => fake()->unique()->city() . ', ' . fake()->country(),
+            'title' => fake()->unique()->city().', '.fake()->country(),
             'description' => fake()->sentence(12),
             'content' => fake()->paragraphs(3, true),
-            'image' => 'images/destination-' . fake()->numberBetween(1, 12) . '.jpg',
-            'pricing' => 'Kshs ' . fake()->numberBetween(10, 150) * 1000,
+            'image' => 'images/destination-'.fake()->numberBetween(1, 12).'.jpg',
+            'pricing' => 'Kshs '.fake()->numberBetween(10, 150) * 1000,
             'category_id' => Category::factory(),
             'published_at' => now(),
             'duration' => fake()->randomElement($durations),
