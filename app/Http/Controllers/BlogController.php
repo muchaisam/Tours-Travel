@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Blog;
 use App\Category;
 use App\Http\Requests\Blog\CreateBlogRequest;
@@ -14,8 +13,8 @@ class BlogController extends Controller
     {
         $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
     }
-    
-   public function index()
+
+    public function index()
     {
         return view('blog.index')->with('blog', Blog::all());
     }
@@ -27,23 +26,22 @@ class BlogController extends Controller
 
     public function store(CreateBlogRequest $request)
     {
-        //upload image
+        // upload image
         $image = $request->image->store('blogs');
-        //create post
+        // create post
         $destination = Blog::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
             'image' => $image,
             'published_at' => $request->published_at,
-            'category_id'=>$request->category
+            'category_id' => $request->category,
         ]);
 
-    
-        //flash message 
+        // flash message
         session()->flash('success', 'Blog Created Successfully');
 
-        //redirect
+        // redirect
         return redirect(route('blog.index'));
     }
 
@@ -73,24 +71,21 @@ class BlogController extends Controller
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
         $data = $request->only(['title', 'description', 'published_at', 'content']);
-        //check if new image
+        // check if new image
         if ($request->hasFile('image')) {
 
-            //upload and delete
+            // upload and delete
             $image = $request->image->store('blogs');
-
 
             $blog->deleteImage();
 
             $data['image'] = $image;
         }
-        
 
-
-        //update attributes
+        // update attributes
         $blog->update($data);
 
-        //redirect user
+        // redirect user
         session()->flash('success', 'Blog updated successfully');
 
         return redirect(route('blog.index'));
@@ -102,23 +97,14 @@ class BlogController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-       
-    }
+    public function destroy($id) {}
 
     /**
      * Display a list of unavailable destinations.
+     *
      * @return \Illuminate\Http\Response
      */
+    public function trashed() {}
 
-    public function trashed()
-    {
-       
-    }
-
-    public function restore($id)
-    {
-     
-    }
+    public function restore($id) {}
 }
