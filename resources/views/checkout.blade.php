@@ -1,243 +1,121 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.front')
 
-<head>
-	<title>Checkout</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="Sublime project">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="styles/checkout.css">
-	<link rel="stylesheet" type="text/css" href="styles/checkout_responsive.css">
-</head>
+@section('title', 'Checkout - ToursTravel Kenya')
 
-<body>
+@section('page')
+@include('partials.navbar')
 
-	<div class="super_container">
+<!-- Page Hero -->
+<section class="tt-page-hero tt-page-hero-sm">
+	<div class="tt-page-hero-bg" style="background-image: url('{{ asset('images/place-1.jpg') }}');"></div>
+	<div class="container" data-aos="fade-up">
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb justify-content-center">
+				<li class="breadcrumb-item"><a href="{{ url('/') }}"><i class="fas fa-home me-1"></i>Home</a></li>
+				<li class="breadcrumb-item"><a href="{{ route('cart') }}">Cart</a></li>
+				<li class="breadcrumb-item active">Checkout</li>
+			</ol>
+		</nav>
+		<h1 class="tt-page-title">Secure <span class="accent">Checkout</span></h1>
+	</div>
+</section>
 
-		<!-- Header -->
+<!-- Checkout Content -->
+<section class="tt-section">
+	<div class="container">
+		<div class="row g-5">
+			<!-- Billing Info -->
+			<div class="col-lg-7" data-aos="fade-up">
+				<div class="tt-sidebar-card">
+					<h4 class="mb-1"><i class="fas fa-user me-2"></i> Personal Information</h4>
+					<p class="text-muted mb-4">Fill in your details to complete the booking</p>
 
-		<header class="header">
-			<div class="header_container">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="header_content d-flex flex-row align-items-center justify-content-start">
-								<div class="logo"><a href="#">Safari.</a></div>
-								<nav class="main_nav">
-								</nav>
-
+					<form id="checkout_form" method="POST" action="{{ route('checkout.store') }}" class="tt-form">
+						@csrf
+						<div class="row g-3">
+							<div class="col-md-6">
+								<div class="tt-form-group">
+									<label class="tt-label">First Name *</label>
+									<input type="text" name="firstname"
+										   class="tt-input {{ $errors->has('firstname') ? 'is-invalid' : '' }}"
+										   placeholder="John" required>
+									@if ($errors->has('firstname'))
+										<div class="tt-error">{{ $errors->first('firstname') }}</div>
+									@endif
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="tt-form-group">
+									<label class="tt-label">Last Name *</label>
+									<input type="text" name="lastname"
+										   class="tt-input {{ $errors->has('lastname') ? 'is-invalid' : '' }}"
+										   placeholder="Doe" required>
+									@if ($errors->has('lastname'))
+										<div class="tt-error">{{ $errors->first('lastname') }}</div>
+									@endif
+								</div>
 							</div>
 						</div>
-					</div>
+						<div class="tt-form-group">
+							<label class="tt-label">Phone Number *</label>
+							<input type="tel" name="phone"
+								   class="tt-input {{ $errors->has('phone') ? 'is-invalid' : '' }}"
+								   placeholder="+254 7XX XXX XXX" required>
+							@if ($errors->has('phone'))
+								<div class="tt-error">{{ $errors->first('phone') }}</div>
+							@endif
+						</div>
+						<div class="tt-form-group">
+							<label class="tt-label">Email Address *</label>
+							<input type="email" name="email"
+								   class="tt-input {{ $errors->has('email') ? 'is-invalid' : '' }}"
+								   placeholder="you@example.com" required>
+							@if ($errors->has('email'))
+								<div class="tt-error">{{ $errors->first('email') }}</div>
+							@endif
+						</div>
+					</form>
 				</div>
 			</div>
 
-			<!-- Search Panel -->
-			<div class="search_panel trans_300">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div class="search_panel_content d-flex flex-row align-items-center justify-content-end">
-								<form action="#">
-									<input type="text" class="search_input" placeholder="Search" required="required">
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<!-- Order Summary -->
+			<div class="col-lg-5" data-aos="fade-left">
+				<div class="tt-sidebar-card">
+					<h4 class="mb-1"><i class="fas fa-shopping-bag me-2"></i> Your Package</h4>
+					<p class="text-muted mb-4">Tour booking details</p>
 
-			<!-- Social -->
-			<div class="header_social">
-				<ul>
-					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-				</ul>
-			</div>
-		</header>
-
-
-
-		<!-- Checkout -->
-
-		<div class="checkout">
-			<div class="container">
-				<div class="row">
-
-					<!-- Billing Info -->
-					<div class="col-lg-6">
-						<div class="billing checkout_section">
-							<div class="section_title">Personal Info</div>
-							<div class="section_subtitle">Fill in your information</div>
-							<div class="checkout_form_container">
-								<form action="#" id="checkout_form" method="POST" class="checkout_form"
-									action="{{route('checkout.store')}}">
-									@csrf
-									<div class="row">
-										<div class="col-xl-6">
-											<!-- Name -->
-											<label for="checkout_name">First Name*</label>
-											<input type="text" id="checkout_name"
-												class="form-control {{ $errors->has('firstname') ? 'error' : '' }}"
-												name="firstname" id="firstname" required="required">
-											@if ($errors->has('firstname'))
-											<div class="error">
-												{{ $errors->first('firstname') }}
-											</div>
-											@endif
-										</div>
-										<div class="col-xl-6 last_name_col">
-											<!-- Last Name -->
-											<label for="checkout_last_name">Last Name*</label>
-											<input type="text" id="checkout_last_name"
-												class="form-control {{ $errors->has('lastname') ? 'error' : '' }}"
-												name="lastname" id="lastname" required="required">
-											@if ($errors->has('lastname'))
-											<div class="error">
-												{{ $errors->first('lastname') }}
-											</div>
-											@endif
-										</div>
-									</div>
-
-									<div>
-										<!-- Phone no -->
-										<label for="checkout_phone">Phone no*</label>
-										<input type="phone" id="checkout_phone"
-											class="form-control {{ $errors->has('phone') ? 'error' : '' }}" name="phone"
-											id="phone" required="required">
-										@if ($errors->has('phone'))
-										<div class="error">
-											{{ $errors->first('phone') }}
-										</div>
-										@endif
-									</div>
-									<div>
-										<!-- Email -->
-										<label for="checkout_email">Email Address*</label>
-										<input type="phone" id="checkout_email"
-											class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email"
-											id="email" required="required">
-										@if ($errors->has('email'))
-										<div class="error">
-											{{ $errors->first('email') }}
-										</div>
-										@endif
-									</div>
-
-
-								</form>
-							</div>
-						</div>
+					<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+						<strong>Tour</strong>
+						<strong>Total</strong>
 					</div>
 
-					<!-- Order Info -->
+					<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+						<span>{{ $destinations->title }}</span>
+						<span>{{ $destinations->pricing }}</span>
+					</div>
+					<div class="d-flex justify-content-between align-items-center py-3 border-bottom">
+						<span>Subtotal</span>
+						<span>{{ $destinations->pricing }}</span>
+					</div>
+					<div class="d-flex justify-content-between align-items-center py-3 mb-4">
+						<strong class="fs-5">Total</strong>
+						<strong class="fs-5" style="color:var(--tt-primary);">{{ $destinations->pricing }}</strong>
+					</div>
 
-					<div class="col-lg-6">
-						<div class="order checkout_section">
-							<div class="section_title">Your package</div>
-							<div class="section_subtitle">Tour details</div>
+					<p class="text-muted small mb-3"><i class="fas fa-info-circle me-1"></i> Can't wait to start your vacation?</p>
 
-							<!-- Order details -->
-							<div class="order_list_container">
-								<div class="order_list_bar d-flex flex-row align-items-center justify-content-start">
-									<div class="order_list_title">Tour</div>
-									<div class="order_list_value ml-auto">Total</div>
-								</div>
-								<ul class="order_list">
-									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="order_list_title">{{$destinations->title}}</div>
-										<div class="order_list_value ml-auto">{{$destinations->pricing}}</div>
-									</li>
-									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="order_list_title">Subtotal</div>
-										<div class="order_list_value ml-auto">{{$destinations->pricing}}</div>
-									</li>
-									<li class="d-flex flex-row align-items-center justify-content-start">
-										<div class="order_list_title">Total</div>
-										<div class="order_list_value ml-auto">{{$destinations->pricing}}</div>
-									</li>
-								</ul>
-							</div>
+					<a href="{{ route('stripe') }}" class="btn-tt-accent w-100 text-center d-block">
+						<i class="fas fa-lock me-2"></i> Proceed to Pay
+					</a>
 
-							<!-- Payment Options -->
-							{{-- <div class="payment">
-								<div class="payment_options">
-									<label class="payment_option clearfix">Paypal
-										<input type="radio" name="radio">
-										<span class="checkmark"></span>
-									</label>
-									<label class="payment_option clearfix">Cash on delivery
-										<input type="radio" name="radio">
-										<span class="checkmark"></span>
-									</label>
-									<label class="payment_option clearfix">Credit card
-										<input type="radio" name="radio">
-										<span class="checkmark"></span>
-									</label>
-									<label class="payment_option clearfix">Direct bank transfer
-										<input type="radio" checked="checked" name="radio">
-										<span class="checkmark"></span>
-									</label>
-								</div>
-							</div> --}}
-
-							<!-- Order Text -->
-							<div class="order_text">Can't wait to start your vacation?</div>
-
-							<div class="button order_button"><a href="{{route('stripe')}}">Proceed to pay</a></div>
-						</div>
+					<div class="text-center mt-3">
+						<small class="text-muted"><i class="fas fa-shield-alt me-1"></i> Secure payments powered by Stripe</small>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- Footer -->
-
-		<div class="footer_overlay"></div>
-		<footer class="footer">
-			<div class="footer_background" style="background-image:url(images/image-3.jpg)"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div
-							class="footer_content d-flex flex-lg-row flex-column align-items-center justify-content-lg-start justify-content-center">
-							<div class="footer_logo"><a href="#">Safari.</a></div>
-							<div class="copyright ml-auto mr-auto">
-								Copyright &copy;<script>
-									document.write(new Date().getFullYear());
-								</script> All rights reserved </div>
-							<div class="footer_social ml-lg-auto">
-								<ul>
-									<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-									<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
 	</div>
+</section>
 
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="styles/bootstrap4/popper.js"></script>
-	<script src="styles/bootstrap4/bootstrap.min.js"></script>
-	<script src="plugins/greensock/TweenMax.min.js"></script>
-	<script src="plugins/greensock/TimelineMax.min.js"></script>
-	<script src="plugins/scrollmagic/ScrollMagic.min.js"></script>
-	<script src="plugins/greensock/animation.gsap.min.js"></script>
-	<script src="plugins/greensock/ScrollToPlugin.min.js"></script>
-	<script src="plugins/easing/easing.js"></script>
-	<script src="plugins/parallax-js-master/parallax.min.js"></script>
-	<script src="js/checkout.js"></script>
-</body>
-
-</html>
+@include('partials.footer')
+@endsection
