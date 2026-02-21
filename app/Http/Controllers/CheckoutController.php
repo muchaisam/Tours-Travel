@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 
@@ -10,7 +9,7 @@ class CheckoutController extends Controller
 {
     public function createForm(Request $request)
     {
-        return view ('checkout');
+        return view('checkout');
     }
 
     public function checkout(Request $request)
