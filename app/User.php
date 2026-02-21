@@ -79,10 +79,12 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         if ($this->hasWishlisted($destination)) {
             $this->wishlist()->where('destination_id', $destination->id)->delete();
+
             return false;
         }
 
         $this->wishlist()->create(['destination_id' => $destination->id]);
+
         return true;
     }
 }
