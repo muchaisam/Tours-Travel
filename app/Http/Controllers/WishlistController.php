@@ -35,7 +35,7 @@ class WishlistController extends Controller
 
     public function store(Destinations $destination)
     {
-        if (!auth()->user()->hasWishlisted($destination)) {
+        if (! auth()->user()->hasWishlisted($destination)) {
             auth()->user()->wishlist()->create([
                 'destination_id' => $destination->id,
             ]);
