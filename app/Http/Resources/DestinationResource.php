@@ -14,7 +14,7 @@ class DestinationResource extends JsonResource
             'title' => $this->title,
             'description' => $this->description,
             'content' => $this->content,
-            'image' => $this->image ? asset('storage/' . $this->image) : null,
+            'image' => $this->image ? asset('storage/'.$this->image) : null,
             'pricing' => $this->pricing,
             'published_at' => $this->published_at?->toIso8601String(),
             'category' => new CategoryResource($this->whenLoaded('category')),
