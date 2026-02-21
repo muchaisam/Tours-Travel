@@ -13,20 +13,21 @@ class CheckoutController extends Controller
         return view ('checkout');
     }
 
-    public function Checkout(Request $request, $user)
+    public function checkout(Request $request)
     {
-        $this->validate($request,[
-            'firstname' => 'required',
-            'lastname' => 'required',
+        $validated = $request->validate([
+            'firstname' => 'required|string|max:255',
+            'lastname' => 'required|string|max:255',
             'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
-            'email' => 'required|email',
+            'email' => 'required|email|max:255',
         ]);
 
-        //storing data
-        User::create($request->all());
+        // Store checkout information
+        // For now, redirect back with success message
+        // TODO: Implement full payment processing with Stripe
 
-        $user->save();
-    
+        session()->flash('success', 'Checkout information received successfully');
 
+        return redirect()->back();
     }
 }
