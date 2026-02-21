@@ -1,138 +1,85 @@
-@extends('layouts.app')
+@extends('layouts.front')
 
-@section('content')
-<div class="auth-background-register">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8">
-                <!-- Modern Register Card with Glassmorphism Effect -->
-                <div class="auth-card">
-                    <div class="card-body p-5">
-                        <!-- Logo/Brand Section -->
-                        <div class="text-center mb-4">
-                            <div class="auth-brand-icon-register mb-3">
-                                <i class="fas fa-user-plus text-white auth-card-icon"></i>
-                            </div>
-                            <h2 class="auth-title mb-2">Create Account</h2>
-                            <p class="auth-subtitle">Join us and discover amazing destinations</p>
-                        </div>
+@section('title', 'Create Account - ToursTravel Kenya')
 
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
+@section('page')
+<div class="tt-auth-bg">
+    <div class="tt-auth-card" style="max-width:500px;" data-aos="fade-up">
+        <!-- Brand -->
+        <div class="brand-icon"><i class="fas fa-user-plus"></i></div>
+        <h2>Create Account</h2>
+        <p class="subtitle">Join us and discover amazing destinations</p>
 
-                            <!-- Full Name Input -->
-                            <div class="mb-3">
-                                <label for="name" class="auth-label form-label">Full Name</label>
-                                <div class="position-relative">
-                                    <input id="name" type="text" 
-                                           class="form-control form-control-lg auth-input @error('name') is-invalid @enderror" 
-                                           name="name" 
-                                           value="{{ old('name') }}" 
-                                           required autocomplete="name" autofocus
-                                           placeholder="Enter your full name">
-                                    <i class="fas fa-user auth-input-icon"></i>
-                                </div>
-                                @error('name')
-                                <div class="auth-error">
-                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
-                                </div>
-                                @enderror
-                            </div>
+        <form method="POST" action="{{ route('register') }}" class="tt-form">
+            @csrf
 
-                            <!-- Email Input -->
-                            <div class="mb-3">
-                                <label for="email" class="auth-label form-label">Email Address</label>
-                                <div class="position-relative">
-                                    <input id="email" type="email" 
-                                           class="form-control form-control-lg auth-input @error('email') is-invalid @enderror" 
-                                           name="email" 
-                                           value="{{ old('email') }}" 
-                                           required autocomplete="email"
-                                           placeholder="Enter your email">
-                                    <i class="fas fa-envelope auth-input-icon"></i>
-                                </div>
-                                @error('email')
-                                <div class="auth-error">
-                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <!-- Password Input -->
-                            <div class="mb-3">
-                                <label for="password" class="auth-label form-label">Password</label>
-                                <div class="position-relative">
-                                    <input id="password" type="password" 
-                                           class="form-control form-control-lg auth-input @error('password') is-invalid @enderror" 
-                                           name="password" 
-                                           required autocomplete="new-password"
-                                           placeholder="Create a strong password">
-                                    <i class="fas fa-lock auth-input-icon"></i>
-                                </div>
-                                @error('password')
-                                <div class="auth-error">
-                                    <i class="fas fa-exclamation-circle me-1"></i>{{ $message }}
-                                </div>
-                                @enderror
-                            </div>
-
-                            <!-- Confirm Password Input -->
-                            <div class="mb-4">
-                                <label for="password-confirm" class="auth-label form-label">Confirm Password</label>
-                                <div class="position-relative">
-                                    <input id="password-confirm" type="password" 
-                                           class="form-control form-control-lg auth-input" 
-                                           name="password_confirmation" 
-                                           required autocomplete="new-password"
-                                           placeholder="Confirm your password">
-                                    <i class="fas fa-lock auth-input-icon"></i>
-                                </div>
-                            </div>
-
-                            <!-- Terms & Conditions -->
-                            <div class="form-check mb-4">
-                                <input class="form-check-input auth-checkbox" type="checkbox" id="terms" required>
-                                <label class="form-check-label text-muted" for="terms">
-                                    I agree to the <a href="#" class="auth-link text-decoration-none">Terms of Service</a> 
-                                    and <a href="#" class="auth-link text-decoration-none">Privacy Policy</a>
-                                </label>
-                            </div>
-
-                            <!-- Register Button -->
-                            <button type="submit" class="btn btn-primary btn-lg w-100 mb-4 auth-btn-primary-register">
-                                <i class="fas fa-user-plus me-2"></i>Create Account
-                            </button>
-
-                            <!-- Divider -->
-                            <div class="auth-divider mb-4">
-                                <hr class="text-muted">
-                                <span class="auth-divider-text">
-                                    Already have an account?
-                                </span>
-                            </div>
-
-                            <!-- Login Link -->
-                            <div class="text-center">
-                                <a href="{{ route('login') }}" class="btn btn-outline-primary btn-lg w-100 auth-btn-outline">
-                                    <i class="fas fa-sign-in-alt me-2"></i>Sign In
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-
-                <!-- Bottom Text -->
-                <div class="text-center mt-4">
-                    <small class="auth-footer-text">
-                        © 2025 ToursTravel. Your journey begins here.
-                    </small>
-                </div>
+            <div class="tt-form-group">
+                <label class="tt-label">Full Name</label>
+                <input id="name" type="text"
+                       class="tt-input @error('name') is-invalid @enderror"
+                       name="name" value="{{ old('name') }}"
+                       required autocomplete="name" autofocus
+                       placeholder="Enter your full name">
+                @error('name')
+                    <div class="tt-error"><i class="fas fa-exclamation-circle me-1"></i>{{ $message }}</div>
+                @enderror
             </div>
+
+            <div class="tt-form-group">
+                <label class="tt-label">Email Address</label>
+                <input id="email" type="email"
+                       class="tt-input @error('email') is-invalid @enderror"
+                       name="email" value="{{ old('email') }}"
+                       required autocomplete="email"
+                       placeholder="Enter your email">
+                @error('email')
+                    <div class="tt-error"><i class="fas fa-exclamation-circle me-1"></i>{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="tt-form-group">
+                <label class="tt-label">Password</label>
+                <input id="password" type="password"
+                       class="tt-input @error('password') is-invalid @enderror"
+                       name="password" required autocomplete="new-password"
+                       placeholder="Create a strong password">
+                @error('password')
+                    <div class="tt-error"><i class="fas fa-exclamation-circle me-1"></i>{{ $message }}</div>
+                @enderror
+            </div>
+
+            <div class="tt-form-group">
+                <label class="tt-label">Confirm Password</label>
+                <input id="password-confirm" type="password"
+                       class="tt-input" name="password_confirmation"
+                       required autocomplete="new-password"
+                       placeholder="Confirm your password">
+            </div>
+
+            <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="terms" required>
+                <label class="form-check-label text-muted" for="terms">
+                    I agree to the <a href="#" style="color:var(--tt-primary);">Terms of Service</a>
+                    and <a href="#" style="color:var(--tt-primary);">Privacy Policy</a>
+                </label>
+            </div>
+
+            <button type="submit" class="btn-tt-primary w-100 text-center d-block mb-3">
+                <i class="fas fa-user-plus me-2"></i>Create Account
+            </button>
+
+            <div class="text-center my-3">
+                <small class="text-muted">Already have an account?</small>
+            </div>
+
+            <a href="{{ route('login') }}" class="btn-tt-outline w-100 text-center d-block">
+                <i class="fas fa-sign-in-alt me-2"></i>Sign In
+            </a>
+        </form>
+
+        <div class="text-center mt-4">
+            <small class="text-muted">&copy; {{ date('Y') }} ToursTravel. Your journey begins here.</small>
         </div>
     </div>
 </div>
-
-<!-- Add Font Awesome for Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 @endsection
