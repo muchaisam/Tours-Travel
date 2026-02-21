@@ -10,10 +10,6 @@ class SearchService
 {
     /**
      * Search destinations by keyword.
-     *
-     * @param string $keyword
-     * @param int $limit
-     * @return Collection
      */
     public function searchDestinations(string $keyword, int $limit = 10): Collection
     {
@@ -27,9 +23,6 @@ class SearchService
 
     /**
      * Filter destinations by category.
-     *
-     * @param int $categoryId
-     * @return Collection
      */
     public function filterByCategory(int $categoryId): Collection
     {
@@ -38,9 +31,6 @@ class SearchService
 
     /**
      * Filter destinations by tags.
-     *
-     * @param array $tagIds
-     * @return Collection
      */
     public function filterByTags(array $tagIds): Collection
     {
@@ -51,9 +41,6 @@ class SearchService
 
     /**
      * Get featured/popular destinations.
-     *
-     * @param int $limit
-     * @return Collection
      */
     public function getFeatured(int $limit = 6): Collection
     {
@@ -64,25 +51,22 @@ class SearchService
 
     /**
      * Get destinations with filters.
-     *
-     * @param array $filters
-     * @return Builder
      */
     public function getFiltered(array $filters = []): Builder
     {
         $query = Destinations::query();
 
-        if (!empty($filters['category_id'])) {
+        if (! empty($filters['category_id'])) {
             $query->where('category_id', $filters['category_id']);
         }
 
-        if (!empty($filters['tags'])) {
+        if (! empty($filters['tags'])) {
             $query->whereHas('tags', function (Builder $q) use ($filters) {
                 $q->whereIn('tags.id', $filters['tags']);
             });
         }
 
-        if (!empty($filters['search'])) {
+        if (! empty($filters['search'])) {
             $keyword = $filters['search'];
             $query->where(function (Builder $q) use ($keyword) {
                 $q->where('title', 'like', "%{$keyword}%")
