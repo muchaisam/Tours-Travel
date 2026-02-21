@@ -27,7 +27,7 @@ class UpdateDestinationsRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'content' => 'required',
-            'category'=>'required',
+            'category' => 'required',
             'pricing' => 'nullable|string|max:255',
             'duration' => 'nullable|string|max:255',
             'group_size' => 'nullable|string|max:255',
