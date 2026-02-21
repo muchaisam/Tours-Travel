@@ -17,20 +17,15 @@ class Blog extends Model
         return BlogFactory::new();
     }
 
-
-    protected $fillable =[
-        'title', 'description', 'content', 'image', 'published_at', 'category_id'
+    protected $fillable = [
+        'title', 'description', 'content', 'image', 'published_at', 'category_id',
     ];
 
     /**
      * delete image from storage
-     * @return void 
+     *
+     * @return void
      */
-
-
-
-
-
     public function deleteImage()
     {
         Storage::delete($this->image);
