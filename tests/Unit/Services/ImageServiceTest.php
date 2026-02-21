@@ -15,7 +15,7 @@ class ImageServiceTest extends TestCase
     {
         parent::setUp();
         Storage::fake('local');
-        $this->imageService = new ImageService();
+        $this->imageService = new ImageService;
     }
 
     public function test_upload_stores_file_and_returns_path(): void
