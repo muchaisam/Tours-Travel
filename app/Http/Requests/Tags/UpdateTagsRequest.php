@@ -13,7 +13,7 @@ class UpdateTagsRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user() && $this->user()->isAdmin();
     }
 
     /**
