@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use App\Category;
-use Illuminate\Database\Seeder;
 use App\Destinations;
 use App\Tag;
+use Illuminate\Database\Seeder;
 
 class DestinationsTableSeeder extends Seeder
 {
