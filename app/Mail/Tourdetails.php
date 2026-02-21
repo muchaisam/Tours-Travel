@@ -3,15 +3,14 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class Tourdetails extends Mailable
 {
     use Queueable, SerializesModels;
-    public $mailData;
 
+    public $mailData;
 
     /**
      * Create a new message instance.
@@ -31,8 +30,6 @@ class Tourdetails extends Mailable
     public function build()
     {
         return $this->view('view.name')
-        
-->with('mailData', $this->mailData)
-;
+            ->with('mailData', $this->mailData);
     }
 }
