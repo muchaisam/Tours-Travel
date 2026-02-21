@@ -13,7 +13,7 @@ class UpdateDestinationsRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user() && $this->user()->isAdmin();
     }
 
     /**
@@ -27,7 +27,11 @@ class UpdateDestinationsRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'content' => 'required',
-            'category'=>'required'
+            'category'=>'required',
+            'pricing' => 'nullable|string|max:255',
+            'duration' => 'nullable|string|max:255',
+            'group_size' => 'nullable|string|max:255',
+            'tour_type' => 'nullable|string|max:255',
         ];
     }
 }
