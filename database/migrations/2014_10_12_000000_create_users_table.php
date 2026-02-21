@@ -1,9 +1,9 @@
 <?php
-  
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-  
+
 class CreateUsersTable extends Migration
 {
     /**
@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email');
-            $table->enum('role',['employee', 'admin'])->default('employee');
+            $table->enum('role', ['employee', 'admin'])->default('employee');
             $table->text('about')->nullable();
             $table->string('username')->nullable();
             $table->timestamp('email_verified_at')->nullable();
@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
     }
-  
+
     /**
      * Reverse the migrations.
      *
