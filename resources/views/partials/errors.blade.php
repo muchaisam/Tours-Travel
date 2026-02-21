@@ -1,12 +1,9 @@
 @if($errors->any())
-      <div class="alert alert-danger">
-         <ul class="list-group">
-            @foreach ($errors->all() as $error)
-            <li class="list-group-item text-danger">
-               {{$error}}
-            </li>
-                
-            @endforeach
-         </ul>
-      </div>
-      @endif
+<div class="admin-alert" style="background:#fef2f2;border-left-color:#ef4444;color:#991b1b;">
+    <ul class="mb-0 ps-3">
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
