@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Blog;
 use App\Category;
-use App\Http\Requests\Blo\CreateBlogRequest;
+use App\Http\Requests\Blog\CreateBlogRequest;
 use App\Http\Requests\Blog\UpdateBlogRequest;
 
 class BlogController extends Controller
@@ -74,10 +74,10 @@ class BlogController extends Controller
     {
         $data = $request->only(['title', 'description', 'published_at', 'content']);
         //check if new image
-        if ($request->hasFile('Image')) {
+        if ($request->hasFile('image')) {
 
             //upload and delete
-            $image = $request->image->store('Blogs');
+            $image = $request->image->store('blogs');
 
 
             $blog->deleteImage();
