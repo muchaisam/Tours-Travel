@@ -1,20 +1,23 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Packages\PostController;
-use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CategoriesController;
-use App\Http\Controllers\DestinationsController;
-use App\Http\Controllers\TagsController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\UsersController;
-use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\MailController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\DestinationsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\Packages\PostController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\TagsController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\WishlistController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +33,7 @@ use App\Http\Controllers\Auth\RegisterController;
 Route::get('/', [WelcomeController::class, 'index']);
 Route::get('packages/destinations/{destination}', [PostController::class, 'show'])->name('desti.show');
 
-
-
-Auth::routes(['verify'=>true]);
-
-
+Auth::routes(['verify' => true]);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -51,6 +50,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('trashed-destinations', [DestinationsController::class, 'trashed'])->name('trashed-destinations.index');
 
     Route::put('restore-destinations/{destinations}', [DestinationsController::class, 'restore'])->name('restore-destinations');
+
+    // Reviews
+    Route::post('destinations/{destination}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+    // Wishlist
+    Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('wishlist/{destination}/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    Route::post('wishlist/{destination}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::delete('wishlist/{destination}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -60,7 +69,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('users', [UsersController::class, 'index'])->name('users.index');
 
-    Route::post('users|{user}|make-admin', [UsersController::class, 'makeAdmin'])->name('users.make-admin');
+    Route::post('users/{user}/make-admin', [UsersController::class, 'makeAdmin'])->name('users.make-admin');
 });
 
 Route::group(['middleware' => ['isVerified']], function () {
@@ -84,16 +93,14 @@ Route::get('/checkout', [WelcomeController::class, 'checkout'])->name('checkout'
 
 Route::get('/Checkout', [CheckoutController::class, 'checkout'])->name('checkout.store');
 
-
 // Post form data
 Route::post('/contact', [ContactUsController::class, 'ContactUs'])->name('contact.store');
 
 Route::get('/stripe', [WelcomeController::class, 'stripe'])->name('stripe');
 
-
-
-
-Route::get('/cart/{id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
-
+Route::delete('/cart/{id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
 
 Route::get('/send-email', [MailController::class, 'sendEmail']);
+
+// SEO
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

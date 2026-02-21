@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Users\UpdateProfileRequest;
 use App\User;
-use Illuminate\Http\Request;
 
 class UsersController extends Controller
 {
@@ -20,11 +19,11 @@ class UsersController extends Controller
 
     public function update(UpdateProfileRequest $request)
     {
-        $user=auth()->user();
+        $user = auth()->user();
 
         $user->update([
-            'name'=>$request->name,
-            'about'=>$request->about
+            'name' => $request->name,
+            'about' => $request->about,
         ]);
 
         session()->flash('success', 'User profile updated successfully');
@@ -34,8 +33,8 @@ class UsersController extends Controller
 
     public function makeAdmin(User $user)
     {
-        $user->role='admin';
-        
+        $user->role = 'admin';
+
         $user->save();
 
         session()->flash('success', 'user made admin successfully');

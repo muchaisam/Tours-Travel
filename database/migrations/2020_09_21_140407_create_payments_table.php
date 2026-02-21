@@ -17,7 +17,7 @@ class CreatePaymentsTable extends Migration
             $table->bigIncrements('id');
             $table->string('payment_id');
             $table->string('user_email');
-            $table->float('amount', 10,2);
+            $table->float('amount', 10, 2);
             $table->string('currency');
             $table->timestamps();
         });

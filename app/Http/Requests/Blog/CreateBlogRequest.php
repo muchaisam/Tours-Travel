@@ -13,7 +13,7 @@ class CreateBlogRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user() && $this->user()->isAdmin();
     }
 
     /**
@@ -24,11 +24,11 @@ class CreateBlogRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' =>'required|unique:Destinations',
-            'description' =>'required',
-            'image' => 'required|Image',
-            'content' =>'required',
-            'category'=>'required'
+            'title' => 'required|unique:blogs',
+            'description' => 'required',
+            'image' => 'required|image',
+            'content' => 'required',
+            'category' => 'required',
         ];
     }
 }

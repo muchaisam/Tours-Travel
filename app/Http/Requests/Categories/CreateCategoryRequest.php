@@ -13,7 +13,7 @@ class CreateCategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user() && $this->user()->isAdmin();
     }
 
     /**
@@ -24,7 +24,7 @@ class CreateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique:categories'
+            'name' => 'required|unique:categories',
         ];
     }
 }

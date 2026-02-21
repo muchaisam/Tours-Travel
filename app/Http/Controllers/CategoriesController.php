@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
 use App\Http\Requests\Categories\CreateCategoryRequest;
 use App\Http\Requests\Categories\UpdateCategoriesRequest;
-
 
 class CategoriesController extends Controller
 {
@@ -38,11 +36,10 @@ class CategoriesController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-      
-        Category::create([
-            'name' =>$request ->name
-        ]);
 
+        Category::create([
+            'name' => $request->name,
+        ]);
 
         session()->flash('success', 'Category created successfully.');
 
@@ -81,7 +78,7 @@ class CategoriesController extends Controller
     public function update(UpdateCategoriesRequest $request, Category $category)
     {
         $category->update([
-        'name'=>$request->name
+            'name' => $request->name,
         ]);
 
         session()->flash('success', 'Category updated successfully.');
@@ -97,11 +94,10 @@ class CategoriesController extends Controller
      */
     public function destroy(category $category)
     {
-        if($category->destinations->count()>0){
+        if ($category->destinations->count() > 0) {
             session()->flash('error', 'Category cannot be deleted as it is linked to a destination');
 
             return redirect()->back();
-
 
         }
         $category->delete();

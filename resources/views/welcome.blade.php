@@ -1,747 +1,199 @@
-
-
 @extends('layouts.front')
 
 @section('page')
+@include('partials.navbar')
 
-<!-- Modern 2025 Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light navbar-modern fixed-top">
-	<div class="container">
-		<!-- Modern Logo -->
-		<a class="navbar-brand d-flex align-items-center" href="">
-			<div class="me-2 d-flex align-items-center justify-content-center brand-logo">
-				<i class="fas fa-globe-africa text-white"></i>
-			</div>
-			<span class="ms-2">Tours<span class="brand-text-highlight">Travel</span></span>
-		</a>
+<!-- Hero -->
+<section class="tt-hero">
+	<div class="tt-hero-bg"></div>
+	<div class="container tt-hero-content">
+		<div class="row align-items-center">
+			<div class="col-lg-7" data-aos="fade-right">
+				<div class="tt-badge">
+					<span>🇰🇪</span>
+					<span>Authentic Kenyan Experiences</span>
+				</div>
 
-		<!-- Mobile Toggle -->
-		<button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+				<h1 class="tt-hero-title">
+					Discover the Soul of <span class="accent">East Africa</span>
+				</h1>
 
-		<!-- Navigation Menu -->
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav mx-auto">
-				<li class="nav-item">
-					<a class="nav-link fw-semibold active" href="">
-						Home
-						<span class="nav-link-indicator"></span>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('packages')}}">Destinations</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('blog')}}">Blog</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('contact')}}">Contact</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link fw-semibold" href="{{route('about')}}">About</a>
-				</li>
-			</ul>
-			
-			<!-- Auth Section -->
-			<div class="d-flex align-items-center">
-				@auth
-					<!-- User is logged in -->
-					<div class="dropdown">
-						<a class="nav-link dropdown-toggle d-flex align-items-center fw-semibold me-3" 
-						   href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" 
-						   aria-expanded="false">
-							<div class="me-2 d-flex align-items-center justify-content-center user-avatar">
-								<i class="fas fa-user text-white"></i>
-							</div>
-							<span>{{ Auth::user()->name }}</span>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-modern dropdown-menu-end shadow border-0 rounded-3">
-							<li>
-								<h6 class="dropdown-header d-flex align-items-center">
-									<i class="fas fa-user-circle me-2 text-primary"></i>
-									Welcome back!
-								</h6>
-							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li>
-								<a class="dropdown-item d-flex align-items-center py-2" href="{{ route('home') }}">
-									<i class="fas fa-tachometer-alt me-2 text-primary"></i>
-									Dashboard
-								</a>
-							</li>
-							<li>
-								<a class="dropdown-item d-flex align-items-center py-2" href="{{ route('users.edit-profile') }}">
-									<i class="fas fa-user-edit me-2 text-info"></i>
-									Edit Profile
-								</a>
-							</li>
-							<li><hr class="dropdown-divider"></li>
-							<li>
-								<a class="dropdown-item d-flex align-items-center py-2 text-danger" 
-								   href="{{ route('logout') }}"
-								   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-									<i class="fas fa-sign-out-alt me-2"></i>
-									Logout
-								</a>
-							</li>
-						</ul>
-					</div>
-					
-					<!-- Logout Form -->
-					<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-						@csrf
-					</form>
-				@else
-					<!-- User is not logged in -->
-					<a href="{{route('login')}}" class="btn btn-outline-gradient rounded-pill px-3 py-2 fw-semibold me-2 btn-modern">
-						<i class="fas fa-sign-in-alt me-1"></i>Sign In
-					</a>
-					<a href="{{route('register')}}" class="btn btn-gradient rounded-pill px-4 py-2 fw-semibold btn-modern">
-						<i class="fas fa-user-plus me-2"></i>Get Started
-					</a>
-				@endauth
-			</div>
-		</div>
-	</div>
-</nav>
-
-<!-- Modern Hero Section -->
-<section class="hero-section position-relative overflow-hidden">
-	<!-- Background Image with Overlay -->
-	<img src="images/place-4.jpg" alt="Kenya Landscape" class="hero-bg-image">
-	<div class="hero-bg-overlay"></div>
-
-	<div class="container h-100 d-flex align-items-center hero-container-padding">
-		<div class="row w-100 align-items-center">
-			<div class="col-lg-6">
-				<!-- Hero Content -->
-				<div class="hero-content text-white">
-					<div class="mb-4">
-						<span class="badge hero-badge rounded-pill px-3 py-2 mb-3 hero-badge-text">
-							🇰🇪 @auth Welcome back, {{ Auth::user()->name }}! @else Discover Kenya & Beyond @endauth
-						</span>
-					</div>
-					
-					@auth
-					<h1 class="hero-title mb-4">
-						Ready for Your Next <span class="hero-highlight">Adventure</span>, {{ Auth::user()->name }}?
-					</h1>
-					
-					<p class="hero-subtitle mb-5">
-						Welcome back! Continue exploring Kenya's most spectacular destinations and discover new experiences waiting just for you.
-					</p>
-					@else
-					<h1 class="hero-title mb-4">
-						Create <span class="hero-highlight">Unforgettable</span><br>
-						Travel Memories
-					</h1>
-					
-					<p class="hero-subtitle mb-5">
-						Discover Kenya's breathtaking landscapes, experience rich Swahili culture, and create lasting memories with our expertly curated local travel experiences.
-					</p>
-					@endauth
-					
-					<div class="d-flex flex-wrap gap-3 mb-5">
-						@auth
-						<a href="{{route('packages')}}" class="btn btn-hero-primary btn-lg rounded-pill px-5 py-3 btn-modern">
-							<i class="fas fa-compass me-2"></i>Continue Exploring
-						</a>
-						<a href="{{ route('home') }}" class="btn btn-hero-outline btn-lg rounded-pill px-5 py-3 btn-modern">
-							<i class="fas fa-tachometer-alt me-2"></i>My Dashboard
-						</a>
-						@else
-						<a href="{{route('packages')}}" class="btn btn-hero-primary btn-lg rounded-pill px-5 py-3 btn-modern">
-							<i class="fas fa-compass me-2"></i>Explore Destinations
-						</a>
-						<button class="btn btn-hero-outline btn-lg rounded-pill px-5 py-3 btn-modern" 
-								data-bs-toggle="modal" data-bs-target="#videoModal">
-							<i class="fas fa-play me-2"></i>Watch Video
-						</button>
-						@endauth
-					</div>
-					
-					<!-- Stats -->
-					<div class="row g-4">
-						<div class="col-auto">
-							<div class="text-center">
-								<h3 class="hero-stat-number mb-1" data-count="100">100+</h3>
-								<small class="hero-stat-label">Destinations</small>
-							</div>
-						</div>
-						<div class="col-auto">
-							<div class="text-center">
-								<h3 class="hero-stat-number mb-1" data-count="50000">50K+</h3>
-								<small class="hero-stat-label">Happy Travelers</small>
-							</div>
-						</div>
-						<div class="col-auto">
-							<div class="text-center">
-								<h3 class="hero-stat-number mb-1">4.9★</h3>
-								<small class="hero-stat-label">Rating</small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-lg-6">
-				<!-- Hero Image/Visual Element -->
-				<div class="position-relative">
-					<!-- Floating Cards -->
-					<div class="card floating-card floating-card-1 border-0 position-absolute">
-						<div class="card-body p-4">
-							<div class="d-flex align-items-center mb-3">
-								<img src="images/place-1.jpg" alt="Destination" class="rounded-circle me-3 floating-card-image">
-								<div>
-									<h6 class="mb-1 fw-semibold floating-card-text">Bali, Indonesia</h6>
-									<small class="text-muted">Starting from $299</small>
-								</div>
-							</div>
-							<div class="d-flex justify-content-between align-items-center">
-								<div class="d-flex align-items-center">
-									<i class="fas fa-star text-warning me-1"></i>
-									<small class="fw-semibold floating-card-text">4.8 (2.1k)</small>
-								</div>
-								<small class="text-primary fw-semibold">7 Days Tour</small>
-							</div>
-						</div>
-					</div>
-					
-					<div class="card floating-card floating-card-2 border-0 position-absolute">
-						<div class="card-body p-4">
-							<div class="text-center">
-								<div class="mb-3">
-									<i class="fas fa-plane text-primary floating-card-icon"></i>
-								</div>
-								<h6 class="fw-semibold mb-2 floating-card-text">Ready for Adventure?</h6>
-								<small class="text-muted">Book your dream destination today</small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Scroll Indicator -->
-	<div class="position-absolute bottom-0 start-50 translate-middle-x mb-4">
-		<div class="scroll-indicator text-center">
-			<small class="d-block mb-2">Scroll to explore</small>
-			<i class="fas fa-chevron-down"></i>
-		</div>
-	</div>
-</section>
-
-<!-- Video Modal -->
-<div class="modal fade" id="videoModal" tabindex="-1">
-	<div class="modal-dialog modal-lg modal-dialog-centered">
-		<div class="modal-content border-0 rounded-4">
-			<div class="modal-header border-0">
-				<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-			</div>
-			<div class="modal-body p-0">
-				<div class="ratio ratio-16x9">
-					<iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Travel Video" allowfullscreen></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!-- Modern Search Section -->
-<section class="search-section">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-xl-10">
-				<div class="card search-card shadow-lg">
-					<div class="card-body p-4">
-						<form action="#" method="GET">
-							<div class="row g-3 align-items-end">
-								<!-- Destination Search -->
-								<div class="col-lg-4">
-								<label class="form-label fw-semibold mb-2">
-									<i class="fas fa-map-marker-alt me-2 text-primary"></i>Destination
-								</label>
-								<div class="position-relative">
-									<input type="text" class="form-control form-control-lg search-input" 
-										   placeholder="Where do you want to go?">
-									<i class="fas fa-search search-input-icon"></i>
-								</div>
-								</div>
-								
-								<!-- Check-in Date -->
-								<div class="col-lg-3">
-									<label class="form-label fw-semibold mb-2">
-										<i class="fas fa-calendar-check me-2 text-primary"></i>Check-in
-									</label>
-									<input type="date" class="form-control form-control-lg search-input">
-								</div>
-								
-								<!-- Check-out Date -->
-								<div class="col-lg-3">
-									<label class="form-label fw-semibold mb-2">
-										<i class="fas fa-calendar-times me-2 text-primary"></i>Check-out
-									</label>
-									<input type="date" class="form-control form-control-lg search-input">
-								</div>
-								
-								<!-- Search Button -->
-								<div class="col-lg-2">
-									<button type="submit" class="btn search-btn btn-lg w-100 h-100">
-										<i class="fas fa-search"></i>
-										<span class="d-none d-md-inline ms-2">Search</span>
-									</button>
-								</div>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-											
-<!-- Modern Services Section -->
-<section class="services-section">
-	<div class="container">
-		<div class="row align-items-center g-5">
-			<!-- Content Column -->
-			<div class="col-lg-6 order-lg-2">
-				<div class="service-content">
-					<div class="mb-4">
-						<span class="badge service-badge rounded-pill px-3 py-2 mb-3">
-							✨ Why Choose Us
-						</span>
-					</div>
-					
-					<h2 class="display-5 fw-bold service-heading">
-						It's Time to Start Your 
-						<span class="service-heading-highlight">Adventure</span>
-					</h2>
-					
-					<p class="lead service-lead">
-						Experience the world like never before with our expertly crafted travel experiences. We handle every detail so you can focus on creating memories that last a lifetime.
-					</p>
-					
-					<p class="service-text">
-						From breathtaking landscapes to cultural immersion, our curated destinations offer unique experiences that go beyond typical tourism. Join thousands of travelers who have discovered the world with us.
-					</p>
-					
-					<div class="d-flex flex-wrap gap-3">
-						<a href="{{route('packages')}}" class="btn btn-gradient btn-lg rounded-pill px-5 py-3">
-							<i class="fas fa-compass me-2"></i>Explore Destinations
-						</a>
-						<a href="{{route('contact')}}" class="btn btn-outline-gradient btn-lg rounded-pill px-5 py-3">
-							<i class="fas fa-phone me-2"></i>Get Quote
-						</a>
-					</div>
-				</div>
-			</div>
-			
-			<!-- Services Grid Column -->
-			<div class="col-lg-6 order-lg-1">
-				<div class="row g-4">
-					<!-- Service 1 -->
-					<div class="col-md-6">
-						<div class="card service-card h-100">
-							<div class="card-body p-4 text-center">
-								<div class="service-icon mb-3">
-									<div class="service-icon-wrapper service-icon-1">
-										<i class="fas fa-hiking text-white service-icon-size"></i>
-									</div>
-								</div>
-								<h5 class="service-card-title">Adventure Activities</h5>
-								<p class="service-card-text mb-0">Thrilling experiences from mountain climbing to water sports, tailored to your adventure level.</p>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Service 2 -->
-					<div class="col-md-6">
-						<div class="card service-card h-100">
-							<div class="card-body p-4 text-center">
-								<div class="service-icon mb-3">
-									<div class="service-icon-wrapper service-icon-2">
-										<i class="fas fa-route text-white service-icon-size"></i>
-									</div>
-								</div>
-								<h5 class="service-card-title">Custom Itineraries</h5>
-								<p class="service-card-text mb-0">Personalized travel arrangements crafted to match your preferences and budget.</p>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Service 3 -->
-					<div class="col-md-6">
-						<div class="card service-card h-100">
-							<div class="card-body p-4 text-center">
-								<div class="service-icon mb-3">
-									<div class="service-icon-wrapper service-icon-3">
-										<i class="fas fa-user-tie text-white service-icon-size"></i>
-									</div>
-								</div>
-								<h5 class="service-card-title">Expert Guides</h5>
-								<p class="service-card-text mb-0">Professional local guides who bring destinations to life with insider knowledge.</p>
-							</div>
-						</div>
-					</div>
-					
-					<!-- Service 4 -->
-					<div class="col-md-6">
-						<div class="card service-card h-100">
-							<div class="card-body p-4 text-center">
-								<div class="service-icon mb-3">
-									<div class="service-icon-wrapper service-icon-4">
-										<i class="fas fa-map-marked-alt text-white service-icon-size"></i>
-									</div>
-								</div>
-								<h5 class="service-card-title">24/7 Support</h5>
-								<p class="service-card-text mb-0">Round-the-clock assistance to ensure your journey is smooth and worry-free.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section class="ftco-counter img counter-section-bg" id="section-counter">
-	<div class="container">
-		<div class="row d-flex">
-			<div class="col-md-6 d-flex">
-				<div class="img d-flex align-self-stretch counter-about-img"></div>
-			</div>
-			<div class="col-md-6 pl-md-5 py-5">
-				<div class="row justify-content-start pb-3">
-					<div class="col-md-12 heading-section ftco-animate">
-						<h2 class="mb-4">Make Your Tour Memorable and Safe With Us</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-							there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-							Semantics, a large language ocean.</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4 justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center mb-4">
-							<div class="text">
-								<strong class="number" data-number="300">0</strong>
-								<span>Successful Tours</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center mb-4">
-							<div class="text">
-								<strong class="number" data-number="24000">0</strong>
-								<span>Happy Tourist</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4 justify-content-center counter-wrap ftco-animate">
-						<div class="block-18 text-center mb-4">
-							<div class="text">
-								<strong class="number" data-number="200">0</strong>
-								<span>Place Explored</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<section class="ftco-section">
-	<div class="container">
-		<div class="row justify-content-center pb-4">
-			<div class="col-md-12 heading-section text-center ftco-animate">
-				<h2 class="mb-4">Popular Destinations</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-3 ftco-animate">
-				<div class="project-destination">
-					<a href="#" class="img destination-img-1">
-						<div class="text">
-							<h3>Singapore</h3>
-							<span>8 Tours</span>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 ftco-animate">
-				<div class="project-destination">
-					<a href="#" class="img destination-img-2">
-						<div class="text">
-							<h3>Canada</h3>
-							<span>2 Tours</span>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 ftco-animate">
-				<div class="project-destination">
-					<a href="#" class="img destination-img-3">
-						<div class="text">
-							<h3>Thailand</h3>
-							<span>5 Tours</span>
-						</div>
-					</a>
-				</div>
-			</div>
-			<div class="col-md-3 ftco-animate">
-				<div class="project-destination">
-					<a href="#" class="img destination-img-4">
-						<div class="text">
-							<h3>Australia</h3>
-							<span>5 Tours</span>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<!-- Modern Destinations Showcase Section -->
-<section class="destinations-section">
-	<div class="container">
-		<!-- Section Header -->
-		<div class="row justify-content-center mb-5">
-			<div class="col-lg-8 text-center" data-aos="fade-up">
-				<div class="mb-4">
-					<span class="badge destination-badge rounded-pill px-3 py-2 mb-3">
-						🌍 Popular Destinations
-					</span>
-				</div>
-				<h2 class="display-5 fw-bold destinations-heading mb-4">
-					Discover Your Next 
-					<span class="destinations-heading-highlight">Adventure</span>
-				</h2>
-				<p class="lead destinations-lead">
-					Handpicked Kenyan destinations offering unique safari experiences, breathtaking landscapes, and unforgettable cultural memories.
+				<p class="tt-hero-text">
+					Embark on extraordinary journeys through Kenya's untamed wilderness,
+					pristine coastlines, and vibrant cultures. Where every moment becomes a treasured memory.
 				</p>
-			</div>
-		</div>
 
-		<!-- Destinations Grid -->
-		<div class="row g-4">
-			@foreach ($destinations as $destination)
-			<div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
-				<div class="card destination-card shadow-lg h-100">
-					
-					<!-- Image Container -->
-					<div class="destination-image-wrapper">
-						<img src="images/destination-2.jpg" alt="{{ $destination->title }}" 
-							 class="destination-image card-img-top">
-						
-						<!-- Category Badge -->
-						<div class="position-absolute top-0 start-0 m-3">
-							<span class="badge destination-category-badge rounded-pill px-3 py-2">
-								{{ $destination->category->name }}
-							</span>
+				<div class="tt-hero-actions">
+					<a href="{{ route('packages') }}" class="btn-tt-accent">
+						Explore Destinations <i class="fas fa-arrow-right"></i>
+					</a>
+					<a href="{{ route('contact') }}" class="btn-tt-outline-white">
+						Plan Your Safari <i class="fas fa-compass"></i>
+					</a>
+				</div>
+
+				<div class="tt-trust-row">
+					<div class="tt-trust-item">
+						<div class="tt-trust-icon"><i class="fas fa-shield-alt"></i></div>
+						<div>
+							<div class="tt-trust-value">100% Safe</div>
+							<div class="tt-trust-label">Licensed Operator</div>
 						</div>
-						
-						<!-- Favorite Button -->
-						<div class="position-absolute top-0 end-0 m-3">
-							<button class="btn destination-favorite-btn">
-								<i class="fas fa-heart text-muted"></i>
-							</button>
-						</div>
-						
-						<!-- Overlay Gradient -->
-						<div class="destination-overlay"></div>
 					</div>
-					
-					<!-- Card Content -->
-					<div class="card-body p-4">
-						<!-- Pricing & Duration -->
-						<div class="d-flex justify-content-between align-items-center mb-3">
-							<div class="price-info">
-								<h4 class="destination-price mb-0">
-									@php
-										// Extract numeric value from pricing string (e.g., "Kshs 90000" -> 90000)
-										$numericPrice = (int) preg_replace('/[^\d]/', '', $destination->pricing);
-									@endphp
-									KSh {{ number_format($numericPrice) }}
-								</h4>
-								<small class="text-muted">per person</small>
-							</div>
-							<div class="duration-info text-end">
-								<div class="badge destination-duration-badge">
-									<i class="fas fa-clock me-1"></i>10 Days
-								</div>
-							</div>
+					<div class="tt-trust-item">
+						<div class="tt-trust-icon"><i class="fas fa-star"></i></div>
+						<div>
+							<div class="tt-trust-value">4.9/5</div>
+							<div class="tt-trust-label">2,400+ Reviews</div>
 						</div>
-						
-						<!-- Title -->
-						<h5 class="card-title mb-3">
-							<a href="{{ route('desti.show', $destination->id) }}" 
-							   class="text-decoration-none destination-title">
-								{{ $destination->title }}
-							</a>
-						</h5>
-						
-						<!-- Features -->
-						<div class="features-list mb-4">
-							<div class="row g-2">
-								<div class="col-auto">
-									<div class="d-flex align-items-center">
-										<div class="icon-circle me-2">
-											<i class="fas fa-shower destination-feature-icon"></i>
-										</div>
-										<small class="destination-feature-text">2 Bathrooms</small>
-									</div>
-								</div>
-								<div class="col-auto">
-									<div class="d-flex align-items-center">
-										<div class="icon-circle me-2">
-											<i class="fas fa-bed destination-feature-icon"></i>
-										</div>
-										<small class="destination-feature-text">3 Bedrooms</small>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="d-flex align-items-center">
-										<div class="icon-circle me-2">
-											<i class="fas fa-umbrella-beach destination-feature-icon"></i>
-										</div>
-										<small class="destination-feature-text">Near Beach</small>
-									</div>
-								</div>
-							</div>
+					</div>
+					<div class="tt-trust-item">
+						<div class="tt-trust-icon"><i class="fas fa-award"></i></div>
+						<div>
+							<div class="tt-trust-value">8+ Years</div>
+							<div class="tt-trust-label">Experience</div>
 						</div>
-						
-						<!-- Rating & Reviews -->
-						<div class="d-flex justify-content-between align-items-center mb-3">
-							<div class="rating">
-								<span class="text-warning">
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star"></i>
-									<i class="fas fa-star-half-alt"></i>
-								</span>
-								<small class="text-muted ms-2">(4.8) 124 reviews</small>
-							</div>
-						</div>
-						
-						<!-- Action Button -->
-						<a href="{{ route('desti.show', $destination->id) }}" 
-						   class="btn btn-gradient w-100 rounded-pill py-3">
-							<i class="fas fa-eye me-2"></i>Explore Destination
-						</a>
 					</div>
 				</div>
 			</div>
+
+			<div class="col-lg-5 d-none d-lg-block" data-aos="fade-left" data-aos-delay="200">
+				<div class="tt-hero-card">
+					<img src="{{ asset('images/place-1.jpg') }}" alt="Maasai Mara Safari" loading="eager">
+					<div class="tt-hero-card-body">
+						<span class="card-badge">Popular Choice</span>
+						<h4>Maasai Mara Adventure</h4>
+						<div class="tt-hero-card-meta">
+							<span><i class="fas fa-clock"></i> 5 Days</span>
+							<span><i class="fas fa-users"></i> Max 8 People</span>
+						</div>
+						<div class="tt-hero-card-footer">
+							<div>
+								<div class="price-from">From</div>
+								<div class="price-value">KSh 89,000</div>
+							</div>
+							<a href="{{ route('packages') }}" class="tt-hero-card-link">
+								View Details <i class="fas fa-arrow-right"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="tt-hero-scroll">
+		<span>Scroll to Explore</span>
+		<i class="fas fa-chevron-down"></i>
+	</div>
+</section>
+
+<!-- Featured Destinations -->
+<section class="tt-section">
+	<div class="container">
+		<div class="tt-section-header text-center" data-aos="fade-up">
+			<div class="tt-pretitle">Handpicked Experiences</div>
+			<h2 class="tt-title">Featured <span class="accent">Destinations</span></h2>
+			<p class="tt-subtitle">
+				Explore Kenya's most captivating locations, curated by our local experts
+				who know every hidden gem and breathtaking vista.
+			</p>
+		</div>
+
+		<div class="tt-dest-grid">
+			@foreach ($destinations as $destination)
+			<article class="tt-dest-card" data-aos="fade-up" data-aos-delay="{{ $loop->iteration * 100 }}">
+				<div class="tt-dest-card-img">
+					<img src="{{ $destination->image_url }}"
+						 alt="{{ $destination->title }}" loading="lazy">
+					<span class="badge-cat">{{ $destination->category->name ?? 'Safari' }}</span>
+				</div>
+				<div class="tt-dest-card-body">
+					<div class="tt-dest-card-meta">
+						<span><i class="fas fa-map-marker-alt"></i> {{ $destination->title }}</span>
+						<span><i class="fas fa-clock"></i> {{ $destination->duration ?? '7 Days' }}</span>
+					</div>
+					<h3 class="tt-dest-card-title">
+						<a href="{{ route('desti.show', $destination->id) }}">{{ $destination->title }}</a>
+					</h3>
+					<p class="tt-dest-card-desc">{{ Str::limit($destination->description, 100) }}</p>
+					<div class="tt-dest-card-footer">
+						<div>
+							<div class="tt-dest-price-label">From</div>
+							<div class="tt-dest-price-value">
+								@php $numericPrice = (int) preg_replace('/[^\d]/', '', $destination->pricing); @endphp
+								KSh {{ number_format($numericPrice) }}
+							</div>
+						</div>
+						<a href="{{ route('desti.show', $destination->id) }}" class="tt-dest-card-link">
+							Explore <i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+			</article>
 			@endforeach
 		</div>
 
-		<!-- Pagination -->
-		<div class="row justify-content-center mt-5">
-			<div class="col-auto">
-				<div class="d-flex justify-content-center">
-					{{ $destinations->appends(['search' => request()->query('search')])->links() }}
-				</div>
-			</div>
-		</div>
-		
-		<!-- View All Button -->
-		<div class="text-center mt-4">
-			<a href="{{ route('packages') }}" class="btn btn-outline-gradient btn-lg rounded-pill px-5 py-3">
-				<i class="fas fa-globe me-2"></i>View All Destinations
+		<div class="text-center mt-5" data-aos="fade-up">
+			<a href="{{ route('packages') }}" class="btn-tt-primary">
+				View All Destinations <i class="fas fa-globe-africa"></i>
 			</a>
 		</div>
 	</div>
 </section>
 
-{{--<section class="ftco-section testimony-section bg-bottom" style="background-image: url(images/bg_3.jpg);">
+<!-- Why Choose Us -->
+<section class="tt-section tt-section-light">
 	<div class="container">
-		<div class="row justify-content-center pb-4">
-			<div class="col-md-7 text-center heading-section ftco-animate">
-				<h2 class="mb-4">Tourist Feedback</h2>
+		<div class="row align-items-center g-5">
+			<div class="col-lg-6" data-aos="fade-right">
+				<div class="tt-features-img">
+					<img src="{{ asset('images/about.jpg') }}" alt="Kenya Wildlife">
+					<div class="overlay-stat">
+						<div class="icon"><i class="fas fa-users"></i></div>
+						<div>
+							<div class="number">2,400+</div>
+							<div class="label">Happy Travelers</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="row ftco-animate">
-			<div class="col-md-12">
-				<div class="carousel-testimony owl-carousel ftco-owl">
-					<div class="item">
-						<div class="testimony-wrap py-4">
-							<div class="text">
-								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
-									and Consonantia, there live the blind texts.</p>
-								<div class="d-flex align-items-center">
-									<div class="user-img user-img-1"></div>
-									<div class="pl-3">
-										<p class="name">Roger Scott</p>
-										<span class="position">Marketing Manager</span>
-									</div>
-								</div>
-							</div>
-						</div>
+
+			<div class="col-lg-6" data-aos="fade-left">
+				<div class="tt-section-header">
+					<div class="tt-pretitle">Why Choose ToursTravel</div>
+					<h2 class="tt-title">Experience Kenya with <span class="accent">Local Experts</span></h2>
+					<p class="tt-subtitle">
+						As proud Kenyans, we don't just show you destinations — we share our homeland with you.
+					</p>
+				</div>
+
+				<div class="tt-feature-item">
+					<div class="tt-feature-icon"><i class="fas fa-map-marked-alt"></i></div>
+					<div>
+						<h4>Local Expertise</h4>
+						<p>Born and raised in Kenya, we know every hidden gem, cultural nuance, and breathtaking vista.</p>
 					</div>
-					<div class="item">
-						<div class="testimony-wrap py-4">
-							<div class="text">
-								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
-									and Consonantia, there live the blind texts.</p>
-								<div class="d-flex align-items-center">
-									<div class="user-img user-img-2"></div>
-									<div class="pl-3">
-										<p class="name">Roger Scott</p>
-										<span class="position">Marketing Manager</span>
-									</div>
-								</div>
-							</div>
-						</div>
+				</div>
+				<div class="tt-feature-item">
+					<div class="tt-feature-icon"><i class="fas fa-shield-alt"></i></div>
+					<div>
+						<h4>Safety First</h4>
+						<p>Licensed operator with comprehensive insurance and 24/7 support throughout your journey.</p>
 					</div>
-					<div class="item">
-						<div class="testimony-wrap py-4">
-							<div class="text">
-								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
-									and Consonantia, there live the blind texts.</p>
-								<div class="d-flex align-items-center">
-									<div class="user-img user-img-3"></div>
-									<div class="pl-3">
-										<p class="name">Roger Scott</p>
-										<span class="position">Marketing Manager</span>
-									</div>
-								</div>
-							</div>
-						</div>
+				</div>
+				<div class="tt-feature-item">
+					<div class="tt-feature-icon"><i class="fas fa-leaf"></i></div>
+					<div>
+						<h4>Sustainable Tourism</h4>
+						<p>We partner with local communities and support conservation efforts across Kenya.</p>
 					</div>
-					<div class="item">
-						<div class="testimony-wrap py-4">
-							<div class="text">
-								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
-									and Consonantia, there live the blind texts.</p>
-								<div class="d-flex align-items-center">
-									<div class="user-img testimonial-user-1"></div>
-									<div class="pl-3">
-										<p class="name">Roger Scott</p>
-										<span class="position">Marketing Manager</span>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimony-wrap py-4">
-							<div class="text">
-								<p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia
-									and Consonantia, there live the blind texts.</p>
-								<div class="d-flex align-items-center">
-									<div class="user-img testimonial-user-2"></div>
-									<div class="pl-3">
-										<p class="name">Roger Scott</p>
-										<span class="position">Marketing Manager</span>
-									</div>
-								</div>
-							</div>
-						</div>
+				</div>
+				<div class="tt-feature-item">
+					<div class="tt-feature-icon"><i class="fas fa-star"></i></div>
+					<div>
+						<h4>Personalized Service</h4>
+						<p>Every journey is tailored to your preferences, creating memories that last a lifetime.</p>
 					</div>
 				</div>
 			</div>
@@ -749,87 +201,88 @@
 	</div>
 </section>
 
-
-<section class="ftco-section">
+<!-- Testimonials -->
+<section class="tt-section">
 	<div class="container">
-		<div class="row justify-content-center pb-4">
-			<div class="col-md-12 heading-section text-center ftco-animate">
-				<h2 class="mb-4">Recent Post</h2>
-			</div>
+		<div class="tt-section-header text-center" data-aos="fade-up">
+			<div class="tt-pretitle">What Our Travelers Say</div>
+			<h2 class="tt-title">Stories from the <span class="accent">Savannah</span></h2>
 		</div>
-		<div class="row d-flex">
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-					<a href="blog-single.html" class="block-20 blog-image-1">
-					</a>
-					<div class="text mt-3 float-right d-block">
-						<div class="d-flex align-items-center mb-4 topp">
-							<div class="one">
-								<span class="day">21</span>
-							</div>
-							<div class="two">
-								<span class="yr">2019</span>
-								<span class="mos">August</span>
-							</div>
-						</div>
-						<h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-						</p>
+
+		<div class="tt-testimonials-grid">
+			<div class="tt-testimonial-card" data-aos="fade-up" data-aos-delay="100">
+				<div class="tt-testimonial-stars">
+					<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+				</div>
+				<p class="tt-testimonial-text">
+					"An absolutely unforgettable experience! The guides were knowledgeable, friendly,
+					and made sure every moment was special. The Maasai Mara exceeded all expectations."
+				</p>
+				<div class="tt-testimonial-author">
+					<img src="{{ asset('images/place-1.jpg') }}" alt="Sarah M" class="tt-testimonial-avatar">
+					<div>
+						<div class="tt-testimonial-name">Sarah Mitchell</div>
+						<div class="tt-testimonial-location">United Kingdom</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry justify-content-end">
-					<a href="blog-single.html" class="block-20 blog-image-2">
-					</a>
-					<div class="text mt-3 float-right d-block">
-						<div class="d-flex align-items-center mb-4 topp">
-							<div class="one">
-								<span class="day">21</span>
-							</div>
-							<div class="two">
-								<span class="yr">2019</span>
-								<span class="mos">August</span>
-							</div>
-						</div>
-						<h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-						</p>
+
+			<div class="tt-testimonial-card" data-aos="fade-up" data-aos-delay="200">
+				<div class="tt-testimonial-stars">
+					<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+				</div>
+				<p class="tt-testimonial-text">
+					"ToursTravel showed us the real Kenya. From wildlife safaris to cultural villages,
+					every experience felt authentic and meaningful. Highly recommend!"
+				</p>
+				<div class="tt-testimonial-author">
+					<img src="{{ asset('images/place-2.jpg') }}" alt="James K" class="tt-testimonial-avatar">
+					<div>
+						<div class="tt-testimonial-name">James Kowalski</div>
+						<div class="tt-testimonial-location">United States</div>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-4 d-flex ftco-animate">
-				<div class="blog-entry">
-					<a href="blog-single.html" class="block-20 blog-image-3">
-					</a>
-					<div class="text mt-3 float-right d-block">
-						<div class="d-flex align-items-center mb-4 topp">
-							<div class="one">
-								<span class="day">21</span>
-							</div>
-							<div class="two">
-								<span class="yr">2019</span>
-								<span class="mos">August</span>
-							</div>
-						</div>
-						<h3 class="heading"><a href="#">Why Lead Generation is Key for Business Growth</a></h3>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-						</p>
+
+			<div class="tt-testimonial-card" data-aos="fade-up" data-aos-delay="300">
+				<div class="tt-testimonial-stars">
+					<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+				</div>
+				<p class="tt-testimonial-text">
+					"The attention to detail and genuine care made this trip perfect. The local knowledge
+					of our guides brought every destination to life. A truly magical journey."
+				</p>
+				<div class="tt-testimonial-author">
+					<img src="{{ asset('images/place-3.jpg') }}" alt="Emma S" class="tt-testimonial-avatar">
+					<div>
+						<div class="tt-testimonial-name">Emma Schmidt</div>
+						<div class="tt-testimonial-location">Germany</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>--}}
+</section>
 
-<!-- Include Modern Footer -->
+<!-- CTA -->
+<section class="tt-cta">
+	<div class="container" data-aos="zoom-in">
+		<div class="icon-lg"><i class="fas fa-paper-plane"></i></div>
+		<h2>Ready to Begin Your Kenyan Adventure?</h2>
+		<p>
+			Let our local experts craft your perfect journey. From wildlife safaris to coastal escapes,
+			cultural immersions to mountain treks — your dream Kenyan experience awaits.
+		</p>
+		<div class="tt-cta-actions">
+			<a href="{{ route('packages') }}" class="btn-tt-white">
+				Explore Destinations <i class="fas fa-compass"></i>
+			</a>
+			<a href="{{ route('contact') }}" class="btn-tt-outline-white">
+				Contact Us <i class="fas fa-phone"></i>
+			</a>
+		</div>
+	</div>
+</section>
+
 @include('partials.footer')
-
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
-		<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-		<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-			stroke="#F96D00" /></svg></div>
-
-
 @endsection

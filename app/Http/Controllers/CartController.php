@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -12,21 +11,26 @@ class CartController extends Controller
         return view('cart');
     }
 
-    public function removeItem($destinations)
+    public function removeItem($id)
     {
-        Cart::remove($destinations);
+        $cart = Cart::find($id);
 
-        if (Cart::isEmpty()) {
-            return redirect('/');
+        if ($cart) {
+            $cart->delete();
         }
+
+        // Check if cart is empty
+        if (Cart::count() === 0) {
+            return redirect('/')->with('message', 'Cart is now empty.');
+        }
+
         return redirect()->back()->with('message', 'Item removed from cart successfully.');
     }
 
     public function clearCart()
     {
-        Cart::clear();
+        Cart::truncate();
 
-        return redirect('/');
+        return redirect('/')->with('message', 'Cart cleared successfully.');
     }
 }
-

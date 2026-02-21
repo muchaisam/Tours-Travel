@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use App\Tag;
 use App\Destinations;
-use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
 use App\Http\Requests\Destinations\UpdateDestinationsRequest;
-use PhpParser\Node\Stmt\Catch_;
+use App\Tag;
 
 class DestinationsController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('verifyCategoriesCount')->only(['create', 'store']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -45,29 +43,30 @@ class DestinationsController extends Controller
      */
     public function store(CreateDestinationsRequest $request)
     {
-        //upload image
+        // upload image
         $image = $request->image->store('destinations');
-        //create post
+        // create post
         $destination = Destinations::create([
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
             'image' => $image,
+            'pricing' => $request->pricing,
             'published_at' => $request->published_at,
-            'category_id'=>$request->category
+            'category_id' => $request->category,
+            'duration' => $request->duration,
+            'group_size' => $request->group_size,
+            'tour_type' => $request->tour_type,
         ]);
 
-        if($request->tags){
+        if ($request->tags) {
             $destination->tags()->attach($request->tags);
         }
 
-
-
-
-        //flash message 
+        // flash message
         session()->flash('success', 'Destination Created Successfully');
 
-        //redirect
+        // redirect
         return redirect(route('destinations.index'));
     }
 
@@ -88,9 +87,9 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destinations $destinations)
+    public function edit(Destinations $destination)
     {
-        return view('destinations.create')->with('destinations', $destinations)->with('categories', Category::all())->with('tags', Tag::all());
+        return view('destinations.create')->with('destinations', $destination)->with('categories', Category::all())->with('tags', Tag::all());
     }
 
     /**
@@ -100,29 +99,27 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDestinationsRequest $request, Destinations $destinations)
+    public function update(UpdateDestinationsRequest $request, Destinations $destination)
     {
-        $data = $request->only(['title', 'description', 'published_at', 'content']);
-        //check if new image
-        if ($request->hasFile('Image')) {
+        $data = $request->only(['title', 'description', 'published_at', 'content', 'pricing', 'duration', 'group_size', 'tour_type']);
+        // check if new image
+        if ($request->hasFile('image')) {
 
-            //upload and delete
-            $image = $request->image->store('Destinations');
+            // upload and delete
+            $image = $request->image->store('destinations');
 
-
-            $destinations->deleteImage();
+            $destination->deleteImage();
 
             $data['image'] = $image;
         }
-        if ($request->tags){
-            $destinations->tags()->sync($request->tags);
+        if ($request->tags) {
+            $destination->tags()->sync($request->tags);
         }
 
+        // update attributes
+        $destination->update($data);
 
-        //update attributes
-        $destinations->update($data);
-
-        //redirect user
+        // redirect user
         session()->flash('success', 'Destination updated successfully');
 
         return redirect(route('destinations.index'));
@@ -138,11 +135,10 @@ class DestinationsController extends Controller
     {
         $destinations = Destinations::withTrashed()->where('id', $id)->firstOrFail();
 
-
         if ($destinations->trashed()) {
             $destinations->deleteImage();
 
-            $destinations->forceDelete();   
+            $destinations->forceDelete();
         } else {
             $destinations->delete();
         }
@@ -154,14 +150,14 @@ class DestinationsController extends Controller
 
     /**
      * Display a list of unavailable destinations.
+     *
      * @return \Illuminate\Http\Response
      */
-
     public function trashed()
     {
         $trashed = Destinations::onlyTrashed()->get();
 
-        return view('destinations.index')->withdestinations($trashed);
+        return view('destinations.index')->with('destinations', $trashed);
     }
 
     public function restore($id)

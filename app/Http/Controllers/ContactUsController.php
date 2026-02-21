@@ -22,14 +22,15 @@ class ContactUsController extends Controller
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
-            'message' => 'required'
+            'message' => 'required',
         ]);
 
         //  Store data in database
         Contact::create($request->all());
 
-        // 
+        //
         session()->flash('success', 'We have received your message and would like to thank you for writing to us.');
+
         return back();
     }
 }

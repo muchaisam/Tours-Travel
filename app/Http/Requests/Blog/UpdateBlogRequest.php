@@ -13,7 +13,7 @@ class UpdateBlogRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return $this->user() && $this->user()->isAdmin();
     }
 
     /**
@@ -27,7 +27,7 @@ class UpdateBlogRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'content' => 'required',
-            'category'=>'required'
+            'category' => 'required',
         ];
     }
 }
