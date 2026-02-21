@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -35,4 +34,3 @@ class CartController extends Controller
         return redirect('/')->with('message', 'Cart cleared successfully.');
     }
 }
-
