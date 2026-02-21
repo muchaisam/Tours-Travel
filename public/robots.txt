@@ -1,2 +1,32 @@
+# ToursTravel Kenya - robots.txt
+# https://tours-travel.railway.app
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin and auth routes
+Disallow: /home
+Disallow: /login
+Disallow: /register
+Disallow: /password
+Disallow: /destinations/create
+Disallow: /destinations/*/edit
+Disallow: /blog/create
+Disallow: /blog/*/edit
+Disallow: /categories
+Disallow: /tags
+Disallow: /users
+Disallow: /checkout
+Disallow: /cart
+
+# Allow important public pages
+Allow: /packages
+Allow: /news
+Allow: /about
+Allow: /contact
+
+# Sitemap location
+Sitemap: https://tours-travel.railway.app/sitemap.xml
+
+# Crawl delay (be nice to servers)
+Crawl-delay: 10
