@@ -8,7 +8,6 @@ use App\Destinations;
 use Illuminate\Http\Request;
 use App\Http\Requests\Destinations\CreateDestinationsRequest;
 use App\Http\Requests\Destinations\UpdateDestinationsRequest;
-use PhpParser\Node\Stmt\Catch_;
 
 class DestinationsController extends Controller
 {
@@ -53,8 +52,12 @@ class DestinationsController extends Controller
             'description' => $request->description,
             'content' => $request->content,
             'image' => $image,
+            'pricing' => $request->pricing,
             'published_at' => $request->published_at,
-            'category_id'=>$request->category
+            'category_id' => $request->category,
+            'duration' => $request->duration,
+            'group_size' => $request->group_size,
+            'tour_type' => $request->tour_type,
         ]);
 
         if($request->tags){
@@ -88,9 +91,9 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destinations $destinations)
+    public function edit(Destinations $destination)
     {
-        return view('destinations.create')->with('destinations', $destinations)->with('categories', Category::all())->with('tags', Tag::all());
+        return view('destinations.create')->with('destinations', $destination)->with('categories', Category::all())->with('tags', Tag::all());
     }
 
     /**
@@ -100,27 +103,27 @@ class DestinationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDestinationsRequest $request, Destinations $destinations)
+    public function update(UpdateDestinationsRequest $request, Destinations $destination)
     {
-        $data = $request->only(['title', 'description', 'published_at', 'content']);
+        $data = $request->only(['title', 'description', 'published_at', 'content', 'pricing', 'duration', 'group_size', 'tour_type']);
         //check if new image
-        if ($request->hasFile('Image')) {
+        if ($request->hasFile('image')) {
 
             //upload and delete
-            $image = $request->image->store('Destinations');
+            $image = $request->image->store('destinations');
 
 
-            $destinations->deleteImage();
+            $destination->deleteImage();
 
             $data['image'] = $image;
         }
         if ($request->tags){
-            $destinations->tags()->sync($request->tags);
+            $destination->tags()->sync($request->tags);
         }
 
 
         //update attributes
-        $destinations->update($data);
+        $destination->update($data);
 
         //redirect user
         session()->flash('success', 'Destination updated successfully');
@@ -161,7 +164,7 @@ class DestinationsController extends Controller
     {
         $trashed = Destinations::onlyTrashed()->get();
 
-        return view('destinations.index')->withdestinations($trashed);
+        return view('destinations.index')->with('destinations', $trashed);
     }
 
     public function restore($id)
