@@ -14,6 +14,9 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -51,6 +54,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('trashed-destinations', [DestinationsController::class, 'trashed'])->name('trashed-destinations.index');
 
     Route::put('restore-destinations/{destinations}', [DestinationsController::class, 'restore'])->name('restore-destinations');
+
+    // Reviews
+    Route::post('destinations/{destination}/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+    Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.destroy');
+
+    // Wishlist
+    Route::get('wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+    Route::post('wishlist/{destination}/toggle', [WishlistController::class, 'toggle'])->name('wishlist.toggle');
+    Route::post('wishlist/{destination}', [WishlistController::class, 'store'])->name('wishlist.store');
+    Route::delete('wishlist/{destination}', [WishlistController::class, 'destroy'])->name('wishlist.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -60,7 +73,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('users', [UsersController::class, 'index'])->name('users.index');
 
-    Route::post('users|{user}|make-admin', [UsersController::class, 'makeAdmin'])->name('users.make-admin');
+    Route::post('users/{user}/make-admin', [UsersController::class, 'makeAdmin'])->name('users.make-admin');
 });
 
 Route::group(['middleware' => ['isVerified']], function () {
@@ -93,7 +106,10 @@ Route::get('/stripe', [WelcomeController::class, 'stripe'])->name('stripe');
 
 
 
-Route::get('/cart/{id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
+Route::delete('/cart/{id}/remove', [CartController::class, 'removeItem'])->name('cart.remove');
 
 
 Route::get('/send-email', [MailController::class, 'sendEmail']);
+
+// SEO
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
