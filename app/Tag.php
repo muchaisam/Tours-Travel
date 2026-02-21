@@ -17,8 +17,8 @@ class Tag extends Model
         return TagFactory::new();
     }
 
-     public function destinations()
-     {
-          return $this->belongsToMany(Destinations::class);
-     }
+    public function destinations()
+    {
+        return $this->belongsToMany(Destinations::class);
+    }
 }
